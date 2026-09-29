@@ -48,7 +48,7 @@ fuss_text: ""
 social: []             # - { name: Instagram, url: "https://instagram.com/…" }
 
 funktionen:
-  formular_endpunkt: ""   # leer = Vorschau-Modus (Formular sendet nichts!)
+  # formular: vorschau   # nur zum Testen – Standard ist „aktiv“ (Mail an den Kunden, Freischaltung siehe CLAUDE.md)
   karte: false            # Google Maps mit 2-Klick-Lösung
   chat: aus               # aus | demo | snippet
   ki_telefon: false       # KI-Telefonassistent → Absatz in der Datenschutzerklärung

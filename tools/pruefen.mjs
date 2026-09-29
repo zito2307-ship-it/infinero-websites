@@ -101,7 +101,7 @@ for (const [geraet, opts] of Object.entries(GERAETE)) {
   await page.goto(basis + '/', { waitUntil: 'networkidle' });
   const form = page.locator('form[data-anfrage]').first();
   if (await form.count()) {
-    if (inhalt.funktionen.formular_endpunkt) hinweise.push('Formular: echter Endpunkt gesetzt – Testversand übersprungen (bitte einmal von Hand senden).');
+    if (inhalt.funktionen.formular_endpunkt) hinweise.push(`Formular ist scharf (sendet an Supabase) – Testversand übersprungen. Freischaltung in Supabase-Tabelle website_formulare für ${inhalt.kunde} prüfen, dann einmal von Hand testen.`);
     else {
       for (const sel of await form.locator('select[required]').all()) {
         const werte = await sel.locator('option').evaluateAll((o) => o.map((x) => x.value).filter(Boolean));
@@ -115,7 +115,7 @@ for (const [geraet, opts] of Object.entries(GERAETE)) {
       await form.locator('button[type=submit]').click();
       if (!(await page.locator('.erfolg:not([hidden])').first().isVisible())) fehler.push('Formular: Bestätigung erscheint nach dem Absenden nicht');
       await page.screenshot({ path: path.join(aus, 'formular-gesendet.png') });
-      hinweise.push('Formular läuft im Vorschau-Modus (kein formular_endpunkt) – Anfragen kommen noch nirgends an.');
+      hinweise.push('Formular im Vorschau-Modus (Demo/Beispiel) – Anfragen werden nicht verschickt.');
     }
   }
   if (inhalt.funktionen.chat === 'demo') {

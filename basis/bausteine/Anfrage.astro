@@ -1,7 +1,7 @@
 ---
 // Formular-Baustein. art: reservierung | termin | rueckruf | kontakt
-// Versand: funktionen.formular_endpunkt (Supabase Edge Function → Brevo-Mail an den Kunden).
-// Ohne Endpunkt läuft das Formular im Vorschau-Modus (zeigt nur die Bestätigung).
+// Versand über die Supabase-Funktion „formular“ → Brevo-Mail an den Kunden (funktionen.formular: aktiv).
+// Im Vorschau-Modus (Demos/Beispiele) zeigt das Formular nur die Bestätigung.
 import { inhalt } from '../lib/inhalt';
 import Kopf from './Kopf.astro';
 const { a } = Astro.props;

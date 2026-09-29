@@ -17,7 +17,12 @@ export const inhalt: any = {
   social: [],
   ...roh,
 };
-inhalt.funktionen = { karte: false, chat: 'aus', ki_telefon: false, formular_endpunkt: '', ...roh.funktionen };
+// Formulare: echte Kunden senden über die Supabase-Funktion „formular“ (Vault-Repo vertrieb, supabase/functions/formular),
+// Demos/Beispiele laufen im Vorschau-Modus. Empfänger + erlaubte Domains stehen in Supabase (Tabelle website_formulare).
+export const FORMULAR_ENDPUNKT = 'https://ckiuvhuvuicbiabfkggg.supabase.co/functions/v1/formular';
+inhalt.funktionen = { karte: false, chat: 'aus', ki_telefon: false, ...roh.funktionen };
+inhalt.funktionen.formular ??= inhalt.demo || inhalt.beispiel ? 'vorschau' : 'aktiv';
+inhalt.funktionen.formular_endpunkt = inhalt.funktionen.formular === 'aktiv' ? FORMULAR_ENDPUNKT : '';
 inhalt.hosting = {
   anbieter: 'Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA',
   kurz: 'Cloudflare',

@@ -40,7 +40,7 @@ Kunden können überall kurz angegeben werden: `K-0012`, `mueller-bau` oder voll
    (taste-skill, soft-skill, redesign-skill, emil-design-eng …) für Feinschliff nutzen.
 3. **Prüfen:** `npm run pruefen` muss **0 Fehler** haben. Screenshots (Desktop + Handy) selbst ansehen.
 4. **abnahme:** `npm run veroeffentlichen -- K-…` → Vorschau-Link an den Kunden.
-5. **live:** `demo: false`, `beispiel: false`, Domain + `formular_endpunkt` gesetzt → `--live`, Domain verbinden,
+5. **live:** `demo: false`, `beispiel: false`, Domain gesetzt, Formular in Supabase freigeschaltet → `--live`, Domain verbinden,
    Stufe „live“ in der App (Abo startet).
 6. **Flatrate-Änderungen:** nur `inhalt.yaml`/Bilder ändern → prüfen → veröffentlichen.
 Website-Notiz im Vault: `20_Websites/W-NNNN domain.md` aus `90_Vorlagen/Website-Blueprint.md`
@@ -86,15 +86,23 @@ Kundenfarben: `design.farben: { akzent: "#…", akzent-dunkel: "#…" }` (weiße
   (Vorlagen im Vault: `50_Rechtliches/Website-Rechtstexte/`). Nur eingesetzte Dienste erscheinen.
 - Keine Cookies, keine fremden Server ohne Klick: Google Maps nur mit 2-Klick (`funktionen.karte`), Chat-Widget
   nur über `funktionen.chat: snippet` + `chat_snippet` (dann `datenschutz.chat_ki_anbieter` Pflicht).
+- Domains registriert INFINERO (Inhaber = Kunde), DNS bei Cloudflare.
 - Die Chat-/CRM-Plattform im Hintergrund wird **nirgends namentlich genannt** – weder auf Seiten noch im Quelltext,
   in Kommentaren oder Commit-Nachrichten. Öffentlich heißt es „KI-Assistent“ / „betrieben von INFINERO“.
 - `domain`, Telefon, E-Mail, Adresse echter Kunden nur aus dem Onboarding – nie erfinden. Beispiele: `beispiel: true`, IDs 9xxx.
 - Keine Passwörter, Tokens oder Kunden-IBANs ins Repo (`.env` ist ausgeschlossen).
 
 ## Formulare
-`funktionen.formular_endpunkt` = URL einer Supabase Edge Function (Projekt „INFINERO VERTRIEB“ `ckiuvhuvuicbiabfkggg`),
-die per Brevo eine Mail an den Kunden schickt. Body: `{ kunde, art, seite, daten }`. **Noch nicht gebaut** (offen) –
-bis dahin Vorschau-Modus: Formular zeigt nur die Bestätigung. Honeypot-Feld `firma_website` = Spam.
+Echte Kunden senden an die Supabase Edge Function **`formular`** (Projekt „INFINERO VERTRIEB“ `ckiuvhuvuicbiabfkggg`,
+Code im Vault-Repo `supabase/functions/formular`, SQL `supabase/website_formulare.sql`). Sie schickt per Brevo eine Mail
+von kontakt@infinero.de an den Kunden (Antworten gehen direkt an den Anfragenden). Demos/Beispiele: Vorschau-Modus.
+**Vor dem Livegang jeden Kunden freischalten** (per Supabase-Connector, Empfänger nur aus dem Onboarding):
+```sql
+insert into public.website_formulare (kunde, empfaenger, firma, domains, pages_projekt)
+values ('K-0012', 'info@mueller-bau.de', 'Müller Bau', array['mueller-bau.de'], 'mueller-bau');
+```
+Schutz: nur freigeschaltete Domains + `<pages_projekt>.pages.dev`, Honeypot `firma_website`, 5 Anfragen/10 Min. je IP,
+100/Tag je Kunde. Inhalte werden nicht gespeichert (nur Protokoll `formular_log`, 30 Tage).
 
 ## Cloudflare
 `.env` (nicht im Repo): `CLOUDFLARE_API_TOKEN=…` (Rechte: Cloudflare Pages – Edit) und `CLOUDFLARE_ACCOUNT_ID=…`.
