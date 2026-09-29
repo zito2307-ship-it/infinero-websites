@@ -96,7 +96,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 
 /* Navigation */
 .nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linie); }
-.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: var(--kopf-h, 72px); }
 .marke { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--akzent); min-width: 0; }
 .marke-logo { height: var(--logo-h, 44px); width: auto; max-width: 62vw; object-fit: contain; }
 .marke-zeichen { width: 38px; height: 38px; border-radius: calc(var(--radius) / 2); background: var(--akzent); color: var(--auf-akzent); display: grid; place-items: center; font: 800 19px var(--font-titel); flex-shrink: 0; }
@@ -150,7 +150,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .hero--bild .hero-text { color: var(--auf-dunkel-gedaempft); margin-inline: auto; }
 .hero--bild .hero-aktionen { justify-content: center; }
 
-.hero--geteilt { display: grid; grid-template-columns: 1.05fr .95fr; min-height: min(calc(100vh - 72px), 860px); padding: 0; }
+.hero--geteilt { display: grid; grid-template-columns: 1.05fr .95fr; min-height: calc(100svh - var(--kopf-h, 72px)); padding: 0; }
 .hero--geteilt .hero-inhalt { display: flex; flex-direction: column; justify-content: center; padding: 72px 6vw 72px max(24px, calc((100vw - var(--breite)) / 2 + 24px)); }
 .hero--geteilt .hero-text { color: var(--gedaempft); max-width: 44ch; }
 .hero--geteilt h1 { font-size: clamp(40px, 5.4vw, 84px); }
@@ -198,7 +198,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 @media (max-width: 600px) {
   .marke-logo { height: min(var(--logo-h, 44px), 40px); }
   .marke-zusatz { display: none; }
-  .nav-in { height: 64px; }
+  .nav:not(.nav--logo) .nav-in { height: 64px; }
   .hero--geteilt { padding: 0 0 12px; }
   .hero--geteilt .hero-inhalt { padding: 26px 24px 8px; }
   .hero--geteilt .label { margin-bottom: 10px; font-size: 11.5px; }
@@ -215,6 +215,28 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .hero-logo { width: min(440px, 100%); height: auto; margin: 0 0 22px -6px; }
 .hero--geteilt .hero-logo + h1 { font-size: clamp(38px, 4.4vw, 68px); }
 @media (max-width: 600px) { .hero-logo { width: min(300px, 88%); margin-bottom: 14px; } }
+
+
+/* Logo im Kopf: auf dem Handy zentriert (Menü-Knopf rechts) */
+@media (max-width: 820px) {
+  .nav--logo .nav-in { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .nav--logo .nav-in::before { content: ""; }
+  .nav--logo .marke { grid-column: 2; }
+  .nav--logo .nav-links { grid-column: 3; justify-self: end; }
+  .nav--logo .marke-logo { height: calc(var(--kopf-h, 72px) - 26px); max-width: 64vw; }
+}
+/* Weicher Übergang am unteren Rand des Grafik-Heros */
+.hero--grafik::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(transparent, var(--bg)); pointer-events: none; }
+.hero--grafik .hero-inhalt { position: relative; z-index: 1; }
+/* Handy: Startbereich bis zum unteren Rand, Inhalt zentriert */
+@media (max-width: 600px) {
+  .hero--grafik { min-height: calc(100svh - var(--kopf-h, 64px)); grid-template-rows: auto 1fr; }
+  .hero--grafik::after { height: 40px; }
+  .hero--grafik .hero-inhalt { text-align: center; align-items: center; }
+  .hero--grafik .hero-text { margin-inline: auto; }
+  .hero--grafik .hero-aktionen { justify-content: center; }
+  .hero--grafik .hero-grafik { min-height: 0; align-self: stretch; }
+}
 
 /* Kennzahlen-Leiste unter dem Hero */
 .leiste { background: var(--dunkel-2); border-top: 1px solid rgba(255, 255, 255, .08); padding: 0; }

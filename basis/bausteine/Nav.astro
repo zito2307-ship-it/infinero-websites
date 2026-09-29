@@ -5,11 +5,13 @@ const { basis = '' } = Astro.props; // '' auf der Startseite, '/' auf Unterseite
 const f = inhalt.firma;
 const links = (inhalt.abschnitte ?? []).filter((a: any) => a.menue && a.anker);
 const cta = inhalt.hauptaktion;
+const mitLogo = !!inhalt.design?.logo && inhalt.design?.logo_im_kopf !== false;
+const kopfH = mitLogo && inhalt.design.logo_hoehe ? inhalt.design.logo_hoehe + 24 : undefined;
 ---
-<header class="nav">
+<header class={`nav${mitLogo ? ' nav--logo' : ''}`} style={kopfH ? `--kopf-h:${kopfH}px` : undefined}>
   <div class="wrap nav-in">
     <a class="marke" href={basis || '#top'} aria-label={`${f.name} – Startseite`}>
-      {inhalt.design?.logo && inhalt.design?.logo_im_kopf !== false
+      {mitLogo
         ? <img class="marke-logo" src={bild(inhalt.design.logo)} alt={f.name} style={inhalt.design.logo_hoehe ? `--logo-h:${inhalt.design.logo_hoehe}px` : undefined} />
         : <>
             {inhalt.design?.zeichen_icon ? <span class="marke-zeichen marke-zeichen--icon"><Icon name={inhalt.design.zeichen_icon} class="" /></span>
