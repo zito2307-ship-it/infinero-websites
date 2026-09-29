@@ -218,20 +218,27 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 
 
 /* Logo im Kopf: auf dem Handy zentriert (Menü-Knopf rechts) */
+/* Mit Logo: Menü als Lasche unter der Kopfzeile, Logo exakt mittig */
+.lasche-text, .lasche-pfeil { display: none; }
 @media (max-width: 820px) {
-  .nav--logo .nav-in { display: grid; grid-template-columns: 1fr auto 1fr; }
-  .nav--logo .nav-in::before { content: ""; }
-  .nav--logo .marke { grid-column: 2; }
-  .nav--logo .nav-links { grid-column: 3; justify-self: end; }
-  .nav--logo .marke-logo { height: calc(var(--kopf-h, 72px) - 26px); max-width: 64vw; }
+  .nav--logo .nav-in { justify-content: center; gap: 0; }
+  .nav--logo .marke-logo { height: calc(var(--kopf-h, 72px) - 22px); max-width: 82vw; }
+  .nav--logo .nav-links .btn { display: none; }
+  .nav--logo .menue-knopf { position: absolute; left: 50%; top: 100%; translate: -50% 0; width: auto; height: 30px; padding: 0 14px 0 16px; border-radius: 0 0 14px 14px; border-top: 0; display: flex; align-items: center; gap: 4px; box-shadow: 0 8px 16px -10px rgba(0, 0, 0, .25); z-index: 2; }
+  .nav--logo .menue-knopf span { display: none; }
+  .nav--logo .lasche-text { display: inline; font: 600 13px var(--font-text); color: var(--akzent); letter-spacing: .02em; }
+  .nav--logo .lasche-pfeil { display: block; width: 16px; height: 16px; stroke: var(--akzent); stroke-width: 2.2; fill: none; transition: transform .2s; }
+  .nav--logo .menue-knopf[aria-expanded="true"] .lasche-pfeil { transform: rotate(180deg); }
+  .nav--logo .mobil-menue { padding-top: 22px; }
+  .nav--logo ~ main .hero--geteilt .hero-inhalt { padding-top: 48px; }
 }
 /* Weicher Übergang am unteren Rand des Grafik-Heros */
 .hero--grafik::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(transparent, var(--bg)); pointer-events: none; }
 .hero--grafik .hero-inhalt { position: relative; z-index: 1; }
 /* Handy: Startbereich bis zum unteren Rand, Inhalt zentriert */
 @media (max-width: 600px) {
-  .hero--grafik { min-height: calc(100svh - var(--kopf-h, 64px)); grid-template-rows: auto 1fr; }
-  .hero--grafik::after { height: 40px; }
+  .hero--grafik { min-height: calc(100svh - var(--kopf-h, 64px)); min-height: calc(100lvh - var(--kopf-h, 64px)); grid-template-rows: auto 1fr; }
+  .hero--grafik::after { display: none; }
   .hero--grafik .hero-inhalt { text-align: center; align-items: center; }
   .hero--grafik .hero-text { margin-inline: auto; }
   .hero--grafik .hero-aktionen { justify-content: center; }
