@@ -24,11 +24,15 @@ if (live) {
 }
 
 const projekt = `${kunde.slice(7)}`.toLowerCase().slice(0, 58); // Ordner ohne „K-NNNN-“
-const wrangler = (args) => spawnSync('npx', ['-y', 'wrangler@latest', ...args], { cwd: ROOT, stdio: 'inherit', env: process.env }).status;
+// Wrangler in einem leeren Arbeitsordner starten – im Projektordner würde es Astro erkennen und
+// ungefragt einen Server-Adapter einbauen. Wir laden nur fertige statische Dateien hoch.
+const arbeit = path.join(ROOT, '.wrangler', 'arbeit');
+fs.mkdirSync(arbeit, { recursive: true });
+const wrangler = (args) => spawnSync('npx', ['-y', 'wrangler@4', ...args], { cwd: arbeit, stdio: 'inherit', env: process.env }).status;
 
 // Projekt anlegen, falls es noch nicht existiert (Fehler „existiert schon“ ist ok)
-wrangler(['pages', 'project', 'create', projekt, '--production-branch', 'main']);
-const status = wrangler(['pages', 'deploy', path.join('dist', kunde), '--project-name', projekt, '--branch', live ? 'main' : 'vorschau', '--commit-dirty=true']);
+wrangler(['pages', 'project', 'create', projekt, '--production-branch', 'main', '--force']); // --force = klassisches Pages (nicht auf Workers umleiten)
+const status = wrangler(['pages', 'deploy', path.join(ROOT, 'dist', kunde), '--project-name', projekt, '--branch', live ? 'main' : 'vorschau', '--commit-dirty=true']);
 if (status !== 0) stopp('Hochladen fehlgeschlagen.');
 console.log(live
   ? `✔ Live: https://${projekt}.pages.dev – Domain ${inhalt.domain} im Cloudflare-Dashboard unter Pages → ${projekt} → Custom domains verbinden.`
