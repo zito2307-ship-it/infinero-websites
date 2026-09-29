@@ -1,4 +1,5 @@
 ---
+// Galerie als Raster oder – mit slider: true – als automatisch laufende Bildleiste
 import { bild } from '../lib/inhalt';
 import Kopf from './Kopf.astro';
 const { a } = Astro.props;
@@ -6,12 +7,26 @@ const { a } = Astro.props;
 <section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}>
   <div class="wrap">
     <Kopf a={a} />
-    <div class="galerie">
-      {a.bilder.map((b: any) => (
-        <figure style={`background-image:url('${bild(b.bild)}')`} role="img" aria-label={b.alt ?? b.text ?? 'Bild'}>
-          {b.text && <figcaption>{b.text}</figcaption>}
-        </figure>
-      ))}
-    </div>
+    {a.slider ? (
+      <div class="slider" data-slider>
+        <div class="slider-spur" tabindex="0" aria-label={`${a.titel ?? 'Galerie'} – Bilder`}>
+          {a.bilder.map((b: any) => (
+            <figure class="slider-bild" style={`background-image:url('${bild(b.bild)}')`} role="img" aria-label={b.alt ?? b.text ?? 'Bild'}>
+              {b.text && <figcaption>{b.text}</figcaption>}
+            </figure>
+          ))}
+        </div>
+        <button type="button" class="slider-knopf zurueck-knopf" aria-label="Vorheriges Bild">‹</button>
+        <button type="button" class="slider-knopf weiter-knopf" aria-label="Nächstes Bild">›</button>
+      </div>
+    ) : (
+      <div class="galerie">
+        {a.bilder.map((b: any) => (
+          <figure style={`background-image:url('${bild(b.bild)}')`} role="img" aria-label={b.alt ?? b.text ?? 'Bild'}>
+            {b.text && <figcaption>{b.text}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
   </div>
 </section>

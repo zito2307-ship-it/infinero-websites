@@ -30,7 +30,7 @@ const chat = inhalt.funktionen.chat;
   <link rel="icon" href={bild(inhalt.design?.favicon ?? 'favicon.svg')} />
   {farben && <style set:html={`:root:root{${farben}}`}></style>}
 </head>
-<body>
+<body data-bewegung={inhalt.design?.bewegung ? '' : undefined}>
   {inhalt.demo && <div class="demobar">⚡ <b>Beispiel-Demo von Infinero</b> · {inhalt.demo_text ?? 'So könnte Ihre Website aussehen'} · <a href="https://infinero.de">Zu Infinero →</a></div>}
   <Nav basis={unterseite ? '/' : ''} />
   <main><slot /></main>
@@ -38,6 +38,27 @@ const chat = inhalt.funktionen.chat;
   {chat === 'demo' && <DemoChat />}
   {chat === 'snippet' && inhalt.funktionen.chat_snippet && <Fragment set:html={inhalt.funktionen.chat_snippet} />}
   <script>
+    // Sanftes Einblenden beim Scrollen (nur mit design.bewegung, nicht bei reduzierter Bewegung / Prüfung)
+    if (document.body.hasAttribute('data-bewegung') && !matchMedia('(prefers-reduced-motion: reduce)').matches && !navigator.webdriver) {
+      const ziele = document.querySelectorAll('main section .kopf, .leistung, .person, .textbild > *, .vorteil, .bewertung, .faq, .formular, .detail-abschnitt');
+      const beob = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beob.unobserve(e.target); } }), { threshold: 0.12 });
+      ziele.forEach((z, i) => { z.setAttribute('data-einblenden', ''); (z as HTMLElement).style.transitionDelay = `${(i % 3) * 80}ms`; beob.observe(z); });
+    }
+    // Galerie-Slider: automatisch weiter, Pause bei Maus/Fokus
+    document.querySelectorAll<HTMLElement>('[data-slider]').forEach((s) => {
+      const spur = s.querySelector<HTMLElement>('.slider-spur')!;
+      const schritt = () => (spur.firstElementChild as HTMLElement).offsetWidth + 16;
+      const weiter = (r = 1) => {
+        const ende = spur.scrollLeft + spur.clientWidth >= spur.scrollWidth - 4;
+        spur.scrollTo({ left: r > 0 && ende ? 0 : spur.scrollLeft + r * schritt() });
+      };
+      s.querySelector('.weiter-knopf')?.addEventListener('click', () => weiter(1));
+      s.querySelector('.zurueck-knopf')?.addEventListener('click', () => weiter(-1));
+      let pause = false;
+      ['mouseenter', 'focusin', 'touchstart'].forEach((ev) => s.addEventListener(ev, () => (pause = true), { passive: true }));
+      ['mouseleave', 'focusout'].forEach((ev) => s.addEventListener(ev, () => (pause = false)));
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!pause && !document.hidden) weiter(1); }, 3500);
+    });
     // Formulare: Datum vorbelegen, absenden (oder Vorschau-Modus)
     const heute = new Date().toISOString().slice(0, 10);
     document.querySelectorAll<HTMLInputElement>('input[data-heute]').forEach((i) => { i.value = heute; i.min = heute; });

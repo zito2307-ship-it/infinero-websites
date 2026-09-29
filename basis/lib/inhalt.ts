@@ -44,6 +44,22 @@ export function bild(name?: string) {
   return name.startsWith('http') || name.startsWith('/') ? name : '/' + name;
 }
 
+/** URL-Teil aus einem Titel: „Ästhetische Kieferorthopädie“ → „aesthetische-kieferorthopaedie“ */
+export function slug(text: string) {
+  return text.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+/** Alle Leistungen mit Detailseite (leistungen → eintraege[].details) */
+export function leistungsSeiten(i: any = inhalt) {
+  return (i.abschnitte ?? []).filter((a: any) => a.typ === 'leistungen')
+    .flatMap((a: any) => a.eintraege).filter((l: any) => l.details).map((l: any) => ({ ...l, slug: l.slug ?? slug(l.titel) }));
+}
+
+// Karte ohne Drittanbieter (npm run karte) – liegt in bilder/karte/karte.json
+const karteDatei = path.join(process.cwd(), 'kunden', kunde, 'bilder', 'karte', 'karte.json');
+export const karte: any = fs.existsSync(karteDatei) ? JSON.parse(fs.readFileSync(karteDatei, 'utf8')) : null;
+
 export const istOffen = (v: unknown) => v === undefined || v === null || v === '' || v === OFFEN;
 
 /** Pflichtangaben, ohne die eine Seite nicht live gehen darf. */

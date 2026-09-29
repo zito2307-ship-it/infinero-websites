@@ -1,4 +1,5 @@
 ---
+// Team: personen[].text (Text oder Liste) → „Mehr erfahren“ zum Ausklappen
 import { bild } from '../lib/inhalt';
 import Kopf from './Kopf.astro';
 const { a } = Astro.props;
@@ -12,6 +13,12 @@ const { a } = Astro.props;
           <div class="person-bild" style={p.bild ? `background-image:url('${bild(p.bild)}')` : undefined} role={p.bild ? 'img' : undefined} aria-label={p.bild ? p.name : undefined}>{!p.bild && p.name.charAt(0)}</div>
           <h3>{p.name}</h3>
           <span>{p.rolle}</span>
+          {p.text && (
+            <details class="person-mehr">
+              <summary>Mehr erfahren</summary>
+              <div>{(Array.isArray(p.text) ? p.text : [p.text]).map((t: string) => <p>{t}</p>)}</div>
+            </details>
+          )}
         </div>
       ))}
     </div>

@@ -1,5 +1,6 @@
 # Testkunde (echt, abgesprochen): Kieferorthopädische Praxis Dr. Stefan Graf, Weimar
 # Quelle: App-Lead L-000378 / Auftrag 4 + bestehende Website graf-in-weimar.de (Texte, Fotos, Impressum)
+# Runde 2 (29.09.2026) nach Feedback Inhaber: Zahn-Logo, Grafik statt Stuhl-Foto, Detailseiten, Slider, Karte lokal.
 kunde: K-0001
 beispiel: false
 demo: false
@@ -9,6 +10,7 @@ domain: graf-in-weimar.de
 
 firma:
   name: Kieferorthopädie Dr. Stefan Graf
+  name_fuss: Kieferorthopädie<br>Dr. Stefan Graf
   kurzname: Kieferorthopädie Dr. Graf
   zusatz: Fachzahnarzt · Weimar
   rechtlicher_name: Kieferorthopädische Praxis Dr. med. Stefan Graf
@@ -18,6 +20,7 @@ firma:
   ort: Weimar
   bundesland: Thüringen
   telefon: 03643 777277
+  fax: 03643 777278
   email: info@graf-in-weimar.de
 
 recht:
@@ -26,6 +29,7 @@ recht:
   kammer: Landeszahnärztekammer Thüringen, Barbarossahof 16, 99092 Erfurt
   aufsichtsbehoerde: Kassenzahnärztliche Vereinigung Thüringen, Theo-Neubauer-Straße 14, 99085 Erfurt
   berufsregeln: "Zahnheilkundegesetz (ZHG), Thüringer Heilberufegesetz, Berufsordnung der Landeszahnärztekammer Thüringen – einsehbar unter www.lzkth.de"
+  bildnachweise: "Foto Theaterplatz Weimar: Martin Kraft, Lizenz CC BY-SA 3.0, via Wikimedia Commons. Karte: © OpenStreetMap-Mitwirkende (ODbL). Alle übrigen Fotos: Kieferorthopädische Praxis Dr. Stefan Graf."
 
 seo:
   titel: Kieferorthopädie Dr. Stefan Graf – Kieferorthopäde in Weimar
@@ -34,20 +38,20 @@ seo:
 design:
   theme: praxis-klar
   favicon: favicon.svg
-  zeichen: G
+  zeichen_icon: zahn
+  bewegung: true
 
 hauptaktion: { text: Termin anfragen, ziel: "#anfrage" }
 
 abschnitte:
   - typ: hero
     variante: geteilt
-    bild: behandlungszimmer.jpg
-    bild_alt: Heller Behandlungsraum der Praxis
+    grafik: zahn
     label: Kieferorthopädie in Weimar
     titel: Gerade Zähne. <em>In&nbsp;ruhigen Händen.</em>
     text: "Fachzahnärztliche Kieferorthopädie für Kinder, Jugendliche und Erwachsene – mitten in Weimar, in der Schillerstraße."
     aktion: { text: Termin anfragen, ziel: "#anfrage" }
-    zweitaktion: { text: "03643 777277", ziel: "tel:+493643777277" }
+    telefon_zeigen: true
 
   - typ: leistungen
     anker: leistungen
@@ -56,34 +60,161 @@ abschnitte:
     titel: Unser Behandlungsspektrum
     text: Welche Behandlung zu Ihnen passt, besprechen wir nach der Untersuchung persönlich mit Ihnen.
     eintraege:
-      - { icon: herz, titel: Kieferorthopädie für Kinder, text: "Der richtige Zeitpunkt ist oft der Zahnwechsel im Seitenzahnbereich. Manche Fehlstellungen sollten früher behandelt werden – wir beraten Sie individuell." }
-      - { icon: haken, titel: Kieferorthopädie für Erwachsene, text: "Zahnstellungen lassen sich in nahezu jedem Alter korrigieren. Bei ausgeprägten Kieferfehlstellungen arbeiten wir mit der Kieferchirurgie zusammen." }
-      - { icon: funke, titel: Ästhetische Kieferorthopädie, text: "Unauffällige Lösungen für alle, die im Alltag möglichst wenig von ihrer Behandlung zeigen möchten." }
-      - { icon: schild, titel: Invisalign®, text: "Durchsichtige, herausnehmbare Schienen, die Schritt für Schritt angepasst werden – geeignet für viele Zahnfehlstellungen." }
-      - { icon: werkzeug, titel: Lingualtechnik, text: "Feste Spange auf der Innenseite der Zähne – von außen nicht sichtbar." }
-      - { icon: blatt, titel: Ganzheitliche Kieferorthopädie, text: "Wir betrachten Zähne, Kiefer und Funktion im Zusammenhang – zum Beispiel Kiefergelenk, Atmung und Schlucken." }
+      - icon: herz
+        titel: Kieferorthopädie für Kinder
+        text: "Der richtige Zeitpunkt ist oft der Zahnwechsel im Seitenzahnbereich. Manche Fehlstellungen sollten früher behandelt werden – wir beraten Sie individuell."
+        details:
+          einleitung: "Viele Zahn- und Kieferfehlstellungen lassen sich im Wachstum besonders gut beeinflussen. Deshalb lohnt sich ein früher Blick – auch wenn die eigentliche Behandlung oft erst später beginnt."
+          abschnitte:
+            - titel: Wann ist der richtige Zeitpunkt?
+              text:
+                - "In der Regel ist die zweite Phase des Zahnwechsels ein günstiger Zeitpunkt – also wenn die seitlichen Milchzähne und Milcheckzähne durch bleibende Zähne ersetzt werden. Das ist meist zwischen dem 9. und 12. Lebensjahr."
+                - "Bestimmte Fehlstellungen – etwa ein Kreuzbiss, ein stark vorstehender Unterkiefer oder ein offener Biss – sollten früher behandelt werden. Ein erster Termin im Grundschulalter schafft Klarheit."
+            - titel: Wie läuft die Behandlung ab?
+              text:
+                - "Nach Untersuchung, Röntgenbildern und Abdrücken bzw. Scans erstellen wir einen Behandlungsplan und besprechen ihn mit Ihnen und Ihrem Kind. Häufig beginnt die Behandlung mit einer herausnehmbaren Spange, die die Kieferlage korrigiert oder Platz schafft. Die Feineinstellung der Zähne erfolgt dann meist mit einer festen Spange."
+            - titel: Wie lange dauert sie?
+              text:
+                - "Die aktive Behandlung dauert je nach Befund häufig zwei bis vier Jahre. Danach wird das Ergebnis mit einem Retainer (Haltedraht oder Spange für die Nacht) stabilisiert."
+            - titel: Was zahlt die Krankenkasse?
+              text:
+                - "Bei gesetzlich versicherten Kindern und Jugendlichen richtet sich die Kostenübernahme nach den kieferorthopädischen Indikationsgruppen (KIG). Wir schätzen bei der Untersuchung ein, ob die Voraussetzungen erfüllt sind, und erklären Ihnen, welche Leistungen die Kasse trägt."
+          hinweis: "Allgemeine Informationen – ob und wie behandelt wird, entscheidet sich immer nach einer persönlichen Untersuchung."
+      - icon: haken
+        titel: Kieferorthopädie für Erwachsene
+        text: "Zahnstellungen lassen sich in nahezu jedem Alter korrigieren. Bei ausgeprägten Kieferfehlstellungen arbeiten wir mit der Kieferchirurgie zusammen."
+        details:
+          einleitung: "Die Zeiten, in denen Spangen nur etwas für Kinder waren, sind lange vorbei. Zahnstellungen lassen sich bei den meisten Erwachsenen bis ins hohe Alter korrigieren."
+          abschnitte:
+            - titel: Für wen kommt eine Behandlung infrage?
+              text:
+                - "Viele Erwachsene kommen wegen schief stehender oder gedrehter Zähne, Lücken, Engständen oder weil sich Zähne nach einer früheren Behandlung wieder verschoben haben. Auch vor einer Versorgung mit Zahnersatz kann es sinnvoll sein, Zähne vorher in die richtige Position zu bringen."
+            - titel: Wenn der Kiefer beteiligt ist
+              text:
+                - "Nach Abschluss des Wachstums lässt sich die Lage der Kiefer nicht mehr allein kieferorthopädisch verändern. Bei ausgeprägten Kieferfehlstellungen planen wir die Behandlung deshalb gemeinsam mit einer Kieferchirurgin oder einem Kieferchirurgen."
+            - titel: Welche Apparaturen gibt es?
+              text:
+                - "Neben klassischen festen Spangen gibt es unauffällige Möglichkeiten: durchsichtige Schienen, zahnfarbene Brackets oder Brackets auf der Innenseite der Zähne (Lingualtechnik). Welche Variante für Sie geeignet ist, hängt vom Befund ab."
+            - titel: Kosten
+              text:
+                - "Bei gesetzlich versicherten Erwachsenen übernimmt die Kasse die Kosten nur in Ausnahmefällen, vor allem bei kombiniert kieferorthopädisch-kieferchirurgischer Behandlung. Sonst erstellen wir Ihnen vorab einen individuellen Kostenplan. Bei Privatversicherung und Beihilfe hängt die Erstattung vom Vertrag ab."
+          hinweis: "Allgemeine Informationen – ob und wie behandelt wird, entscheidet sich immer nach einer persönlichen Untersuchung."
+      - icon: funke
+        titel: Ästhetische Kieferorthopädie
+        text: "Unauffällige Lösungen für alle, die im Alltag möglichst wenig von ihrer Behandlung zeigen möchten."
+        details:
+          einleitung: "Nicht jeder möchte, dass man die Spange sofort sieht – im Beruf, auf Fotos oder im Alltag. Deshalb gibt es heute mehrere unauffällige Möglichkeiten."
+          abschnitte:
+            - titel: Die Möglichkeiten
+              text:
+                - "Zahnfarbene Keramik-Brackets fallen deutlich weniger auf als Metall. Durchsichtige Schienen (Aligner) werden über die Zähne gesetzt und sind kaum zu erkennen. Bei der Lingualtechnik sitzen die Brackets auf der Innenseite der Zähne und sind von außen nicht sichtbar."
+            - titel: Was passt zu mir?
+              text:
+                - "Das hängt vor allem von der Art der Fehlstellung ab, aber auch von Ihrem Alltag: Schienen sind herausnehmbar und erfordern viel Disziplin beim Tragen; festsitzende Varianten arbeiten unabhängig davon. Wir erklären Ihnen die Vor- und Nachteile nach der Untersuchung."
+            - titel: Kosten
+              text:
+                - "Ästhetische Varianten sind in der Regel keine Kassenleistung. Sie erhalten vor Beginn einen transparenten Kostenplan."
+          hinweis: "Allgemeine Informationen – ob und wie behandelt wird, entscheidet sich immer nach einer persönlichen Untersuchung."
+      - icon: schild
+        titel: Invisalign®
+        text: "Durchsichtige, herausnehmbare Schienen, die Schritt für Schritt angepasst werden – geeignet für viele Zahnfehlstellungen."
+        details:
+          einleitung: "Bei der Behandlung mit Invisalign® werden die Zähne mit einer Folge durchsichtiger Kunststoffschienen schrittweise bewegt – kaum sichtbar und zum Essen und Zähneputzen herausnehmbar."
+          abschnitte:
+            - titel: So funktioniert es
+              text:
+                - "Anhand eines digitalen Scans Ihrer Zähne wird die Zahnbewegung am Computer geplant. Daraus entsteht eine Reihe von Schienen, die Sie nacheinander tragen – jede Schiene bewegt die Zähne ein kleines Stück weiter."
+            - titel: Worauf es ankommt
+              text:
+                - "Damit die Schienen wirken, müssen sie etwa 22 Stunden am Tag getragen werden. Zum Essen und Trinken (außer Wasser) werden sie herausgenommen. In regelmäßigen Terminen kontrollieren wir den Fortschritt."
+            - titel: Für wen geeignet?
+              text:
+                - "Schienen eignen sich für viele leichte bis mittlere Zahnfehlstellungen bei Jugendlichen und Erwachsenen. Ob sie in Ihrem Fall infrage kommen, klären wir bei der Untersuchung."
+            - titel: Kosten
+              text:
+                - "Die Behandlung mit Schienen ist in der Regel keine Kassenleistung. Private Versicherungen erstatten je nach Tarif einen Teil. Vorab erhalten Sie einen Kostenplan."
+          hinweis: "Invisalign® ist eine eingetragene Marke der Align Technology, Inc. Allgemeine Informationen – ob und wie behandelt wird, entscheidet sich nach einer persönlichen Untersuchung."
+      - icon: werkzeug
+        titel: Lingualtechnik
+        text: "Feste Spange auf der Innenseite der Zähne – von außen nicht sichtbar."
+        details:
+          einleitung: "Bei der Lingualtechnik werden die Brackets auf der Innenseite der Zähne befestigt. So arbeitet eine feste Spange, ohne dass man sie von außen sieht."
+          abschnitte:
+            - titel: So funktioniert es
+              text:
+                - "Die Brackets werden individuell für Ihre Zähne angefertigt und auf der Zungenseite aufgeklebt. Wie bei einer klassischen festen Spange bewegen Drahtbögen die Zähne in die geplante Position."
+            - titel: Was Sie wissen sollten
+              text:
+                - "In den ersten Tagen braucht die Zunge etwas Zeit, sich zu gewöhnen – kurzzeitig kann die Aussprache ungewohnt sein. Die Reinigung erfordert etwas mehr Sorgfalt; wir zeigen Ihnen, wie es geht."
+            - titel: Kosten
+              text:
+                - "Die Lingualtechnik ist aufwendiger als eine klassische Spange und in der Regel keine Kassenleistung. Sie erhalten vorab einen Kostenplan."
+          hinweis: "Allgemeine Informationen – ob und wie behandelt wird, entscheidet sich immer nach einer persönlichen Untersuchung."
+      - icon: blatt
+        titel: Ganzheitliche Kieferorthopädie
+        text: "Wir betrachten Zähne, Kiefer und Funktion im Zusammenhang – zum Beispiel Kiefergelenk, Atmung und Schlucken."
+        details:
+          einleitung: "Eine Zahnfehlstellung ist selten nur eine Frage der Optik. Wie Zähne und Kiefer zueinander stehen, hängt mit Kauen, Schlucken, Atmen und dem Kiefergelenk zusammen."
+          abschnitte:
+            - titel: Mehr als gerade Zähne
+              text:
+                - "Ziel kieferorthopädischer Behandlung ist ein Ergebnis, das ästhetisch und funktionell passt: Ober- und Unterkiefer im richtigen Verhältnis und gestörte Abläufe beim Kauen und Schlucken möglichst ausgeglichen. Eine gute Ausformung der Zahnbögen kann zudem helfen, Karies und Kiefergelenksproblemen vorzubeugen."
+            - titel: Wie wir vorgehen
+              text:
+                - "Bei der Untersuchung achten wir neben der Zahnstellung auch auf Mundatmung, Zungenlage, Schluckmuster und Kiefergelenk. Wo es sinnvoll ist, arbeiten wir mit anderen Fachrichtungen zusammen – etwa Logopädie, Physiotherapie oder Hals-Nasen-Ohren-Heilkunde."
+          hinweis: "Allgemeine Informationen – ob und wie behandelt wird, entscheidet sich immer nach einer persönlichen Untersuchung."
 
   - typ: textbild
     anker: praxis
     menue: Praxis
     label: Unsere Praxis
-    titel: Kieferorthopädie mit Tradition in Weimar.
+    titel: Kieferorthopädie mit Tradition – mitten in Weimar.
     text:
       - "Ziel jeder kieferorthopädischen Behandlung ist ein Ergebnis, das ästhetisch und funktionell zu Ihnen passt: gerade Zähne, Ober- und Unterkiefer im richtigen Verhältnis und ein Biss, der funktioniert."
-      - "Je nach Befund setzen wir herausnehmbare oder festsitzende Spangen ein. Welche Behandlungsmittel für Sie geeignet sind, entscheiden wir gemeinsam nach der ersten Untersuchung in unserer Praxis."
+      - "Unsere Praxis liegt in der Schillerstraße, nur wenige Schritte vom Theaterplatz. Je nach Befund setzen wir herausnehmbare oder festsitzende Spangen ein – welche Behandlung für Sie geeignet ist, entscheiden wir gemeinsam nach der ersten Untersuchung."
     aktion: { text: Termin für die Erstberatung →, ziel: "#anfrage" }
-    bild: gebaeude.jpg
-    bild_alt: Praxisgebäude in der Schillerstraße in Weimar
-    bild_text: Schillerstraße 17, Weimar
+    bild: weimar.jpg
+    bild_alt: Goethe-Schiller-Denkmal auf dem Theaterplatz in Weimar
+    bild_text: Theaterplatz Weimar · Foto Martin Kraft, CC BY-SA 3.0
+
+  - typ: anfrage
+    anker: anfrage
+    art: termin
+    label: Termin
+    titel: Termin anfragen
+    text: Schreiben Sie uns Ihren Wunschtag – wir rufen Sie zurück und vereinbaren den Termin.
+    punkte:
+      - Erstberatung für Kinder, Jugendliche und Erwachsene
+      - Keine Überweisung nötig
+      - Rückruf innerhalb der Sprechzeiten
+    formular_titel: Terminanfrage
+    themen: [Erstberatung Kind / Jugendliche, Erstberatung Erwachsene, Kontrolltermin, Sonstiges]
+    themen_label: Anliegen
+    zeiten: [Vormittags, Nachmittags, egal]
+    erfolg: Danke für Ihre Anfrage!
+    erfolg_text: Wir melden uns telefonisch bei Ihnen, um den Termin abzustimmen.
 
   - typ: galerie
     flaeche: true
+    slider: true
     label: Einblicke
-    titel: Hier sind Sie gut aufgehoben
+    titel: Einblicke in unsere Praxis
     bilder:
-      - { bild: empfang.jpg, text: Empfang }
-      - { bild: flur.jpg, text: Wartebereich }
-      - { bild: behandlung.jpg, text: Behandlungsraum }
+      - { bild: galerie/einblicke_14.jpg, text: Unser Praxisgebäude }
+      - { bild: galerie/einblicke_38.jpg, text: Empfang }
+      - { bild: galerie/einblicke_34.jpg, text: Wartebereich }
+      - { bild: galerie/einblicke_36.jpg, text: Behandlungsraum }
+      - { bild: galerie/einblicke_43.jpg, text: Behandlungsraum }
+      - { bild: galerie/einblicke_12.jpg, alt: Wegweiser zur Behandlung }
+      - { bild: galerie/einblicke_50.jpg, alt: Praxisschild mit Sprechzeiten }
+      - { bild: galerie/ausblicke_44.jpg, alt: Instrumente im Labor }
+      - { bild: galerie/ausblicke_6.jpg, alt: Zahnmodell im Labor }
+      - { bild: galerie/ausblicke_4.jpg, alt: Herausnehmbare Spange auf einem Modell }
+      - { bild: galerie/ausblicke_51.jpg, alt: Feste Zahnspange in Nahaufnahme }
+      - { bild: galerie/ausblicke_7.jpg, alt: Bunte Zahnbürsten }
+      - { bild: galerie/ausblicke_28.jpg, alt: Arbeitsplatz im Praxislabor }
+      - { bild: galerie/ausblicke_30.jpg, alt: Materialschrank }
+      - { bild: galerie/ausblicke_10.jpg, alt: Zangen im Instrumentenständer }
 
   - typ: team
     anker: team
@@ -91,8 +222,13 @@ abschnitte:
     label: Team
     titel: Ihr Praxisteam
     personen:
-      - { name: Dr. med. Stefan Graf, rolle: Fachzahnarzt für Kieferorthopädie, bild: person-stefan-graf.jpg }
-      - { name: Prof. Dr. Heinz Graf, rolle: Kieferorthopädie, bild: person-heinz-graf.jpg }
+      - name: Dr. med. Stefan Graf
+        rolle: Fachzahnarzt für Kieferorthopädie
+        bild: person-stefan-graf.jpg
+        text: "Inhaber der Praxis. Fachzahnarzt für Kieferorthopädie – zuständig für Untersuchung, Behandlungsplanung und Behandlung."
+      - name: Prof. Dr. Heinz Graf
+        rolle: Kieferorthopädie
+        bild: person-heinz-graf.jpg
       - { name: Kathrin Kunze, rolle: Praxisteam, bild: person-kunze.jpg }
       - { name: Beate Scharf, rolle: Praxisteam, bild: person-scharf.jpg }
       - { name: Jasmin Schmidt, rolle: Praxisteam, bild: person-schmidt.jpg }
@@ -107,25 +243,24 @@ abschnitte:
     fragen:
       - frage: Wann sollte mein Kind zum ersten Mal zum Kieferorthopäden?
         antwort: "In der Regel ist der Beginn des Zahnwechsels im Seitenzahnbereich ein günstiger Zeitpunkt. Bestimmte Zahn- und Kieferfehlstellungen sollten aber früher behandelt werden. Den passenden Zeitpunkt besprechen wir nach einer Untersuchung persönlich mit Ihnen."
+      - frage: Brauche ich eine Überweisung?
+        antwort: "Nein. Sie können direkt einen Termin vereinbaren. Bitte bringen Sie Ihre Versichertenkarte mit – bei Kindern gern auch das Bonusheft oder vorhandene Röntgenbilder."
+      - frage: Wie läuft der erste Termin ab?
+        antwort: "Wir sprechen über Ihr Anliegen, sehen uns Zähne und Kiefer an und erklären, ob und wann eine Behandlung sinnvoll ist. Für einen genauen Behandlungsplan folgen meist Röntgenbilder und Abdrücke bzw. ein Scan in einem zweiten Termin."
       - frage: Ist eine Behandlung auch für Erwachsene möglich?
         antwort: "Ja. Zahnstellungen lassen sich bei den meisten Erwachsenen bis ins hohe Alter korrigieren. Manche Kieferfehlstellungen lassen sich nach Abschluss des Wachstums allerdings nur gemeinsam mit einem kieferchirurgischen Eingriff optimal behandeln."
       - frage: Welche Spangen gibt es?
         antwort: "Herausnehmbare Spangen dienen meist der Vorbereitung, zum Beispiel zur Korrektur der Kieferlage oder um Platz zu schaffen. Mit festsitzenden Apparaturen werden die Zähne anschließend in die richtige Position gebracht. Daneben gibt es unauffällige Varianten wie durchsichtige Schienen oder Brackets auf der Zahninnenseite."
+      - frage: Wie lange dauert eine Behandlung?
+        antwort: "Das hängt vom Befund ab. Die aktive Behandlung dauert häufig ein bis vier Jahre, danach wird das Ergebnis mit einem Retainer gesichert. Eine Einschätzung für Ihren Fall erhalten Sie nach der Untersuchung."
+      - frage: Wie oft muss ich während der Behandlung in die Praxis?
+        antwort: "In der aktiven Phase meist alle vier bis acht Wochen zur Kontrolle und zum Nachstellen. Die Termine sind in der Regel kurz."
+      - frage: Tut eine feste Spange weh?
+        antwort: "Nach dem Einsetzen und nach dem Nachstellen kann für einige Tage ein Druckgefühl entstehen, das dann nachlässt. Wir zeigen Ihnen, was in dieser Zeit hilft."
       - frage: Übernimmt die Krankenkasse die Kosten?
         antwort: "Bei gesetzlich versicherten Kindern und Jugendlichen richtet sich das nach den kieferorthopädischen Indikationsgruppen (KIG), die wir bei der Untersuchung einschätzen. Bei gesetzlich versicherten Erwachsenen übernimmt die Kasse die Kosten nur in Ausnahmefällen, etwa bei kombiniert kieferorthopädisch-kieferchirurgischer Behandlung. Bei Privatversicherten und Beihilfe hängt es vom Vertrag ab. Wir erstellen Ihnen gern einen individuellen Kostenplan."
-
-  - typ: anfrage
-    anker: anfrage
-    art: termin
-    label: Termin
-    titel: Termin anfragen
-    text: Schreiben Sie uns Ihren Wunschtag – wir rufen Sie zurück und vereinbaren den Termin.
-    formular_titel: Terminanfrage
-    themen: [Erstberatung Kind / Jugendliche, Erstberatung Erwachsene, Kontrolltermin, Sonstiges]
-    themen_label: Anliegen
-    zeiten: [Vormittags, Nachmittags, egal]
-    erfolg: Danke für Ihre Anfrage!
-    erfolg_text: Wir melden uns telefonisch bei Ihnen, um den Termin abzustimmen.
+      - frage: Was passiert nach der Behandlung?
+        antwort: "Damit die Zähne in ihrer neuen Position bleiben, wird das Ergebnis stabilisiert – meist mit einem dünnen Haltedraht auf der Innenseite der Zähne und/oder einer Spange für die Nacht."
 
   - typ: kontakt
     anker: kontakt

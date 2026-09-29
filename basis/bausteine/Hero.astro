@@ -5,10 +5,15 @@ const { a } = Astro.props;
 const variante = a.variante ?? 'bild';
 const cta = a.aktion ?? inhalt.hauptaktion;
 const tel = inhalt.firma.telefon;
+// Große Linien-Grafik statt Foto (hero.grafik), z. B. für Praxen ohne gutes Titelbild
+const GRAFIK: Record<string, string> = {
+  zahn: '<path d="M7.5 3C4.9 3 3.5 5 3.5 7.8c0 2.4 1 3.9 1.5 6.3.6 2.8 1 6.9 3 6.9 1.6 0 1.7-3.6 2.6-5.6.4-.9.8-1.1 1.4-1.1s1 .2 1.4 1.1c.9 2 1 5.6 2.6 5.6 2 0 2.4-4.1 3-6.9.5-2.4 1.5-3.9 1.5-6.3C20.5 5 19.1 3 16.5 3c-1.9 0-2.9 1-4.5 1S9.4 3 7.5 3z"/><path d="M9 6.5c1 .6 2 .9 3 .9s2-.3 3-.9" opacity=".5"/>',
+};
 const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
 ---
 {variante === 'geteilt' ? (
-  <section class="hero hero--geteilt" id="top">
+  <section class={`hero hero--geteilt${a.grafik ? ' hero--grafik' : ''}`} id="top">
+    {a.grafik && <div class="hero-deko" aria-hidden="true"><span></span><span></span><span></span></div>}
     <div class="hero-inhalt">
       {a.label && <span class="label">{a.label}</span>}
       <h1 set:html={a.titel} />
@@ -16,10 +21,16 @@ const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
       <div class="hero-aktionen">
         {cta && <a class="btn btn-p" href={cta.ziel}>{cta.text}</a>}
         {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel}>{a.zweitaktion.text}</a>}
+        {a.telefon_zeigen && tel && <a class="btn btn-g hero-telknopf" href={`tel:${telLink(tel)}`} aria-label={`Anrufen: ${tel}`}><Icon name="telefon" class="" />{tel}</a>}
       </div>
       {a.kennzahlen && <div class="kennzahlen">{a.kennzahlen.map((k: any) => <div><b>{k.wert}</b><span>{k.text}</span></div>)}</div>}
     </div>
-    <div class="hero-bild" style={bg} role={a.bild_alt ? 'img' : undefined} aria-label={a.bild_alt}></div>
+    {a.grafik
+      ? <div class="hero-grafik" aria-hidden="true">
+          <svg class="hero-grafik-form" viewBox="0 0 24 24"><Fragment set:html={GRAFIK[a.grafik] ?? GRAFIK.zahn} /></svg>
+          <i class="punkt p1"></i><i class="punkt p2"></i><i class="punkt p3"></i><i class="ring"></i>
+        </div>
+      : <div class="hero-bild" style={bg} role={a.bild_alt ? 'img' : undefined} aria-label={a.bild_alt}></div>}
   </section>
 ) : (
   <section class={`hero hero--${variante} auf-dunkel`} id="top" style={variante === 'bild' ? bg : undefined}>

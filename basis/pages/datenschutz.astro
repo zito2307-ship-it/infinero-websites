@@ -2,12 +2,14 @@
 // Datenschutzerklärung aus Bausteinen – nur Dienste, die auf der Seite wirklich laufen.
 // Grundlage: 50_Rechtliches/Website-Rechtstexte/Datenschutzerklärung Blueprint.md (Vault). Muster, keine Rechtsberatung.
 import Seite from '../layouts/Seite.astro';
-import { inhalt, AUFSICHT } from '../lib/inhalt';
+import { inhalt, AUFSICHT, karte as osm } from '../lib/inhalt';
 const f = inhalt.firma;
 const fn = inhalt.funktionen;
 const d = inhalt.datenschutz ?? {};
 const hatFormular = (inhalt.abschnitte ?? []).some((a: any) => a.typ === 'anfrage');
-const hatKarte = fn.karte || (inhalt.abschnitte ?? []).some((a: any) => a.typ === 'kontakt' && a.karte);
+const kartenWunsch = fn.karte || (inhalt.abschnitte ?? []).some((a: any) => a.typ === 'kontakt' && a.karte);
+const hatKarte = kartenWunsch && !osm;      // Google Maps mit 2-Klick
+const hatOsm = kartenWunsch && !!osm;       // lokale OpenStreetMap-Kacheln
 const aufsicht = AUFSICHT[f.bundesland] ?? 'der für uns zuständigen Datenschutz-Aufsichtsbehörde';
 const stand = d.stand ?? new Date().toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
 let n = 0;
@@ -29,6 +31,9 @@ const nr = () => ++n;
     <h2>{nr()}. Hosting und Server-Logfiles</h2>
     <p>Diese Website wird bei {inhalt.hosting.anbieter} gehostet. Beim Aufruf werden automatisch Informationen erfasst (IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Referrer, Browser, Betriebssystem). Dies ist zur sicheren und stabilen Bereitstellung erforderlich (Art. 6 Abs. 1 lit. f DSGVO). {inhalt.hosting.drittland ?? 'Eine Übermittlung in die USA ist möglich; der Anbieter ist unter dem EU-US Data Privacy Framework zertifiziert.'} Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO).</p>
 
+    {inhalt.webdesign_link !== false && <><h2>{nr()}. Technische Betreuung der Website</h2>
+    <p>Erstellung, Hosting-Verwaltung und Pflege dieser Website übernimmt INFINERO – Inhaber Ziu Tonndorf, Closewitzer Straße 19, 07743 Jena, als Auftragsverarbeiter nach Art. 28 DSGVO. INFINERO hat dabei nur Zugriff auf die Inhalte der Website und die für ihren Betrieb nötigen technischen Daten.</p></>}
+
     <h2>{nr()}. SSL-/TLS-Verschlüsselung</h2>
     <p>Diese Seite nutzt aus Sicherheitsgründen eine TLS-Verschlüsselung (erkennbar an „https://“ in der Adresszeile).</p>
 
@@ -37,6 +42,9 @@ const nr = () => ++n;
 
     {hatKarte && <><h2>{nr()}. Google Maps (mit 2-Klick-Lösung)</h2>
     <p>Zur Darstellung von Karten nutzen wir Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Die Karte wird erst geladen, wenn Sie auf „Karte laden“ klicken; dabei wird u. a. Ihre IP-Adresse an Google übertragen, ggf. auch in die USA. Google ist unter dem EU-US Data Privacy Framework zertifiziert. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG.</p></>}
+
+    {hatOsm && <><h2>{nr()}. Kartendarstellung</h2>
+    <p>Die Karte auf dieser Website besteht aus Kartenbildern von OpenStreetMap (© OpenStreetMap-Mitwirkende, Lizenz ODbL), die direkt auf unserem Server liegen. Beim Anzeigen der Karte wird keine Verbindung zu OpenStreetMap oder anderen Anbietern hergestellt. Erst wenn Sie auf „Route planen“ klicken, öffnet sich Google Maps (Google Ireland Limited, Irland) in einem neuen Fenster; dann gelten die Datenschutzbestimmungen von Google.</p></>}
 
     <h2>{nr()}. Schriftarten</h2>
     <p>Schriftarten sind lokal eingebunden; es findet keine Verbindung zu Servern Dritter statt.{fn.chat !== 'snippet' && ' Diese Website setzt keine Cookies.'}</p>

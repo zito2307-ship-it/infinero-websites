@@ -7,7 +7,7 @@ const jahr = new Date().getFullYear();
   <div class="wrap">
     <div class="fuss-raster">
       <div>
-        <div class="fuss-marke">{f.name}</div>
+        <div class="fuss-marke" set:html={f.name_fuss ?? f.name} />
         {inhalt.fuss_text && <p>{inhalt.fuss_text}</p>}
       </div>
       <div>

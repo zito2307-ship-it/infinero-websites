@@ -1,0 +1,50 @@
+---
+// Detailseite je Leistung (leistungen → eintraege[].details: { einleitung, abschnitte: [{ titel, text }], hinweis })
+import Seite from '../../layouts/Seite.astro';
+import Icon from '../../bausteine/Icon.astro';
+import { inhalt, leistungsSeiten } from '../../lib/inhalt';
+
+export function getStaticPaths() {
+  return leistungsSeiten().map((l: any) => ({ params: { slug: l.slug }, props: { l } }));
+}
+const { l } = Astro.props;
+const d = l.details;
+const andere = leistungsSeiten().filter((x: any) => x.slug !== l.slug);
+const cta = inhalt.hauptaktion;
+---
+<Seite titel={`${l.titel} – ${inhalt.firma.name}`} beschreibung={d.einleitung?.slice(0, 155)} unterseite>
+  <section class="detail-kopf">
+    <div class="wrap">
+      <a class="zurueck" href="/#leistungen">← Alle Leistungen</a>
+      {l.icon && <Icon name={l.icon} class="ic detail-ic" />}
+      <h1>{l.titel}</h1>
+      {d.einleitung && <p class="detail-einleitung">{d.einleitung}</p>}
+    </div>
+  </section>
+  <section class="detail-inhalt">
+    <div class="wrap detail-raster">
+      <div class="detail-text">
+        {(d.abschnitte ?? []).map((s: any) => (
+          <div class="detail-abschnitt">
+            <h2>{s.titel}</h2>
+            {(Array.isArray(s.text) ? s.text : [s.text]).map((t: string) => <p>{t}</p>)}
+          </div>
+        ))}
+        {d.hinweis && <p class="detail-hinweis">{d.hinweis}</p>}
+      </div>
+      <aside class="detail-seite">
+        <div class="detail-karte">
+          <h3>Persönliche Beratung</h3>
+          <p>Ob diese Behandlung für Sie infrage kommt, besprechen wir nach einer Untersuchung.</p>
+          {cta && <a class="btn btn-p" href={cta.ziel.startsWith('#') ? `/${cta.ziel}` : cta.ziel}>{cta.text}</a>}
+        </div>
+        {andere.length > 0 && (
+          <nav class="detail-weitere" aria-label="Weitere Leistungen">
+            <h3>Weitere Leistungen</h3>
+            <ul>{andere.map((x: any) => <li><a href={`/leistungen/${x.slug}`}>{x.titel}</a></li>)}</ul>
+          </nav>
+        )}
+      </aside>
+    </div>
+  </section>
+</Seite>

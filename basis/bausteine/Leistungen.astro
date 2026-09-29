@@ -1,5 +1,5 @@
 ---
-import { bild } from '../lib/inhalt';
+import { bild, slug } from '../lib/inhalt';
 import Icon from './Icon.astro';
 import Kopf from './Kopf.astro';
 const { a } = Astro.props;
@@ -15,10 +15,12 @@ const { a } = Astro.props;
             {!l.bild && l.icon && <Icon name={l.icon} />}
             <h3>{l.titel}</h3>
             <p>{l.text}</p>
-            {(l.preis || l.link) && (
+            {(l.preis || l.link || l.details) && (
               <div class="leistung-fuss">
-                {l.preis && <span class="preis">{l.preis}</span>}
-                {l.link && <a href={l.link.ziel}>{l.link.text}</a>}
+                {l.preis ? <span class="preis">{l.preis}</span> : <span></span>}
+                {l.details
+                  ? <a href={`/leistungen/${l.slug ?? slug(l.titel)}`}>Mehr erfahren<span class="sr"> über {l.titel}</span> →</a>
+                  : l.link && <a href={l.link.ziel}>{l.link.text}</a>}
               </div>
             )}
           </div>

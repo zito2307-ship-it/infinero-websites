@@ -100,6 +100,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .marke { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--akzent); min-width: 0; }
 .marke img { height: 44px; width: auto; }
 .marke-zeichen { width: 38px; height: 38px; border-radius: calc(var(--radius) / 2); background: var(--akzent); color: var(--auf-akzent); display: grid; place-items: center; font: 800 19px var(--font-titel); flex-shrink: 0; }
+.marke-zeichen--icon svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.7; fill: none; stroke-linejoin: round; }
 .marke-name { font: var(--titel-gewicht) 25px/1 var(--font-titel); letter-spacing: .01em; }
 .marke-zusatz { display: block; font: 600 9.5px/1 var(--font-text); letter-spacing: .3em; text-transform: uppercase; color: var(--gedaempft); margin-top: 5px; }
 .nav-links { display: flex; gap: 26px; align-items: center; }
@@ -150,6 +151,28 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .kennzahlen { display: flex; gap: 34px; flex-wrap: wrap; margin-top: 34px; }
 .kennzahlen b { font: var(--titel-gewicht) 34px/1 var(--font-titel); color: var(--akzent); display: block; }
 .kennzahlen span { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gedaempft); }
+
+
+/* Hero mit Grafik + bewegtem Hintergrund (hero.grafik) */
+.hero--grafik { background: linear-gradient(120deg, var(--bg) 0%, color-mix(in srgb, var(--hervor) 12%, var(--bg)) 100%); isolation: isolate; }
+.hero-deko { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.hero-deko span { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .5; animation: schweben 18s ease-in-out infinite alternate; }
+.hero-deko span:nth-child(1) { width: 420px; height: 420px; background: color-mix(in srgb, var(--hervor) 55%, transparent); top: -120px; right: 18%; }
+.hero-deko span:nth-child(2) { width: 360px; height: 360px; background: color-mix(in srgb, var(--akzent) 22%, transparent); bottom: -140px; left: 8%; animation-duration: 23s; }
+.hero-deko span:nth-child(3) { width: 260px; height: 260px; background: color-mix(in srgb, var(--zweit) 30%, transparent); top: 35%; right: -60px; animation-duration: 15s; }
+@keyframes schweben { to { transform: translate(40px, 30px) scale(1.12); } }
+.hero-grafik { position: relative; display: grid; place-items: center; min-height: 56vh; overflow: hidden; }
+.hero-grafik-form { width: min(78%, 460px); height: auto; fill: color-mix(in srgb, var(--flaeche) 55%, transparent); stroke: var(--akzent); stroke-width: .35; stroke-linejoin: round; stroke-linecap: round; filter: drop-shadow(0 30px 40px color-mix(in srgb, var(--akzent) 18%, transparent)); animation: grafik-schweben 7s ease-in-out infinite; stroke-dasharray: 80; stroke-dashoffset: 80; animation: zeichnen 2.4s ease-out .2s forwards, grafik-schweben 7s ease-in-out 2.6s infinite; }
+@keyframes zeichnen { to { stroke-dashoffset: 0; } }
+@keyframes grafik-schweben { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-14px) rotate(2deg); } }
+.hero-grafik .ring { position: absolute; width: min(92%, 560px); aspect-ratio: 1; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--akzent) 30%, transparent); animation: drehen 60s linear infinite; }
+.hero-grafik .punkt { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--hervor); box-shadow: 0 0 0 8px color-mix(in srgb, var(--hervor) 25%, transparent); animation: grafik-schweben 6s ease-in-out infinite; }
+.hero-grafik .p1 { top: 18%; left: 22%; }
+.hero-grafik .p2 { bottom: 20%; right: 18%; width: 10px; height: 10px; animation-delay: -2s; background: var(--akzent); }
+.hero-grafik .p3 { top: 30%; right: 14%; width: 8px; height: 8px; animation-delay: -4s; }
+@keyframes drehen { to { transform: rotate(360deg); } }
+.hero-telknopf svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.8; fill: none; }
+@media (max-width: 900px) { .hero-grafik { min-height: 300px; order: -1; } .hero-grafik-form { width: 200px; } .hero-grafik .ring { width: 300px; } }
 
 /* Kennzahlen-Leiste unter dem Hero */
 .leiste { background: var(--dunkel-2); border-top: 1px solid rgba(255, 255, 255, .08); padding: 0; }
@@ -339,4 +362,65 @@ section.zitat-flaeche { background: color-mix(in srgb, var(--hervor) 16%, var(--
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
+  .hero-grafik-form { stroke-dashoffset: 0; }
+  [data-einblenden] { opacity: 1 !important; transform: none !important; }
 }
+
+/* Detailseiten (Leistungen) */
+.detail-kopf { padding: clamp(56px, 8vw, 88px) 0 40px; background: linear-gradient(120deg, var(--bg), color-mix(in srgb, var(--hervor) 14%, var(--bg))); }
+.detail-kopf .wrap { max-width: 1100px; }
+.detail-ic { width: 52px; height: 52px; padding: 12px; border-radius: 16px; background: var(--flaeche); color: var(--akzent); margin-bottom: 18px; box-shadow: var(--schatten); }
+.detail-kopf h1 { font-size: clamp(34px, 5vw, 56px); margin-bottom: 16px; }
+.detail-einleitung { font-size: 19px; color: var(--gedaempft); max-width: 60ch; }
+.detail-inhalt { padding-top: 48px; }
+.detail-raster { display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; max-width: 1100px; }
+@media (max-width: 860px) { .detail-raster { grid-template-columns: 1fr; gap: 32px; } }
+.detail-abschnitt { margin-bottom: 34px; }
+.detail-abschnitt h2 { font-size: 24px; margin-bottom: 10px; }
+.detail-abschnitt p { color: var(--gedaempft); margin-bottom: 10px; font-size: 16.5px; }
+.detail-hinweis { font-size: 13.5px; color: var(--gedaempft); border-left: 3px solid var(--hervor); padding-left: 12px; }
+.detail-seite { position: sticky; top: 96px; display: grid; gap: 20px; }
+.detail-karte, .detail-weitere { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); padding: 24px; }
+.detail-karte h3, .detail-weitere h3 { font-size: 18px; margin-bottom: 8px; }
+.detail-karte p { color: var(--gedaempft); font-size: 14.5px; margin-bottom: 16px; }
+.detail-karte .btn { width: 100%; }
+.detail-weitere ul { list-style: none; }
+.detail-weitere li { border-top: 1px solid var(--linie); }
+.detail-weitere a { display: block; padding: 10px 0; color: var(--akzent); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+
+/* Team: ausklappbare Infos */
+.person-mehr { margin-top: 10px; text-align: left; }
+.person-mehr summary { cursor: pointer; text-align: center; color: var(--akzent); font-weight: 600; font-size: 14px; list-style: none; }
+.person-mehr summary::-webkit-details-marker { display: none; }
+.person-mehr summary::after { content: " +"; }
+.person-mehr[open] summary::after { content: " –"; }
+.person-mehr div { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 14px; padding: 14px 16px; margin-top: 10px; }
+.person-mehr p { color: var(--gedaempft); font-size: 14px; margin-bottom: 6px; }
+
+/* Galerie-Slider */
+.slider { position: relative; }
+.slider-spur { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; }
+.slider-spur::-webkit-scrollbar { display: none; }
+.slider-bild { flex: 0 0 min(420px, 80%); aspect-ratio: 4 / 3; border-radius: var(--radius); background: var(--zweit) center/cover no-repeat; scroll-snap-align: start; position: relative; overflow: hidden; box-shadow: var(--schatten); }
+.slider-bild figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 16px 14px; background: linear-gradient(transparent, rgba(0, 0, 0, .7)); color: #fff; font-size: 13.5px; font-weight: 600; }
+.slider-knopf { position: absolute; top: 50%; translate: 0 -50%; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--linie); background: var(--flaeche); color: var(--akzent); font-size: 26px; line-height: 1; cursor: pointer; box-shadow: var(--schatten); }
+.zurueck-knopf { left: -12px; }
+.weiter-knopf { right: -12px; }
+@media (max-width: 700px) { .slider-knopf { display: none; } }
+
+/* Karte ohne Drittanbieter (OpenStreetMap-Kacheln lokal) */
+.osm { margin-top: 44px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--linie); position: relative; aspect-ratio: 16 / 7; background: #e8ecea; }
+@media (max-width: 700px) { .osm { aspect-ratio: 4 / 3; } }
+.osm-kacheln { position: absolute; width: 1792px; height: 768px; display: grid; grid-template-columns: repeat(7, 256px); filter: saturate(.55) contrast(.95); }
+.osm-kacheln img { width: 256px; height: 256px; }
+.osm-pin { position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; translate: -50% -100%; color: var(--akzent); filter: drop-shadow(0 6px 8px rgba(0, 0, 0, .3)); }
+.osm-pin svg { width: 100%; height: 100%; fill: currentColor; stroke: #fff; stroke-width: 1.2; }
+.osm-karte { position: absolute; left: 16px; bottom: 16px; background: var(--flaeche); border-radius: 14px; padding: 14px 16px; box-shadow: var(--schatten); max-width: calc(100% - 32px); }
+.osm-karte b { display: block; font-size: 15px; }
+.osm-karte span { color: var(--gedaempft); font-size: 13.5px; }
+.osm-karte .btn { margin-top: 10px; padding: 10px 18px; font-size: 14px; }
+.osm-quelle { position: absolute; right: 6px; bottom: 4px; font-size: 10.5px; background: rgba(255, 255, 255, .8); padding: 1px 6px; border-radius: 4px; color: #333; }
+
+/* Sanftes Einblenden beim Scrollen (design.bewegung) */
+[data-einblenden] { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+[data-einblenden].sichtbar { opacity: 1; transform: none; }

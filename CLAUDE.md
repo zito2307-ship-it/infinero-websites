@@ -64,6 +64,15 @@ Gemeinsame Felder: `anker` (Sprungziel), `menue` (Eintrag im Menü), `label`, `t
 | `faq` | Häufige Fragen | `fragen: [{frage, antwort}]` |
 | `kontakt` | Öffnungszeiten + Adresse (+ Karte) | `zeiten_titel`, `titel`, `hinweis`, `karte` |
 
+**Weitere Optionen (Runde 2, Testkunde K-0001):**
+- `hero.grafik: zahn` (nur `variante: geteilt`) – große Linien-Grafik mit sanft bewegtem Hintergrund statt Foto; `hero.telefon_zeigen: true` = Anruf-Knopf mit Hörer-Symbol.
+- `leistungen.eintraege[].details: { einleitung, abschnitte: [{ titel, text }], hinweis }` → eigene Unterseite `/leistungen/<slug>` + „Mehr erfahren“.
+- `team.personen[].text` → „Mehr erfahren“ zum Ausklappen (nur echte Angaben aus dem Onboarding – nichts erfinden).
+- `galerie.slider: true` → automatisch laufende Bildleiste (pausiert bei Maus/Fokus, keine Bewegung bei „reduzierte Bewegung“).
+- `kontakt.karte` + `npm run karte -- K-…` → Karte aus lokal gespeicherten OpenStreetMap-Kacheln (sofort sichtbar, keine Einwilligung nötig, „Route planen“ öffnet Google Maps). Ohne Kacheln: Google Maps mit 2-Klick.
+- `design.zeichen_icon: zahn` (Symbol statt Buchstabe im Logo), `design.bewegung: true` (Abschnitte blenden beim Scrollen ein).
+- `firma.name_fuss` (Name im Footer mit `<br>`), `firma.fax`, `recht.bildnachweise` (Pflicht bei CC-Fotos, z. B. Wikimedia Commons).
+
 Icons (`icon:`): uhr, telefon, stern, blatt, blitz, tropfen, bad, werkzeug, herz, haken, kalender, ort, schild,
 funke, haus, chat, euro, auto, schere, besteck (`basis/bausteine/Icon.astro`, dort ergänzen).
 

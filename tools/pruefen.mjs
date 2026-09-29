@@ -46,7 +46,8 @@ catch { browser = await chromium.launch(); } // Fallback: Playwright-Chromium (n
 
 const fehler = [];   // blockiert Livegang
 const hinweise = []; // ansehen, blockiert nicht
-const SEITEN = ['/', '/impressum', '/datenschutz'];
+const { leistungsSeiten } = await import('../basis/lib/inhalt.ts');
+const SEITEN = ['/', '/impressum', '/datenschutz', ...leistungsSeiten().slice(0, 1).map((l) => `/leistungen/${l.slug}`)];
 const GERAETE = { desktop: { viewport: { width: 1440, height: 900 } }, handy: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 } };
 let gewicht = 0;
 
@@ -54,7 +55,7 @@ for (const [geraet, opts] of Object.entries(GERAETE)) {
   const ctx = await browser.newContext(opts);
   for (const seite of SEITEN) {
     const page = await ctx.newPage();
-    const name = `${seite === '/' ? 'start' : seite.slice(1)}-${geraet}`;
+    const name = `${seite === '/' ? 'start' : seite.slice(1).replace(/\//g, '_')}-${geraet}`;
     page.on('console', (m) => { if (m.type() === 'error') fehler.push(`${name}: Konsolenfehler – ${m.text()}`); });
     page.on('pageerror', (e) => fehler.push(`${name}: Skriptfehler – ${e.message}`));
     page.on('response', async (r) => {

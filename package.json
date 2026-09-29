@@ -7,7 +7,8 @@
     "vorschau": "node tools/vorschau.mjs",
     "bauen": "node tools/bauen.mjs",
     "pruefen": "node tools/pruefen.mjs",
-    "veroeffentlichen": "node tools/veroeffentlichen.mjs"
+    "veroeffentlichen": "node tools/veroeffentlichen.mjs",
+    "karte": "node tools/karte.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",

@@ -1,5 +1,6 @@
 ---
 import { inhalt, telLink, bild } from '../lib/inhalt';
+import Icon from './Icon.astro';
 const { basis = '' } = Astro.props; // '' auf der Startseite, '/' auf Unterseiten
 const f = inhalt.firma;
 const links = (inhalt.abschnitte ?? []).filter((a: any) => a.menue && a.anker);
@@ -11,7 +12,8 @@ const cta = inhalt.hauptaktion;
       {inhalt.design?.logo
         ? <img src={bild(inhalt.design.logo)} alt={f.name} />
         : <>
-            {inhalt.design?.zeichen && <span class="marke-zeichen">{inhalt.design.zeichen}</span>}
+            {inhalt.design?.zeichen_icon ? <span class="marke-zeichen marke-zeichen--icon"><Icon name={inhalt.design.zeichen_icon} class="" /></span>
+              : inhalt.design?.zeichen && <span class="marke-zeichen">{inhalt.design.zeichen}</span>}
             <span><span class="marke-name">{f.kurzname ?? f.name}</span>{f.zusatz && <span class="marke-zusatz">{f.zusatz}</span>}</span>
           </>}
     </a>
