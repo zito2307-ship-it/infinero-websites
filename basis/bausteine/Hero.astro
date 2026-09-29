@@ -1,5 +1,6 @@
 ---
 import { inhalt, telLink, bild } from '../lib/inhalt';
+const logoGross = a => a.logo && inhalt.design?.logo ? bild(inhalt.design.logo) : null;
 import Icon from './Icon.astro';
 const { a } = Astro.props;
 const variante = a.variante ?? 'bild';
@@ -15,7 +16,7 @@ const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
   <section class={`hero hero--geteilt${a.grafik ? ' hero--grafik' : ''}`} id="top">
     {a.grafik && <div class="hero-deko" aria-hidden="true"><span></span><span></span><span></span></div>}
     <div class="hero-inhalt">
-      {a.label && <span class="label">{a.label}</span>}
+      {logoGross(a) ? <img class="hero-logo" src={logoGross(a)} alt={inhalt.firma.name} /> : a.label && <span class="label">{a.label}</span>}
       <h1 set:html={a.titel} />
       {a.text && <p class="hero-text">{a.text}</p>}
       <div class="hero-aktionen">

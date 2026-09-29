@@ -13,7 +13,6 @@ firma:
   name_fuss: Kieferorthopädie<br>Dr. Stefan Graf
   kurzname: Kieferorthopädie Dr. Graf
   name_kopf: Kieferorthopädie<br>Dr. Graf
-  zusatz: Fachzahnarzt · Weimar
   rechtlicher_name: Kieferorthopädische Praxis Dr. med. Stefan Graf
   inhaber: Dr. med. Stefan Graf
   strasse: Schillerstraße 17
@@ -39,7 +38,9 @@ seo:
 design:
   theme: praxis-klar
   favicon: favicon.svg
-  zeichen_icon: zahn
+  zeichen_icon: zahn     # greift nur ohne Logo
+  logo: logo.png         # Original-Logo der Praxis (transparent, von graf-in-weimar.de)
+  logo_im_kopf: false    # Kopf: Zahn + Name; Logo groß im Startbereich + im Footer
   bewegung: true
 
 hauptaktion: { text: Termin anfragen, ziel: "#anfrage" }
@@ -48,6 +49,7 @@ abschnitte:
   - typ: hero
     variante: geteilt
     grafik: zahn
+    logo: true             # Praxis-Logo groß über der Überschrift (Wunsch Dr. Graf)
     label: Kieferorthopädie in Weimar
     titel: Gerade Zähne. <em>In&nbsp;ruhigen Händen.</em>
     text: "Fachzahnärztliche Kieferorthopädie für Kinder, Jugendliche und Erwachsene – mitten in Weimar, in der Schillerstraße."

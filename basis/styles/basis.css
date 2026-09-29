@@ -98,7 +98,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linie); }
 .nav-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
 .marke { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--akzent); min-width: 0; }
-.marke img { height: 44px; width: auto; }
+.marke-logo { height: var(--logo-h, 44px); width: auto; max-width: 62vw; object-fit: contain; }
 .marke-zeichen { width: 38px; height: 38px; border-radius: calc(var(--radius) / 2); background: var(--akzent); color: var(--auf-akzent); display: grid; place-items: center; font: 800 19px var(--font-titel); flex-shrink: 0; }
 .marke-zeichen--icon svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 1.7; fill: none; stroke-linejoin: round; }
 .marke-name { font: var(--titel-gewicht) 25px/1 var(--font-titel); letter-spacing: .01em; }
@@ -150,7 +150,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .hero--bild .hero-text { color: var(--auf-dunkel-gedaempft); margin-inline: auto; }
 .hero--bild .hero-aktionen { justify-content: center; }
 
-.hero--geteilt { display: grid; grid-template-columns: 1.05fr .95fr; min-height: min(88vh, 860px); }
+.hero--geteilt { display: grid; grid-template-columns: 1.05fr .95fr; min-height: min(calc(100vh - 72px), 860px); padding: 0; }
 .hero--geteilt .hero-inhalt { display: flex; flex-direction: column; justify-content: center; padding: 72px 6vw 72px max(24px, calc((100vw - var(--breite)) / 2 + 24px)); }
 .hero--geteilt .hero-text { color: var(--gedaempft); max-width: 44ch; }
 .hero--geteilt h1 { font-size: clamp(40px, 5.4vw, 84px); }
@@ -196,6 +196,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 
 /* Handy: Startbereich kompakt, damit Text, Knöpfe und Grafik auf den ersten Blick passen */
 @media (max-width: 600px) {
+  .marke-logo { height: min(var(--logo-h, 44px), 40px); }
   .marke-zusatz { display: none; }
   .nav-in { height: 64px; }
   .hero--geteilt { padding: 0 0 12px; }
@@ -206,10 +207,14 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
   .hero--geteilt .hero-aktionen { gap: 10px; flex-wrap: nowrap; }
   .hero--geteilt .hero-aktionen .btn { padding: 12px 16px; font-size: 15px; white-space: nowrap; }
   .hero-grafik { min-height: 190px; margin-bottom: 8px; }
-  .hero-grafik { min-height: 210px; }
-  .hero-grafik-form { width: 130px; }
-  .hero-grafik .ring { width: 196px; }
+  .hero-grafik { min-height: 176px; }
+  .hero-grafik-form { width: 116px; }
+  .hero-grafik .ring { width: 172px; }
 }
+
+.hero-logo { width: min(440px, 100%); height: auto; margin: 0 0 22px -6px; }
+.hero--geteilt .hero-logo + h1 { font-size: clamp(38px, 4.4vw, 68px); }
+@media (max-width: 600px) { .hero-logo { width: min(300px, 88%); margin-bottom: 14px; } }
 
 /* Kennzahlen-Leiste unter dem Hero */
 .leiste { background: var(--dunkel-2); border-top: 1px solid rgba(255, 255, 255, .08); padding: 0; }
@@ -363,6 +368,8 @@ section.zitat-flaeche { background: color-mix(in srgb, var(--hervor) 16%, var(--
 .fuss { background: var(--dunkel); color: var(--auf-dunkel-gedaempft); padding: 56px 0 32px; font-size: 14.5px; }
 .fuss-raster { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; margin-bottom: 40px; }
 @media (max-width: 760px) { .fuss-raster { grid-template-columns: 1fr; gap: 28px; } }
+.fuss-logo { display: inline-block; background: var(--flaeche); border-radius: 14px; padding: 12px 16px; margin-bottom: 16px; }
+.fuss-logo img { height: 46px; width: auto; }
 .fuss-marke { font: var(--titel-gewicht) 28px var(--font-titel); color: #fff; margin-bottom: 10px; }
 .fuss h4 { font: 600 12px var(--font-text); letter-spacing: .16em; text-transform: uppercase; color: var(--hervor); margin-bottom: 14px; }
 .fuss ul { list-style: none; }

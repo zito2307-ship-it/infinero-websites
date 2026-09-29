@@ -70,6 +70,7 @@ Gemeinsame Felder: `anker` (Sprungziel), `menue` (Eintrag im Menü), `label`, `t
 - `team.personen[].text` → „Mehr erfahren“ zum Ausklappen (nur echte Angaben aus dem Onboarding – nichts erfinden).
 - `galerie.slider: true` → automatisch laufende Bildleiste (pausiert bei Maus/Fokus, keine Bewegung bei „reduzierte Bewegung“).
 - `kontakt.karte` + `npm run karte -- K-…` → Karte aus lokal gespeicherten OpenStreetMap-Kacheln (sofort sichtbar, keine Einwilligung nötig, „Route planen“ öffnet Google Maps). Ohne Kacheln: Google Maps mit 2-Klick.
+- `design.logo` (+ `logo_hoehe` in px, Standard 44; im Footer auf hellem Feld, abschaltbar mit `logo_im_fuss: false`; `logo_im_kopf: false` = Kopf zeigt Zeichen + Name). `hero.logo: true` = Logo groß über der Überschrift (ersetzt das Label)
 - `design.zeichen_icon: zahn` (Symbol statt Buchstabe im Logo), `design.bewegung: true` (Abschnitte blenden beim Scrollen ein).
 - `firma.name_kopf` / `firma.name_fuss` (Name im Kopf bzw. Footer mit `<br>`), `firma.fax`, `recht.bildnachweise` (Pflicht bei CC-Fotos, z. B. Wikimedia Commons).
 

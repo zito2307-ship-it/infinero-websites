@@ -1,5 +1,5 @@
 ---
-import { inhalt, telLink } from '../lib/inhalt';
+import { inhalt, telLink, bild } from '../lib/inhalt';
 const f = inhalt.firma;
 const jahr = new Date().getFullYear();
 ---
@@ -7,6 +7,7 @@ const jahr = new Date().getFullYear();
   <div class="wrap">
     <div class="fuss-raster">
       <div>
+        {inhalt.design?.logo && inhalt.design?.logo_im_fuss !== false && <div class="fuss-logo"><img src={bild(inhalt.design.logo)} alt={f.name} loading="lazy" /></div>}
         <div class="fuss-marke" set:html={f.name_fuss ?? f.name} />
         {inhalt.fuss_text && <p>{inhalt.fuss_text}</p>}
       </div>
