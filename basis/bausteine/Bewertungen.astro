@@ -1,0 +1,32 @@
+---
+// Eine Bewertung → großes Zitat, mehrere → Karten.
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+const liste = a.eintraege ?? [];
+const gross = liste.length === 1;
+---
+<section id={a.anker} class={gross ? 'zitat-flaeche' : 'flaeche'}>
+  <div class="wrap">
+    {gross ? (
+      <figure class="zitat">
+        <div class="sterne" aria-label="5 von 5 Sternen">★★★★★</div>
+        <blockquote>„{liste[0].text}“</blockquote>
+        <cite>{liste[0].name}</cite>
+      </figure>
+    ) : (
+      <>
+        <Kopf a={a} />
+        <div class="bewertungen">
+          {liste.map((b: any) => (
+            <figure class="bewertung">
+              <div class="sterne" aria-label={`${b.sterne ?? 5} von 5 Sternen`}>{'★'.repeat(b.sterne ?? 5)}</div>
+              <blockquote>„{b.text}“</blockquote>
+              <cite>— {b.name}</cite>
+            </figure>
+          ))}
+        </div>
+      </>
+    )}
+    {a.quelle && <p class="bewertung-quelle">{a.quelle}</p>}
+  </div>
+</section>

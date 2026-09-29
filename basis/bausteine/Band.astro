@@ -1,0 +1,10 @@
+---
+const { a } = Astro.props;
+---
+<section id={a.anker} class="band">
+  <div class="wrap">
+    {a.label && <span class="label">{a.label}</span>}
+    <h2 set:html={a.titel} />
+    {a.text && <p>{a.text}</p>}
+  </div>
+</section>

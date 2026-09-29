@@ -1,0 +1,54 @@
+# Inhaltsdatei eines Kunden. „??“ = fehlt noch (liefert Kunde nach) – `npm run pruefen` listet alles Offene.
+# Felder entsprechen dem Onboarding-Fragenkatalog (Vault: 40_Produkte/Onboarding-Fragenkatalog.md).
+# Bausteine unter `abschnitte` frei wählen, sortieren, weglassen – Übersicht in CLAUDE.md.
+kunde: {{KUNDE}}
+beispiel: false
+demo: false            # true = Demo-Balken „Beispiel-Demo von Infinero“ + noindex
+branche: {{BRANCHE}}
+domain: "??"           # z. B. mueller-bau.de (ohne https://)
+
+firma:                 # B1 Unternehmen & Ansprechpartner
+  name: {{NAME}}
+  zusatz: "??"         # Unterzeile im Logo, z. B. „Bad & Heizung · Jena“
+  rechtlicher_name: "??"   # exakt wie im Impressum inkl. Rechtsform
+  inhaber: "??"            # vertretungsberechtigt
+  strasse: "??"
+  plz: "??"
+  ort: "??"
+  bundesland: "??"         # für die Datenschutz-Aufsichtsbehörde
+  telefon: "??"
+  email: "??"
+  # whatsapp: 0170 1234567
+
+recht: {}              # nur was zutrifft: registergericht, registernummer, ust_id, wirtschafts_id,
+                       # berufsbezeichnung, verliehen_in, kammer, berufsregeln, aufsichtsbehoerde,
+                       # mehr_als_10_beschaeftigte: true, bildnachweise
+
+seo:
+  titel: "??"          # ≤ 60 Zeichen: Firma – Leistung in Ort
+  beschreibung: "??"   # ≤ 155 Zeichen
+
+design:
+  theme: {{THEME}}
+  favicon: favicon.svg
+  # logo: logo.svg     # Datei in bilder/ – sonst Name als Schriftzug
+  # zeichen: M         # Buchstabe im Kästchen vor dem Namen
+  # telefon_im_menue: true
+  # farben: { akzent: "#1d5c4a", akzent-dunkel: "#154436" }   # Kundenfarben überschreiben das Theme
+
+hauptaktion: { text: "??", ziel: "#anfrage" }
+
+abschnitte:
+{{ABSCHNITTE}}
+
+oeffnungszeiten:
+  - { tage: Mo – Fr, zeit: "??" }
+
+fuss_text: ""
+social: []             # - { name: Instagram, url: "https://instagram.com/…" }
+
+funktionen:
+  formular_endpunkt: ""   # leer = Vorschau-Modus (Formular sendet nichts!)
+  karte: false            # Google Maps mit 2-Klick-Lösung
+  chat: aus               # aus | demo | snippet
+  ki_telefon: false       # KI-Telefonassistent → Absatz in der Datenschutzerklärung

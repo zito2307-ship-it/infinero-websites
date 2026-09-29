@@ -1,0 +1,110 @@
+# Demo Beauty – übernommen aus infinero.de/demos/beauty.html (fiktiv)
+kunde: K-9102
+beispiel: true
+demo: true
+branche: beauty
+domain: maison-lelou.infinero.de
+
+firma:
+  name: Maison Lelou
+  zusatz: Kosmetik · Jena
+  rechtlicher_name: Maison Lelou (fiktives Beispiel)
+  inhaber: Lena Lelou
+  strasse: Wagnergasse 12
+  plz: "07743"
+  ort: Jena
+  bundesland: Thüringen
+  telefon: 03641 55 88 22
+  email: hallo@maison-lelou.de
+
+seo:
+  titel: Maison Lelou – Kosmetik, Nägel & Wimpern in Jena
+  beschreibung: Kosmetik, Nägel und Wimpern in ruhiger, moderner Atmosphäre mitten in Jena. Termin jederzeit online anfragen.
+
+design:
+  theme: beauty-hell
+  favicon: favicon.svg
+
+hauptaktion: { text: Termin, ziel: "#termin" }
+
+abschnitte:
+  - typ: hero
+    variante: geteilt
+    bild: hero.jpg
+    bild_alt: Ruhiger Behandlungsraum im Kosmetikstudio
+    label: Kosmetik · Nägel · Wimpern — Jena
+    titel: Zeit für <em>Sie</em>.
+    text: "Ein Ort zum Durchatmen: durchdachte Behandlungen, ehrliche Beratung und das gute Gefühl, rundum gepflegt zu sein."
+    aktion: { text: Termin buchen, ziel: "#termin" }
+    kennzahlen:
+      - { wert: "15", text: Jahre Erfahrung }
+      - { wert: "4,9", text: ★ bei 210 Gästen }
+      - { wert: 2.500+, text: zufriedene Kundinnen }
+
+  - typ: leistungen
+    anker: leistungen
+    menue: Behandlungen
+    label: Unsere Signature-Behandlungen
+    titel: Für Haut, die sich wohlfühlt.
+    text: Sorgfältig ausgewählt, individuell auf Sie abgestimmt.
+    eintraege:
+      - { titel: Luxus-Facial, bild: facial.jpg, text: "Tiefenreinigung, Peeling und eine entspannende Lifting-Massage. 90 Minuten pure Auszeit.", preis: 89 €, link: { text: Buchen →, ziel: "#termin" } }
+      - { titel: Maniküre & Shellac, bild: nails.jpg, text: "Perfekt geformte Nägel mit langanhaltender Farbe – gepflegt für Wochen.", preis: 39 €, link: { text: Buchen →, ziel: "#termin" } }
+      - { titel: Wimpernverlängerung, bild: lashes.jpg, text: "Natürlich oder voluminös – für einen wachen, strahlenden Blick ganz ohne Mascara.", preis: 119 €, link: { text: Buchen →, ziel: "#termin" } }
+    aktion: { text: Alle Behandlungen & Preise, ziel: "#termin" }
+
+  - typ: band
+    label: Unser Versprechen
+    titel: Kein Fließband. Zeit, Ruhe und ein Ergebnis, das Sie lieben.
+    text: Bei Maison Lelou nehmen wir uns Zeit für Sie – von der Beratung bis zum letzten Handgriff. Hochwertige Produkte, ein geschultes Team und eine Atmosphäre, in der Sie wirklich abschalten können.
+
+  - typ: team
+    anker: team
+    menue: Team
+    label: Ihr Team
+    titel: Hände, denen Sie vertrauen.
+    personen:
+      - { name: Lena, rolle: Inhaberin · Kosmetik }
+      - { name: Mara, rolle: Nageldesign }
+      - { name: Jasmin, rolle: Lash-Stylistin }
+
+  - typ: bewertungen
+    eintraege:
+      - { name: Sophie R. · Stammkundin, text: "Ich komme seit zwei Jahren und gehe jedes Mal entspannter raus, als ich reingekommen bin. Ehrliche Beratung, wunderschöne Ergebnisse – mein Lieblingsort in Jena." }
+
+  - typ: anfrage
+    anker: termin
+    art: termin
+    label: Termin
+    titel: Buchen Sie Ihre Auszeit.
+    text: Wählen Sie Behandlung und Wunschtag – wir bestätigen Ihren Termin.
+    themen: [Luxus-Facial, Klassische Gesichtsbehandlung, Maniküre & Shellac, Wimpernverlängerung, Microneedling, Waxing]
+    zeiten: ["09:00", "10:30", "12:00", "14:00", "15:30", "17:00", "18:30"]
+
+  - typ: kontakt
+    anker: kontakt
+    menue: Kontakt
+    titel: Kontakt
+
+oeffnungszeiten:
+  - { tage: Di – Fr, zeit: 09 – 19 Uhr }
+  - { tage: Sa, zeit: 09 – 15 Uhr }
+  - { tage: Online-Anfrage, zeit: jederzeit }
+
+fuss_text: Ihr Kosmetikstudio im Herzen von Jena – für Haut, Hände und Blick, die sich sehen lassen können.
+
+social:
+  - { name: Instagram, url: "https://instagram.com/" }
+
+funktionen:
+  chat: demo
+
+chat:
+  begruessung: Hallo & herzlich willkommen! 🌸 Möchten Sie einen Termin buchen oder haben Sie eine Frage zu unseren Behandlungen?
+  antworten:
+    - { stichworte: [wimper, lash], antwort: "Für die Wimpernverlängerung planen wir ca. 90 Min. ein (Neuanlage 119 €). Möchten Sie einen Termin?" }
+    - { stichworte: [preis, kost], antwort: "Gesichtsbehandlung ab 59 €, Maniküre 39 €, Wimpern ab 119 €. Die Signature-Behandlungen sehen Sie oben." }
+    - { stichworte: [öffnung, geöffnet, offen], antwort: "Di–Fr 9–19 Uhr, Sa 9–15 Uhr. Online anfragen können Sie natürlich jederzeit." }
+    - { stichworte: [termin, buch, frei, wann], antwort: "Sehr gern! Welche Behandlung darf es sein und an welchem Tag? Nutzen Sie gern das Formular – wir bestätigen schnell. 🌸" }
+    - { stichworte: [park, adresse, " wo"], antwort: "Sie finden uns in der Wagnergasse 12, 07743 Jena – mitten in der Innenstadt." }
+  sonst: Das kläre ich gern! Möchten Sie direkt einen Termin anfragen? Sagen Sie mir einfach Behandlung und Wunschtag. 😊

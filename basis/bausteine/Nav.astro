@@ -1,0 +1,24 @@
+---
+import { inhalt, telLink, bild } from '../lib/inhalt';
+const { basis = '' } = Astro.props; // '' auf der Startseite, '/' auf Unterseiten
+const f = inhalt.firma;
+const links = (inhalt.abschnitte ?? []).filter((a: any) => a.menue && a.anker);
+const cta = inhalt.hauptaktion;
+---
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="marke" href={basis || '#top'} aria-label={`${f.name} – Startseite`}>
+      {inhalt.design?.logo
+        ? <img src={bild(inhalt.design.logo)} alt={f.name} />
+        : <>
+            {inhalt.design?.zeichen && <span class="marke-zeichen">{inhalt.design.zeichen}</span>}
+            <span><span class="marke-name">{f.kurzname ?? f.name}</span>{f.zusatz && <span class="marke-zusatz">{f.zusatz}</span>}</span>
+          </>}
+    </a>
+    <nav class="nav-links" aria-label="Hauptmenü">
+      {links.map((a: any) => <a href={`${basis}#${a.anker}`}>{a.menue}</a>)}
+      {inhalt.design?.telefon_im_menue && f.telefon && <a class="nav-tel" href={`tel:${telLink(f.telefon)}`}>{f.telefon}</a>}
+      {cta && <a class="btn btn-p" href={cta.ziel.startsWith('#') ? `${basis}${cta.ziel}` : cta.ziel}>{cta.text}</a>}
+    </nav>
+  </div>
+</header>

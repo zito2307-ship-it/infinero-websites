@@ -1,0 +1,30 @@
+---
+// Startseite: setzt die Bausteine in der Reihenfolge aus inhalt.yaml → abschnitte zusammen.
+import Seite from '../layouts/Seite.astro';
+import { inhalt } from '../lib/inhalt';
+import Hero from '../bausteine/Hero.astro';
+import Vorteile from '../bausteine/Vorteile.astro';
+import TextBild from '../bausteine/TextBild.astro';
+import Leistungen from '../bausteine/Leistungen.astro';
+import Preisliste from '../bausteine/Preisliste.astro';
+import Galerie from '../bausteine/Galerie.astro';
+import Team from '../bausteine/Team.astro';
+import Bewertungen from '../bausteine/Bewertungen.astro';
+import Band from '../bausteine/Band.astro';
+import Anfrage from '../bausteine/Anfrage.astro';
+import Faq from '../bausteine/Faq.astro';
+import Kontakt from '../bausteine/Kontakt.astro';
+
+const BAUSTEINE: Record<string, any> = {
+  hero: Hero, vorteile: Vorteile, textbild: TextBild, leistungen: Leistungen, preisliste: Preisliste,
+  galerie: Galerie, team: Team, bewertungen: Bewertungen, band: Band, anfrage: Anfrage, faq: Faq, kontakt: Kontakt,
+};
+const unbekannt = (inhalt.abschnitte ?? []).filter((a: any) => !BAUSTEINE[a.typ]).map((a: any) => a.typ);
+if (unbekannt.length) throw new Error(`Unbekannte Bausteine in inhalt.yaml: ${unbekannt.join(', ')}`);
+---
+<Seite>
+  {(inhalt.abschnitte ?? []).map((a: any) => {
+    const B = BAUSTEINE[a.typ];
+    return <B a={a} />;
+  })}
+</Seite>

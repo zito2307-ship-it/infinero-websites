@@ -1,0 +1,59 @@
+/* Handwerk kräftig – Marineblau + Signalorange, eine kräftige Sans (Manrope 800).
+   Vorbild: Demo „Berger Haustechnik“. Passt zu: SHK, Elektro, Dach, Maler, Kfz, Garten- und Landschaftsbau. */
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-ext-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-ext-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-ext-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/manrope/latin-ext-700.css";
+@import "@fontsource/manrope/latin-800.css";
+@import "@fontsource/manrope/latin-ext-800.css";
+
+:root {
+  --bg: #f2f5f8;
+  --flaeche: #ffffff;
+  --text: #14202b;
+  --gedaempft: #53646f;
+  --linie: rgba(20, 40, 60, .12);
+  --akzent: #b04a0a;
+  --akzent-dunkel: #8f3c08;
+  --zweit: #163a5f;
+  --hervor: #ef7d2e;
+  --label: #b04a0a;
+  --dunkel: #0f2942;
+  --dunkel-2: #163a5f;
+  --auf-dunkel: #eaf1f8;
+  --auf-dunkel-gedaempft: #c4d4e3;
+  --titel-kursiv-farbe: #ef7d2e;
+  --schatten: 0 24px 55px -30px rgba(15, 40, 70, .4);
+  --font-text: "Manrope", system-ui, sans-serif;
+  --font-titel: "Manrope", system-ui, sans-serif;
+  --titel-gewicht: 800;
+  --titel-spacing: -.02em;
+  --radius: 14px;
+  --radius-btn: 10px;
+  --radius-feld: 10px;
+  --label-spacing: .18em;
+}
+h1 em, h2 em { font-style: normal; }
+.label { font-weight: 700; }
+.btn { font-weight: 700; }
+.btn-p { box-shadow: 0 12px 26px -12px color-mix(in srgb, var(--akzent) 70%, transparent); }
+.marke { color: var(--zweit); }
+.marke-zeichen { background: var(--zweit); }
+.marke-name { font-size: 19px; }
+.marke-zusatz { letter-spacing: .14em; }
+.nav-links a { font-weight: 600; }
+.nav-links .nav-tel { color: var(--zweit); font-weight: 800; }
+.kopf h2, .textbild h2, .kontakt h3, .leistung h3 { color: var(--zweit); }
+.leistung .ic { background: #e3e9ef; color: var(--zweit); }
+.leistung h3 { font-size: 19px; }
+.kontakt h3 { font-size: 22px; }
+.kontakt-daten .betont { color: var(--zweit); }
+.bewertung blockquote { font: 500 15.5px/1.6 var(--font-text); }
+.posten b { font-size: 18px; }
+.chat-knopf { border-radius: 14px; background: var(--zweit); }
+.chat-kopf, .msg.ich { background: var(--zweit); }
+.fuss { background: #0b1a2a; }

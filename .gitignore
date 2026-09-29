@@ -1,0 +1,7 @@
+node_modules/
+dist/
+pruefung/
+.astro/
+.DS_Store
+.env
+.wrangler/

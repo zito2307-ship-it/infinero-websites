@@ -1,0 +1,30 @@
+---
+import { bild } from '../lib/inhalt';
+import Icon from './Icon.astro';
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+---
+<section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}>
+  <div class="wrap">
+    <Kopf a={a} />
+    <div class="leistungen">
+      {a.eintraege.map((l: any) => (
+        <article class="leistung">
+          {l.bild && <div class="leistung-bild" style={`background-image:url('${bild(l.bild)}')`} role="img" aria-label={l.bild_alt ?? l.titel}></div>}
+          <div class="leistung-inhalt">
+            {!l.bild && l.icon && <Icon name={l.icon} />}
+            <h3>{l.titel}</h3>
+            <p>{l.text}</p>
+            {(l.preis || l.link) && (
+              <div class="leistung-fuss">
+                {l.preis && <span class="preis">{l.preis}</span>}
+                {l.link && <a href={l.link.ziel}>{l.link.text}</a>}
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+    {a.aktion && <p class="mehr"><a class="btn btn-g" href={a.aktion.ziel}>{a.aktion.text}</a></p>}
+  </div>
+</section>

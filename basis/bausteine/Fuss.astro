@@ -1,0 +1,34 @@
+---
+import { inhalt, telLink } from '../lib/inhalt';
+const f = inhalt.firma;
+const jahr = new Date().getFullYear();
+---
+<footer class="fuss">
+  <div class="wrap">
+    <div class="fuss-raster">
+      <div>
+        <div class="fuss-marke">{f.name}</div>
+        {inhalt.fuss_text && <p>{inhalt.fuss_text}</p>}
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>{f.strasse}<br />{f.plz} {f.ort}</p>
+        <p>{f.telefon && <a href={`tel:${telLink(f.telefon)}`}>{f.telefon}</a>}<br />{f.email && <a href={`mailto:${f.email}`}>{f.email}</a>}</p>
+      </div>
+      <div>
+        {inhalt.oeffnungszeiten.length > 0 && <>
+          <h4>Öffnungszeiten</h4>
+          <ul>{inhalt.oeffnungszeiten.map((z: any) => <li>{z.tage}: {z.zeit}</li>)}</ul>
+        </>}
+        {inhalt.social.length > 0 && <>
+          <h4>Folgen Sie uns</h4>
+          <ul>{inhalt.social.map((s: any) => <li><a href={s.url} rel="noopener">{s.name}</a></li>)}</ul>
+        </>}
+      </div>
+    </div>
+    <div class="fuss-unten">
+      <span>© {jahr} {f.rechtlicher_name ?? f.name}{inhalt.demo && ' · Fiktive Beispiel-Website'}</span>
+      <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a>{inhalt.webdesign_link !== false && <a href="https://infinero.de" rel="noopener">Website: INFINERO</a>}</nav>
+    </div>
+  </div>
+</footer>

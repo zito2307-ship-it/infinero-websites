@@ -1,0 +1,118 @@
+# Demo Gastro – übernommen aus infinero.de/demos/restaurant.html (fiktiv)
+kunde: K-9101
+beispiel: true
+demo: true
+demo_text: So könnte Ihre Website aussehen – inkl. Online-Reservierung & KI-Chat
+branche: gastro
+domain: da-rosa.infinero.de
+
+firma:
+  name: Ristorante Da Rosa
+  kurzname: Da Rosa
+  zusatz: Ristorante · Jena
+  rechtlicher_name: Ristorante Da Rosa (fiktives Beispiel)
+  inhaber: Rosa Esposito
+  strasse: Marktgasse 7
+  plz: "07743"
+  ort: Jena
+  bundesland: Thüringen
+  telefon: 03641 55 88 00
+  email: ciao@da-rosa-jena.de
+
+seo:
+  titel: Ristorante Da Rosa – Italienisch essen in Jena
+  beschreibung: Hausgemachte Pasta, Holzofen-Pizza und Weine aus der Toskana in Jena. Tisch rund um die Uhr online reservieren.
+
+design:
+  theme: gastro-warm
+  favicon: favicon.svg
+
+hauptaktion: { text: Tisch reservieren, ziel: "#reservieren" }
+
+abschnitte:
+  - typ: hero
+    variante: bild
+    bild: hero.jpg
+    bewertung: 4,9 bei 320 Gästen
+    label: Cucina Italiana dal 1998
+    titel: Wie bei <em>Nonna</em>. Nur mit Tisch&nbsp;am&nbsp;Fenster.
+    text: Hausgemachte Pasta, Holzofen-Pizza und Weine aus der Toskana – mitten in Jena. Reservieren Sie in 30 Sekunden, rund um die Uhr.
+    zweitaktion: { text: Zur Speisekarte, ziel: "#speisekarte" }
+
+  - typ: vorteile
+    ueberlappend: true
+    punkte:
+      - { icon: uhr, titel: 24/7 reservieren, text: "Online, sofort bestätigt – auch nachts und am Wochenende." }
+      - { icon: telefon, titel: Immer erreichbar, text: "Kein Klingeln ins Leere – der KI-Assistent nimmt jeden Anruf an." }
+      - { icon: blatt, titel: Frisch & regional, text: "Täglich hausgemacht, Zutaten vom Markt um die Ecke." }
+
+  - typ: textbild
+    anker: ueber
+    menue: Über uns
+    label: Unsere Geschichte
+    titel: Seit 1998 kocht Familie Rosa mit Herz.
+    text:
+      - Was als kleine Trattoria begann, ist heute Jenas Adresse für ehrliche italienische Küche. Rosa und ihre Söhne stehen selbst am Herd – jeden Abend frische Pasta, jeden Sonntag der Sugo von der Nonna.
+      - "Bei uns sitzt man lang. Deshalb kümmert sich unsere Technik im Hintergrund um Reservierungen und Anrufe – damit wir Zeit für das Wichtige haben: Sie."
+    aktion: { text: Tisch sichern →, ziel: "#reservieren" }
+    bild: about.jpg
+    bild_alt: Gedeckter Tisch im Restaurant am Abend
+    bild_text: Abende, an denen man gern sitzen bleibt.
+
+  - typ: preisliste
+    anker: speisekarte
+    menue: Speisekarte
+    label: Auswahl
+    titel: Von der Karte
+    text: Eine kleine Auswahl – die ganze Karte gibt's am Tisch.
+    posten:
+      - { name: Vitello Tonnato, text: "Kalbsbraten, Thunfischcreme, Kapern", preis: "12,50" }
+      - { name: Burrata Pugliese, text: "Cremige Burrata, Datteltomaten, Basilikum", preis: "11,00" }
+      - { name: Tagliatelle al Ragù, text: "Hausgemacht, Ragù nach Nonnas Art", preis: "15,50" }
+      - { name: Pizza Tartufo, text: "Trüffelcreme, Steinpilze, Rucola", preis: "16,90" }
+      - { name: Branzino al Forno, text: "Wolfsbarsch aus dem Ofen, Kräuter, Zitrone", preis: "23,00" }
+      - { name: Tiramisù della Casa, text: "Das Original – nur solange der Vorrat reicht", preis: "7,50" }
+
+  - typ: anfrage
+    anker: reservieren
+    art: reservierung
+    label: Reservierung
+    titel: Ihr Tisch wartet.
+    text: In 30 Sekunden reserviert – Sie bekommen sofort eine Bestätigung.
+    zeiten: ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"]
+    hinweis: Sie können den Tisch jederzeit kostenlos stornieren.
+
+  - typ: bewertungen
+    label: Gästestimmen
+    titel: Was unsere Gäste sagen
+    eintraege:
+      - { name: "Familie Hofmann, Jena", text: "Die beste Pasta außerhalb Italiens. Wir kommen seit Jahren und werden immer wie Familie empfangen." }
+      - { name: Daniel K., text: "Reservierung in Sekunden, Tisch am Fenster, perfekter Abend. Genau so muss das sein." }
+      - { name: Nadine & Tom, text: "Herzlicher Service, ehrliche Küche, faire Preise. Unser Stammlokal für besondere Anlässe." }
+
+  - typ: kontakt
+    anker: kontakt
+    menue: Kontakt
+    hinweis: Auch telefonisch immer erreichbar – unser KI-Assistent nimmt an, wenn im Service gerade keine Hand frei ist.
+
+oeffnungszeiten:
+  - { tage: Mo, zeit: Ruhetag }
+  - { tage: Di – Fr, zeit: "17:00 – 23:00" }
+  - { tage: Sa, zeit: "12:00 – 23:30" }
+  - { tage: So & Feiertag, zeit: "12:00 – 22:00" }
+
+fuss_text: Cucina Italiana in Jena – seit 1998.
+
+funktionen:
+  karte: false
+  chat: demo
+
+chat:
+  titel: Da Rosa – Chat
+  begruessung: Ciao! 👋 Ich bin der digitale Assistent vom Da Rosa. Möchten Sie einen Tisch reservieren oder haben Sie eine Frage?
+  antworten:
+    - { stichworte: [reserv, tisch, buch], antwort: "Sehr gern! Für wie viele Personen und wann darf ich reservieren? Sie können auch direkt das Formular oben nutzen – geht in 30 Sekunden. 🍝" }
+    - { stichworte: [öffnung, geöffnet, wann, offen], antwort: "Wir haben Di–Fr ab 17 Uhr, Sa & So schon ab 12 Uhr geöffnet. Montag ist Ruhetag." }
+    - { stichworte: [vegan, vegetar, glutenf, allerg], antwort: "Ja, wir haben vegetarische und vegane Gerichte sowie glutenfreie Pasta. Sagen Sie einfach am Tisch Bescheid." }
+    - { stichworte: [park, anfahrt, adresse, " wo"], antwort: "Sie finden uns in der Marktgasse 7, 07743 Jena. Parkplätze gibt es im Parkhaus am Markt (2 Min. zu Fuß)." }
+  sonst: Gute Frage! Für Details rufen wir Sie gern zurück – oder Sie reservieren direkt oben. Möchten Sie einen Tisch? 😊

@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+const ueberlappend = a.ueberlappend ?? false;
+---
+{ueberlappend ? (
+  <div class="wrap"><div class="vorteile vorteile--ueberlappend">
+    {a.punkte.map((p: any) => <div class="vorteil">{p.icon && <Icon name={p.icon} />}<h3>{p.titel}</h3><p>{p.text}</p></div>)}
+  </div></div>
+) : (
+  <section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}><div class="wrap">
+    <Kopf a={a} />
+    <div class="vorteile">
+      {a.punkte.map((p: any) => <div class="vorteil">{p.icon && <Icon name={p.icon} />}<h3>{p.titel}</h3><p>{p.text}</p></div>)}
+    </div>
+  </div></section>
+)}

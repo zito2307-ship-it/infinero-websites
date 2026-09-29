@@ -1,0 +1,12 @@
+---
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+---
+<section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}>
+  <div class="wrap">
+    <Kopf a={a} />
+    <div class="faq">
+      {a.fragen.map((f: any) => <details><summary>{f.frage}</summary><p>{f.antwort}</p></details>)}
+    </div>
+  </div>
+</section>

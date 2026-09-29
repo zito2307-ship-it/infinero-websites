@@ -1,0 +1,18 @@
+---
+import { bild } from '../lib/inhalt';
+const { a } = Astro.props;
+const absaetze = Array.isArray(a.text) ? a.text : [a.text].filter(Boolean);
+---
+<section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}>
+  <div class={`wrap textbild${a.bild_links ? ' textbild--umgekehrt' : ''}`}>
+    <div>
+      {a.label && <span class="label">{a.label}</span>}
+      <h2 set:html={a.titel} />
+      {absaetze.map((t: string) => <p>{t}</p>)}
+      {a.aktion && <a class="btn btn-g" href={a.aktion.ziel}>{a.aktion.text}</a>}
+    </div>
+    <div class="textbild-bild" style={a.bild ? `background-image:url('${bild(a.bild)}')` : undefined} role={a.bild_alt ? 'img' : undefined} aria-label={a.bild_alt} aria-hidden={a.bild_alt ? undefined : 'true'}>
+      {a.bild_text && <span>{a.bild_text}</span>}
+    </div>
+  </div>
+</section>

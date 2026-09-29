@@ -1,0 +1,72 @@
+---
+// Formular-Baustein. art: reservierung | termin | rueckruf | kontakt
+// Versand: funktionen.formular_endpunkt (Supabase Edge Function → Brevo-Mail an den Kunden).
+// Ohne Endpunkt läuft das Formular im Vorschau-Modus (zeigt nur die Bestätigung).
+import { inhalt } from '../lib/inhalt';
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+const art = a.art ?? 'kontakt';
+const zeiten: string[] = a.zeiten ?? [];
+const themen: string[] = a.themen ?? [];
+const std = {
+  reservierung: { knopf: 'Jetzt reservieren', erfolg: 'Tisch angefragt!', erfolgText: 'Danke! Wir bestätigen Ihre Reservierung in Kürze.' },
+  termin: { knopf: 'Termin anfragen', erfolg: 'Termin angefragt!', erfolgText: 'Danke! Wir bestätigen Ihren Wunschtermin in Kürze.' },
+  rueckruf: { knopf: 'Rückruf anfordern', erfolg: 'Danke – wir rufen zurück!', erfolgText: 'Ihre Anfrage ist bei uns eingegangen. Wir melden uns in Kürze.' },
+  kontakt: { knopf: 'Nachricht senden', erfolg: 'Danke für Ihre Nachricht!', erfolgText: 'Wir melden uns so schnell wie möglich bei Ihnen.' },
+}[art as 'kontakt'];
+const endpunkt = inhalt.funktionen.formular_endpunkt || '';
+const id = `f-${a.anker ?? art}`;
+const zweispaltig = !!a.punkte;
+---
+<section id={a.anker} class="anfrage auf-dunkel">
+  <div class={`wrap${zweispaltig ? ' anfrage-raster' : ''}`}>
+    <div>
+      <Kopf a={a} />
+      {a.punkte && <ul class="hakenliste">{a.punkte.map((p: string) => <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 6"/></svg>{p}</li>)}</ul>}
+    </div>
+    <div class="formular">
+      <form data-anfrage data-endpunkt={endpunkt} data-kunde={inhalt.kunde} data-art={art} id={id}>
+        {a.formular_titel && <h3>{a.formular_titel}</h3>}
+        {a.formular_text && <p class="unter">{a.formular_text}</p>}
+        {art === 'termin' && themen.length > 0 && (
+          <div class="feld"><label for={`${id}-thema`}>{a.themen_label ?? 'Behandlung'}</label>
+            <select id={`${id}-thema`} name="thema" required><option value="">Bitte wählen</option>{themen.map((t) => <option>{t}</option>)}</select></div>
+        )}
+        {(art === 'reservierung' || art === 'termin') && (
+          <div class="reihe">
+            <div class="feld"><label for={`${id}-datum`}>{art === 'termin' ? 'Wunschtag' : 'Datum'}</label><input type="date" id={`${id}-datum`} name="datum" required data-heute /></div>
+            <div class="feld"><label for={`${id}-zeit`}>Uhrzeit</label>
+              <select id={`${id}-zeit`} name="uhrzeit" required><option value="">–</option>{zeiten.map((z) => <option>{z}</option>)}</select></div>
+            {art === 'reservierung' && (
+              <div class="feld"><label for={`${id}-personen`}>Personen</label>
+                <select id={`${id}-personen`} name="personen" required>{Array.from({ length: (a.personen_max ?? 8) }, (_, i) => <option selected={i === 1}>{i + 1}</option>)}<option>mehr</option></select></div>
+            )}
+          </div>
+        )}
+        <div class="reihe">
+          <div class="feld"><label for={`${id}-name`}>Name</label><input type="text" id={`${id}-name`} name="name" autocomplete="name" required /></div>
+          <div class="feld"><label for={`${id}-tel`}>Telefon</label><input type="tel" id={`${id}-tel`} name="telefon" autocomplete="tel" required={art !== 'kontakt'} /></div>
+        </div>
+        {art === 'kontakt' && <div class="feld"><label for={`${id}-mail`}>E-Mail</label><input type="email" id={`${id}-mail`} name="email" autocomplete="email" required /></div>}
+        {art === 'rueckruf' && (
+          <div class="reihe">
+            {themen.length > 0 && <div class="feld"><label for={`${id}-thema`}>{a.themen_label ?? 'Worum geht es?'}</label>
+              <select id={`${id}-thema`} name="thema" required><option value="">Bitte wählen</option>{themen.map((t) => <option>{t}</option>)}</select></div>}
+            <div class="feld"><label for={`${id}-wann`}>Wann sollen wir anrufen?</label>
+              <select id={`${id}-wann`} name="wann">{(zeiten.length ? zeiten : ['So schnell wie möglich', 'Vormittags', 'Nachmittags', 'Morgen']).map((z) => <option>{z}</option>)}</select></div>
+          </div>
+        )}
+        {(art === 'kontakt' || a.nachricht) && <div class="feld"><label for={`${id}-text`}>{a.nachricht_label ?? 'Ihre Nachricht'}</label><textarea id={`${id}-text`} name="nachricht" required={art === 'kontakt'}></textarea></div>}
+        <label class="hp" aria-hidden="true">Bitte leer lassen <input type="text" name="firma_website" tabindex="-1" autocomplete="off" /></label>
+        <button type="submit" class="btn btn-p">{a.knopf ?? std.knopf}</button>
+        <p class="formular-hinweis">{a.hinweis ? a.hinweis + ' ' : ''}Ihre Angaben nutzen wir nur für Ihre Anfrage – mehr in der <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+        <p class="fehler" role="alert" hidden>Das hat leider nicht geklappt. Bitte rufen Sie uns an{inhalt.firma.telefon ? ` (${inhalt.firma.telefon})` : ''}.</p>
+      </form>
+      <div class="erfolg" hidden aria-live="polite">
+        <div class="haken" aria-hidden="true">✓</div>
+        <h3>{a.erfolg ?? std.erfolg}</h3>
+        <p>{a.erfolg_text ?? std.erfolgText}</p>
+      </div>
+    </div>
+  </div>
+</section>

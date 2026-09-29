@@ -1,0 +1,24 @@
+---
+// Speisekarte oder Preisliste – optional in Gruppen.
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+const gruppen = a.gruppen ?? [{ posten: a.posten ?? [] }];
+---
+<section id={a.anker} class={a.flaeche ?? true ? 'flaeche' : undefined}>
+  <div class="wrap">
+    <Kopf a={a} />
+    <div class="preisliste">
+      {gruppen.map((g: any) => (
+        <>
+          {g.titel && <h3>{g.titel}</h3>}
+          <div class="preise">
+            {g.posten.map((p: any) => (
+              <div class="posten"><div><b>{p.name}</b>{p.text && <small>{p.text}</small>}</div>{p.preis && <span class="preis">{p.preis}</span>}</div>
+            ))}
+          </div>
+        </>
+      ))}
+      {a.hinweis && <p class="preisliste-hinweis">{a.hinweis}</p>}
+    </div>
+  </div>
+</section>

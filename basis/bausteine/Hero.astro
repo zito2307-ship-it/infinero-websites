@@ -1,0 +1,46 @@
+---
+import { inhalt, telLink, bild } from '../lib/inhalt';
+import Icon from './Icon.astro';
+const { a } = Astro.props;
+const variante = a.variante ?? 'bild';
+const cta = a.aktion ?? inhalt.hauptaktion;
+const tel = inhalt.firma.telefon;
+const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
+---
+{variante === 'geteilt' ? (
+  <section class="hero hero--geteilt" id="top">
+    <div class="hero-inhalt">
+      {a.label && <span class="label">{a.label}</span>}
+      <h1 set:html={a.titel} />
+      {a.text && <p class="hero-text">{a.text}</p>}
+      <div class="hero-aktionen">
+        {cta && <a class="btn btn-p" href={cta.ziel}>{cta.text}</a>}
+        {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel}>{a.zweitaktion.text}</a>}
+      </div>
+      {a.kennzahlen && <div class="kennzahlen">{a.kennzahlen.map((k: any) => <div><b>{k.wert}</b><span>{k.text}</span></div>)}</div>}
+    </div>
+    <div class="hero-bild" style={bg} role={a.bild_alt ? 'img' : undefined} aria-label={a.bild_alt}></div>
+  </section>
+) : (
+  <section class={`hero hero--${variante} auf-dunkel`} id="top" style={variante === 'bild' ? bg : undefined}>
+    <div class="wrap">
+      <div class="hero-inhalt">
+        {a.bewertung && <div class="sterne">★★★★★ <span>· {a.bewertung}</span></div>}
+        {a.badge && <div class="hero-badge"><i></i>{a.badge}</div>}
+        {a.label && <span class="label">{a.label}</span>}
+        <h1 set:html={a.titel} />
+        {a.text && <p class="hero-text">{a.text}</p>}
+        <div class="hero-aktionen">
+          {cta && <a class="btn btn-p" href={cta.ziel}>{cta.text}</a>}
+          {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel}>{a.zweitaktion.text}</a>}
+          {a.telefon_zeigen && tel && <a class="hero-tel" href={`tel:${telLink(tel)}`}><Icon name="telefon" class="" />{tel}</a>}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+{a.leiste && (
+  <div class="leiste">
+    <div class="wrap leiste-in">{a.leiste.map((k: any) => <div><b>{k.wert}</b><span>{k.text}</span></div>)}</div>
+  </div>
+)}

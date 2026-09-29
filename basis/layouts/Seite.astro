@@ -1,0 +1,101 @@
+---
+import '../styles/basis.css';
+import '@theme';
+import { inhalt, bild } from '../lib/inhalt';
+import Nav from '../bausteine/Nav.astro';
+import Fuss from '../bausteine/Fuss.astro';
+import DemoChat from '../bausteine/DemoChat.astro';
+
+const { titel, beschreibung, unterseite = false } = Astro.props;
+const seo = inhalt.seo ?? {};
+const t = titel ?? seo.titel ?? inhalt.firma.name;
+const b = beschreibung ?? seo.beschreibung ?? '';
+const noindex = inhalt.demo || inhalt.beispiel || inhalt.noindex;
+// Farben je Kunde überschreiben (design.farben: { akzent: '#…', … })
+const farben = Object.entries(inhalt.design?.farben ?? {}).map(([k, v]) => `--${k}:${v}`).join(';');
+const chat = inhalt.funktionen.chat;
+---
+<!doctype html>
+<html lang={inhalt.sprache}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{t}</title>
+  {b && <meta name="description" content={b} />}
+  {noindex && <meta name="robots" content="noindex" />}
+  {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />}
+  <meta property="og:title" content={t} />
+  {b && <meta property="og:description" content={b} />}
+  {seo.bild && <meta property="og:image" content={bild(seo.bild)} />}
+  <link rel="icon" href={bild(inhalt.design?.favicon ?? 'favicon.svg')} />
+  {farben && <style set:html={`:root:root{${farben}}`}></style>}
+</head>
+<body>
+  {inhalt.demo && <div class="demobar">⚡ <b>Beispiel-Demo von Infinero</b> · {inhalt.demo_text ?? 'So könnte Ihre Website aussehen'} · <a href="https://infinero.de">Zu Infinero →</a></div>}
+  <Nav basis={unterseite ? '/' : ''} />
+  <main><slot /></main>
+  <Fuss />
+  {chat === 'demo' && <DemoChat />}
+  {chat === 'snippet' && inhalt.funktionen.chat_snippet && <Fragment set:html={inhalt.funktionen.chat_snippet} />}
+  <script>
+    // Formulare: Datum vorbelegen, absenden (oder Vorschau-Modus)
+    const heute = new Date().toISOString().slice(0, 10);
+    document.querySelectorAll<HTMLInputElement>('input[data-heute]').forEach((i) => { i.value = heute; i.min = heute; });
+    document.querySelectorAll<HTMLFormElement>('form[data-anfrage]').forEach((form) => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const daten = Object.fromEntries(new FormData(form).entries());
+        if (daten.firma_website) return; // Spam-Falle
+        delete daten.firma_website;
+        const fehler = form.querySelector<HTMLElement>('.fehler')!;
+        const knopf = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+        const endpunkt = form.dataset.endpunkt;
+        knopf.disabled = true;
+        try {
+          if (endpunkt) {
+            const r = await fetch(endpunkt, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ kunde: form.dataset.kunde, art: form.dataset.art, seite: location.href, daten }) });
+            if (!r.ok) throw new Error(String(r.status));
+          }
+          form.hidden = true;
+          (form.nextElementSibling as HTMLElement).hidden = false;
+        } catch {
+          fehler.hidden = false;
+          knopf.disabled = false;
+        }
+      });
+    });
+    // Karte erst nach Klick laden (2-Klick-Lösung)
+    document.querySelectorAll<HTMLElement>('[data-karte]').forEach((k) => {
+      k.querySelector('button')?.addEventListener('click', () => {
+        k.innerHTML = `<iframe src="${k.dataset.karte}" title="Karte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+        k.classList.add('geladen');
+      });
+    });
+    // Demo-Chat
+    const fenster = document.querySelector<HTMLElement>('[data-chat]');
+    const knopf = document.querySelector<HTMLButtonElement>('[data-chat-knopf]');
+    if (fenster && knopf) {
+      const cfg = JSON.parse(fenster.dataset.chat!);
+      const verlauf = fenster.querySelector('.chat-verlauf')!;
+      const eingabe = fenster.querySelector('input')!;
+      const neu = (text: string, wer: string) => {
+        const m = document.createElement('div'); m.className = `msg ${wer}`; m.textContent = text;
+        verlauf.appendChild(m); verlauf.scrollTop = verlauf.scrollHeight;
+      };
+      knopf.addEventListener('click', () => {
+        fenster.hidden = !fenster.hidden; knopf.setAttribute('aria-expanded', String(!fenster.hidden));
+        if (!fenster.hidden) eingabe.focus();
+      });
+      fenster.querySelector('form')!.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const v = eingabe.value.trim(); if (!v) return;
+        neu(v, 'ich'); eingabe.value = '';
+        const t = v.toLowerCase();
+        const treffer = cfg.antworten.find((x: any) => x.w.some((w: string) => t.includes(w.toLowerCase())));
+        setTimeout(() => neu(treffer ? treffer.a : cfg.sonst, 'bot'), 600);
+      });
+    }
+  </script>
+</body>
+</html>

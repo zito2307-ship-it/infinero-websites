@@ -1,0 +1,16 @@
+---
+// Vorführ-Chat für Demos: antwortet anhand der FAQ-Stichworte aus inhalt.yaml.
+// Echte Kunden bekommen stattdessen das Chat-Widget-Snippet (funktionen.chat: snippet).
+import { inhalt } from '../lib/inhalt';
+const c = inhalt.chat ?? {};
+const antworten = (c.antworten ?? []).map((x: any) => ({ w: x.stichworte, a: x.antwort }));
+---
+<button class="chat-knopf" type="button" aria-label="Chat öffnen" aria-controls="chat" aria-expanded="false" data-chat-knopf>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 011 1v10a1 1 0 01-1 1H9l-5 4v-4a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>
+</button>
+<div class="chat-fenster" id="chat" hidden data-chat={JSON.stringify({ antworten, sonst: c.sonst ?? 'Gute Frage! Rufen Sie uns gern an – oder nutzen Sie das Formular.' })}>
+  <div class="chat-kopf"><b>{c.titel ?? inhalt.firma.kurzname ?? inhalt.firma.name}</b><span>KI-Assistent · antwortet sofort</span></div>
+  <div class="chat-verlauf" aria-live="polite"><div class="msg bot">{c.begruessung ?? 'Hallo! Wie kann ich helfen?'}</div></div>
+  <form class="chat-eingabe"><label class="sr" for="chat-eingabe">Nachricht</label><input id="chat-eingabe" placeholder="Nachricht schreiben…" autocomplete="off" /><button type="submit">Senden</button></form>
+  <div class="chat-hinweis">Demo-Chat · Sie schreiben mit einer KI</div>
+</div>

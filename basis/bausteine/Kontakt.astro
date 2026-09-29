@@ -1,0 +1,36 @@
+---
+import { inhalt, telLink } from '../lib/inhalt';
+const { a } = Astro.props;
+const f = inhalt.firma;
+const adresse = `${f.strasse}, ${f.plz} ${f.ort}`;
+const karte = a.karte ?? inhalt.funktionen.karte;
+---
+<section id={a.anker ?? 'kontakt'}>
+  <div class="wrap">
+    <div class="kontakt">
+      <div>
+        <h3>{a.zeiten_titel ?? 'Öffnungszeiten'}</h3>
+        <ul class="zeiten">{inhalt.oeffnungszeiten.map((z: any) => <li><b>{z.tage}</b><span>{z.zeit}</span></li>)}</ul>
+        {a.zeiten_hinweis && <p class="zeiten-hinweis">{a.zeiten_hinweis}</p>}
+      </div>
+      <div class="kontakt-daten">
+        <h3>{a.titel ?? 'So finden Sie uns'}</h3>
+        <p>{f.strasse}<br />{f.plz} {f.ort}</p>
+        <p>
+          {f.telefon && <>Telefon: <a href={`tel:${telLink(f.telefon)}`}>{f.telefon}</a><br /></>}
+          {f.whatsapp && <>WhatsApp: <a href={`https://wa.me/${telLink(f.whatsapp).replace('+', '')}`}>{f.whatsapp}</a><br /></>}
+          {f.email && <>E-Mail: <a href={`mailto:${f.email}`}>{f.email}</a></>}
+        </p>
+        {a.hinweis && <p class="betont">{a.hinweis}</p>}
+      </div>
+    </div>
+    {karte && (
+      <div class="karte" data-karte={`https://www.google.com/maps?q=${encodeURIComponent(adresse)}&output=embed`}>
+        <div>
+          <p>Zum Anzeigen der Karte wird eine Verbindung zu Google hergestellt. Dabei wird Ihre IP-Adresse übertragen – mehr in der <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+          <button type="button" class="btn btn-g">Karte laden</button>
+        </div>
+      </div>
+    )}
+  </div>
+</section>

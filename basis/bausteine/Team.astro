@@ -1,0 +1,19 @@
+---
+import { bild } from '../lib/inhalt';
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+---
+<section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}>
+  <div class="wrap">
+    <Kopf a={a} />
+    <div class="team">
+      {a.personen.map((p: any) => (
+        <div class="person">
+          <div class="person-bild" style={p.bild ? `background-image:url('${bild(p.bild)}')` : undefined} role={p.bild ? 'img' : undefined} aria-label={p.bild ? p.name : undefined}>{!p.bild && p.name.charAt(0)}</div>
+          <h3>{p.name}</h3>
+          <span>{p.rolle}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

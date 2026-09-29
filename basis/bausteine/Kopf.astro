@@ -1,0 +1,11 @@
+---
+// Überschrift eines Abschnitts: label (klein), titel, text.
+const { a } = Astro.props;
+---
+{(a.titel || a.label) && (
+  <div class="kopf">
+    {a.label && <span class="label">{a.label}</span>}
+    {a.titel && <h2 set:html={a.titel} />}
+    {a.text && <p>{a.text}</p>}
+  </div>
+)}

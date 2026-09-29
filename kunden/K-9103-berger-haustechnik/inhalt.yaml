@@ -1,0 +1,125 @@
+# Demo Handwerk – übernommen aus infinero.de/demos/handwerk.html (fiktiv)
+kunde: K-9103
+beispiel: true
+demo: true
+demo_text: So könnte Ihre Website aussehen – bringt Anfragen & holt verpasste Anrufe zurück
+branche: handwerk
+domain: berger-haustechnik.infinero.de
+
+firma:
+  name: Berger Haustechnik
+  zusatz: Bad & Heizung · Jena
+  rechtlicher_name: Berger Haustechnik (fiktives Beispiel)
+  inhaber: Thomas Berger
+  strasse: Industriestraße 4
+  plz: "07743"
+  ort: Jena
+  bundesland: Thüringen
+  telefon: 03641 55 88 44
+  email: info@berger-haustechnik.de
+
+recht:
+  berufsbezeichnung: Installateur- und Heizungsbauermeister
+  verliehen_in: Deutschland
+  kammer: Handwerkskammer für Ostthüringen, Handwerksstraße 5, 07545 Gera
+  berufsregeln: Handwerksordnung (HwO), abrufbar unter gesetze-im-internet.de
+
+seo:
+  titel: Berger Haustechnik – Bad & Heizung in Jena, 24/7-Notdienst
+  beschreibung: SHK-Meisterbetrieb für Bad und Heizung in Jena. Kostenlos Rückruf anfordern, Festpreise, 24/7-Notdienst.
+
+design:
+  theme: handwerk-kraeftig
+  zeichen: B
+  telefon_im_menue: true
+  favicon: favicon.svg
+
+hauptaktion: { text: Rückruf anfordern, ziel: "#rueckruf" }
+
+abschnitte:
+  - typ: hero
+    variante: dunkel
+    badge: SHK-Meisterbetrieb · seit 1996
+    titel: Ihr Bad. Ihre Heizung. <em>In besten Händen.</em>
+    text: "Vom tropfenden Hahn bis zur kompletten Badsanierung – zuverlässig, sauber, zum Festpreis. Wir sind auf der Baustelle, nicht am Telefon: Fordern Sie einfach einen Rückruf an."
+    aktion: { text: Kostenlos Rückruf anfordern, ziel: "#rueckruf" }
+    telefon_zeigen: true
+    leiste:
+      - { wert: "29", text: Jahre Erfahrung }
+      - { wert: 24/7, text: Notdienst }
+      - { wert: Festpreis, text: ohne böse Überraschung }
+      - { wert: 1.200+, text: zufriedene Kunden }
+
+  - typ: leistungen
+    anker: leistungen
+    menue: Leistungen
+    label: Leistungen
+    titel: Alles rund um Bad & Heizung
+    text: Ein Meisterbetrieb, ein Ansprechpartner – von der Reparatur bis zur kompletten Sanierung.
+    eintraege:
+      - { icon: bad, titel: Badsanierung, text: "Ihr neues Bad – geplant, gefliest, installiert. Alles aus einer Hand." }
+      - { icon: tropfen, titel: Heizung, text: "Wartung, Reparatur & moderne, sparsame Heizungen inkl. Förder-Check." }
+      - { icon: blitz, titel: Notdienst, text: "Rohrbruch oder Heizungsausfall? Wir sind schnell da – rund um die Uhr." }
+      - { icon: werkzeug, titel: Wartung, text: "Regelmäßige Checks, damit alles läuft – und Sie Ruhe haben." }
+
+  - typ: galerie
+    anker: referenzen
+    menue: Referenzen
+    flaeche: true
+    label: Referenzen
+    titel: Unsere Arbeit spricht für sich
+    text: Ein kleiner Einblick in fertige Projekte aus Jena und Umgebung.
+    bilder:
+      - { bild: bad1.jpg, text: Modernes Duschbad · Jena-Nord }
+      - { bild: bad2.jpg, text: Komplettbad mit Wanne · Winzerla }
+      - { bild: bad3.jpg, text: Gäste-WC in Grau · Lobeda }
+
+  - typ: anfrage
+    anker: rueckruf
+    art: rueckruf
+    label: Kein verpasster Auftrag mehr
+    titel: Sie erreichen uns – auch wenn wir gerade schrauben.
+    text: "Handwerker sind selten am Telefon. Bei uns geht trotzdem kein Anruf verloren: Fordern Sie einen Rückruf an, und wir melden uns verlässlich zurück."
+    punkte:
+      - Verpasste Anrufe werden automatisch zurückgeholt
+      - Sie sagen kurz, worum es geht – wir bereiten uns vor
+      - Fester Ansprechpartner, kein Callcenter
+    formular_titel: Rückruf anfordern
+    formular_text: Kostenlos & unverbindlich – wir rufen zurück.
+    themen: [Badsanierung / Umbau, Heizung (Wartung / neu), "Notfall (Rohrbruch, Ausfall)", Sonstiges]
+
+  - typ: bewertungen
+    label: Kundenstimmen
+    titel: Worauf sich unsere Kunden verlassen
+    eintraege:
+      - { name: "Familie Ziegler, Jena", text: "Rohrbruch am Sonntag – nach dem Rückruf war jemand innerhalb einer Stunde da. Absolut zuverlässig." }
+      - { name: M. Schröder, text: "Neues Bad zum Festpreis – sauber gearbeitet, im Zeitplan, keine versteckten Kosten. Sehr empfehlenswert." }
+      - { name: Thomas B., text: "Endlich ein Handwerker, der zurückruft und Termine einhält. Heizung läuft wieder einwandfrei." }
+
+  - typ: kontakt
+    anker: kontakt
+    menue: Kontakt
+    zeiten_titel: Erreichbarkeit
+    titel: So erreichen Sie uns
+    hinweis: "Einsatzgebiet: Jena und Umgebung (bis 30 km)."
+
+oeffnungszeiten:
+  - { tage: Mo – Fr, zeit: "07:00 – 17:00" }
+  - { tage: Sa, zeit: nach Vereinbarung }
+  - { tage: Notdienst, zeit: 24 Stunden }
+
+fuss_text: SHK-Meisterbetrieb · Bad & Heizung · Jena
+
+funktionen:
+  karte: true
+  chat: demo
+
+chat:
+  begruessung: Guten Tag! 👋 Womit können wir helfen – Badsanierung, Heizung oder ein Notfall? Ich kann direkt einen Rückruf für Sie einplanen.
+  antworten:
+    - { stichworte: [notfall, rohrbruch, ausfall, dringend, sofort], antwort: "Verstanden, das klingt dringend. Bitte nennen Sie mir Ihre Rufnummer – ich leite es sofort an den Notdienst weiter. 🔧" }
+    - { stichworte: [bad, sanier, umbau, fliesen], antwort: "Sehr gern! Für eine Badsanierung kommen wir gern zur kostenlosen Besichtigung vorbei. Soll ich einen Rückruf einplanen?" }
+    - { stichworte: [heizung, therme, wärmepumpe, förder], antwort: "Bei Heizungen beraten wir auch zur Förderung. Möchten Sie einen Rückruf zur Wartung oder zu einer neuen Anlage?" }
+    - { stichworte: [kost, preis, angebot], antwort: "Wir arbeiten mit Festpreisen – nach kurzer Besichtigung bekommen Sie ein verbindliches Angebot ohne Überraschungen." }
+    - { stichworte: [wann, erreich, öffnung], antwort: "Mo–Fr 7–17 Uhr, dazu 24/7-Notdienst. Einen Rückruf können Sie jederzeit anfordern." }
+  sonst: Gern! Am schnellsten geht ein Rückruf – nennen Sie mir kurz Ihre Nummer und worum es geht, dann kümmern wir uns. 😊

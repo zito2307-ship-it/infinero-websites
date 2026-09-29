@@ -1,0 +1,17 @@
+---
+import { bild } from '../lib/inhalt';
+import Kopf from './Kopf.astro';
+const { a } = Astro.props;
+---
+<section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}>
+  <div class="wrap">
+    <Kopf a={a} />
+    <div class="galerie">
+      {a.bilder.map((b: any) => (
+        <figure style={`background-image:url('${bild(b.bild)}')`} role="img" aria-label={b.alt ?? b.text ?? 'Bild'}>
+          {b.text && <figcaption>{b.text}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+// Impressum nach § 5 DDG – Gerüst aus 50_Rechtliches/Website-Rechtstexte/Impressum Blueprint.md (Vault).
+import Seite from '../layouts/Seite.astro';
+import { inhalt, istOffen } from '../lib/inhalt';
+const f = inhalt.firma;
+const r = inhalt.recht ?? {};
+const zeig = (v: unknown) => !istOffen(v);
+---
+<Seite titel={`Impressum – ${f.name}`} unterseite>
+  <article class="recht">
+    <a class="zurueck" href="/">← Zur Startseite</a>
+    <h1>Impressum</h1>
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>{f.rechtlicher_name}<br />{f.strasse}<br />{f.plz} {f.ort}</p>
+    <p><strong>Vertreten durch:</strong> {f.inhaber}</p>
+    <h2>Kontakt</h2>
+    <p>{f.telefon && <>Telefon: {f.telefon}<br /></>}E-Mail: <a href={`mailto:${f.email}`}>{f.email}</a></p>
+    {zeig(r.registergericht) && <><h2>Registereintrag</h2><p>Registergericht: {r.registergericht}<br />Registernummer: {r.registernummer}</p></>}
+    {(zeig(r.ust_id) || zeig(r.wirtschafts_id)) && <><h2>Umsatzsteuer</h2><p>
+      {zeig(r.ust_id) && <>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: {r.ust_id}<br /></>}
+      {zeig(r.wirtschafts_id) && <>Wirtschafts-Identifikationsnummer: {r.wirtschafts_id}</>}</p></>}
+    {zeig(r.berufsbezeichnung) && <><h2>Berufsrechtliche Angaben</h2><p>
+      Berufsbezeichnung: {r.berufsbezeichnung}{r.verliehen_in && ` (verliehen in ${r.verliehen_in})`}<br />
+      {zeig(r.kammer) && <>Zuständige Kammer: {r.kammer}<br /></>}
+      {zeig(r.berufsregeln) && <>Berufsrechtliche Regelungen: {r.berufsregeln}<br /></>}
+    </p></>}
+    {zeig(r.aufsichtsbehoerde) && <p>Zuständige Aufsichtsbehörde: {r.aufsichtsbehoerde}</p>}
+    {zeig(r.redaktion) && <><h2>Redaktionell verantwortlich</h2><p>{r.redaktion}</p></>}
+    {r.mehr_als_10_beschaeftigte && <><h2>Verbraucherstreitbeilegung</h2><p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p></>}
+    {inhalt.webdesign_link !== false && <><h2>Webdesign</h2><p><a href="https://infinero.de" rel="noopener">INFINERO</a></p></>}
+    {zeig(r.bildnachweise) && <><h2>Bildnachweise</h2><p>{r.bildnachweise}</p></>}
+  </article>
+</Seite>

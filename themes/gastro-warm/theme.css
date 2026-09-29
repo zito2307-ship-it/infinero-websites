@@ -1,0 +1,45 @@
+/* Gastro warm – Weinrot, Creme, Oliv. Serifen-Titel (Cormorant Garamond) + Manrope.
+   Vorbild: Demo „Ristorante Da Rosa“. Passt zu: Restaurant, Café, Bäckerei, Weinbar. */
+@import "@fontsource/cormorant-garamond/latin-500.css";
+@import "@fontsource/cormorant-garamond/latin-ext-500.css";
+@import "@fontsource/cormorant-garamond/latin-600.css";
+@import "@fontsource/cormorant-garamond/latin-ext-600.css";
+@import "@fontsource/cormorant-garamond/latin-600-italic.css";
+@import "@fontsource/cormorant-garamond/latin-ext-600-italic.css";
+@import "@fontsource/cormorant-garamond/latin-700.css";
+@import "@fontsource/cormorant-garamond/latin-ext-700.css";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-ext-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-ext-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-ext-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/manrope/latin-ext-700.css";
+
+:root {
+  --bg: #faf6ef;
+  --flaeche: #fffdf9;
+  --text: #241a12;
+  --gedaempft: #6b5d4f;
+  --linie: rgba(60, 40, 20, .12);
+  --akzent: #7a2f2a;
+  --akzent-dunkel: #5e211d;
+  --zweit: #4a5a3a;
+  --hervor: #b8893f;
+  --label: #8a6424;
+  --dunkel: #1c0f0b;
+  --dunkel-2: #3d1c16;
+  --auf-dunkel: #f7ede0;
+  --auf-dunkel-gedaempft: #d9c6b2;
+  --titel-kursiv-farbe: #e6b877;
+  --schatten: 0 24px 60px -30px rgba(60, 30, 10, .4);
+  --font-text: "Manrope", system-ui, sans-serif;
+  --font-titel: "Cormorant Garamond", Georgia, serif;
+  --titel-gewicht: 600;
+  --radius: 18px;
+  --radius-btn: 999px;
+  --label-spacing: .34em;
+}
+.hero--geteilt h1 em, .kopf h2 em { color: var(--akzent); }
+.posten b { font-size: 21px; }

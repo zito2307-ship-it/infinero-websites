@@ -1,0 +1,103 @@
+# BEISPIELKUNDE (fiktiv) – zeigt einen echten Kunden ohne Demo-Balken, mit eigener Farbe.
+# Passt zur Beispiel-Website-Notiz im Vault: 20_Websites/W-9001 baeckerei-huber.example.md
+kunde: K-9001
+beispiel: true
+demo: false
+branche: gastro
+domain: baeckerei-huber.example
+
+firma:
+  name: Bäckerei Huber
+  kurzname: Bäckerei Huber
+  zusatz: Seit 1962 · Jena
+  rechtlicher_name: Bäckerei Huber GmbH
+  inhaber: Anna Huber (Geschäftsführerin)
+  strasse: Beispielweg 3
+  plz: "07745"
+  ort: Jena
+  bundesland: Thüringen
+  telefon: 03641 00 00 00
+  email: info@baeckerei-huber.example
+
+recht:
+  registergericht: Amtsgericht Jena
+  registernummer: HRB 000000
+  ust_id: DE000000000
+  berufsbezeichnung: Bäckermeisterin
+  verliehen_in: Deutschland
+  kammer: Handwerkskammer für Ostthüringen
+  berufsregeln: Handwerksordnung (HwO)
+
+seo:
+  titel: Bäckerei Huber – Handwerksbäckerei in Jena seit 1962
+  beschreibung: Sauerteigbrot, Brötchen und Torten aus eigener Backstube in Jena. Torten online anfragen, zwei Filialen.
+
+design:
+  theme: gastro-warm
+  favicon: favicon.svg
+  farben: { akzent: "#8a4b1c", akzent-dunkel: "#6b3a14", dunkel: "#24160c", dunkel-2: "#3b2414" }
+
+hauptaktion: { text: Torte anfragen, ziel: "#anfrage" }
+
+abschnitte:
+  - typ: hero
+    variante: bild
+    label: Handwerksbäckerei seit 1962
+    titel: Brot mit <em>Zeit</em> gebacken.
+    text: Sauerteig, der 24 Stunden reift. Brötchen, noch warm, ab 6 Uhr. Und Torten, die man nicht vergisst.
+    zweitaktion: { text: Unser Sortiment, ziel: "#sortiment" }
+
+  - typ: vorteile
+    ueberlappend: true
+    punkte:
+      - { icon: uhr, titel: Ab 6 Uhr frisch, text: Jeden Morgen aus der eigenen Backstube. }
+      - { icon: blatt, titel: Regionales Mehl, text: Aus der Mühle im Saaletal – ohne Backmischungen. }
+      - { icon: herz, titel: Torten nach Wunsch, text: "Für Geburtstag, Hochzeit und Firmenfeier." }
+
+  - typ: preisliste
+    anker: sortiment
+    menue: Sortiment
+    label: Sortiment
+    titel: Aus unserer Backstube
+    gruppen:
+      - titel: Brot
+        posten:
+          - { name: Saale-Sauerteig, text: "1 kg Roggenmisch, 24 h Teigführung", preis: "4,90" }
+          - { name: Dinkel-Vollkorn, text: "750 g, mit Saaten", preis: "5,20" }
+      - titel: Kuchen & Torten
+        posten:
+          - { name: Thüringer Blechkuchen, text: Stück, preis: "2,40" }
+          - { name: Hochzeitstorte, text: auf Anfrage, preis: ab 120 € }
+    hinweis: Weitere Sorten täglich wechselnd in den Filialen.
+
+  - typ: anfrage
+    anker: anfrage
+    art: kontakt
+    menue: Torte anfragen
+    label: Torten & Bestellungen
+    titel: Ihre Torte, Ihr Anlass.
+    text: Schreiben Sie uns Anlass, Datum und Personenzahl – wir melden uns mit Vorschlag und Preis.
+
+  - typ: faq
+    titel: Häufige Fragen
+    flaeche: true
+    fragen:
+      - { frage: Wie früh muss ich eine Torte bestellen?, antwort: "Mindestens 5 Tage vorher, Hochzeitstorten 4 Wochen." }
+      - { frage: Gibt es glutenfreie Produkte?, antwort: "Nein – in unserer Backstube wird überall Weizen verarbeitet, daher können wir das nicht sicher anbieten." }
+
+  - typ: kontakt
+    anker: kontakt
+    menue: Kontakt
+    karte: true
+
+oeffnungszeiten:
+  - { tage: Mo – Fr, zeit: "06:00 – 18:00" }
+  - { tage: Sa, zeit: "06:00 – 12:00" }
+  - { tage: So, zeit: "07:30 – 10:30" }
+
+fuss_text: Handwerksbäckerei in dritter Generation.
+
+funktionen:
+  formular_endpunkt: ""
+  karte: true
+  chat: aus
