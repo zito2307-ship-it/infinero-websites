@@ -68,7 +68,7 @@ Icons (`icon:`): uhr, telefon, stern, blatt, blitz, tropfen, bad, werkzeug, herz
 funke, haus, chat, euro, auto, schere, besteck (`basis/bausteine/Icon.astro`, dort ergänzen).
 
 **YAML-Falle:** In `{ … }` muss Text mit Komma in Anführungszeichen: `{ text: "Rot, grün" }`. Sonst wird abgeschnitten
-(die Prüfung meldet dann „leer – oder Text mit Komma…“).
+(die Prüfung meldet dann „leer – oder Text mit Komma…“). Ebenso Text, der mit `&`, `*`, `#` oder `:` beginnt.
 
 ## Themes
 | Theme | Stil | passt zu |

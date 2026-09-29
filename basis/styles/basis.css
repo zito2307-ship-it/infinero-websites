@@ -133,6 +133,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .hero--geteilt { display: grid; grid-template-columns: 1.05fr .95fr; min-height: min(88vh, 860px); }
 .hero--geteilt .hero-inhalt { display: flex; flex-direction: column; justify-content: center; padding: 72px 6vw 72px max(24px, calc((100vw - var(--breite)) / 2 + 24px)); }
 .hero--geteilt .hero-text { color: var(--gedaempft); max-width: 44ch; }
+.hero--geteilt h1 { font-size: clamp(40px, 5.4vw, 84px); }
 .hero--geteilt .hero-bild { background: var(--zweit) center/cover no-repeat; min-height: 56vh; }
 @media (max-width: 900px) { .hero--geteilt { grid-template-columns: 1fr; min-height: 0; } .hero--geteilt .hero-inhalt { padding: 56px 24px; } }
 
@@ -180,6 +181,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 
 /* Leistungen */
 .leistungen { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+@media (min-width: 900px) { .leistungen[data-spalten="3"] { grid-template-columns: repeat(3, 1fr); } }
 .leistung { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s; }
 .leistung:hover { transform: translateY(-4px); box-shadow: var(--schatten); }
 .leistung-bild { height: 220px; background: var(--zweit) center/cover no-repeat; }
@@ -214,6 +216,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .person-bild { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px; display: grid; place-items: center; font: var(--titel-gewicht) 44px var(--font-titel); color: #fff; background: linear-gradient(150deg, var(--akzent), var(--hervor)) center/cover; }
 .person:nth-child(3n+2) .person-bild { background-image: linear-gradient(150deg, var(--zweit), var(--hervor)); }
 .person:nth-child(3n) .person-bild { background-image: linear-gradient(150deg, var(--akzent-dunkel), var(--zweit)); }
+.person-bild[role="img"] { background-size: cover; background-position: center 22%; }
 .person h3 { font-size: 24px; margin-bottom: 4px; }
 .person span { color: var(--gedaempft); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
 

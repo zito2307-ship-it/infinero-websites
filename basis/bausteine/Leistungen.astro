@@ -7,7 +7,7 @@ const { a } = Astro.props;
 <section id={a.anker} class={a.flaeche ? 'flaeche' : undefined}>
   <div class="wrap">
     <Kopf a={a} />
-    <div class="leistungen">
+    <div class="leistungen" data-spalten={a.eintraege.length % 3 === 0 || a.eintraege.length === 5 ? 3 : undefined}>
       {a.eintraege.map((l: any) => (
         <article class="leistung">
           {l.bild && <div class="leistung-bild" style={`background-image:url('${bild(l.bild)}')`} role="img" aria-label={l.bild_alt ?? l.titel}></div>}

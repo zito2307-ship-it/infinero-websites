@@ -1,0 +1,148 @@
+# Testkunde (echt, abgesprochen): Kieferorthopädische Praxis Dr. Stefan Graf, Weimar
+# Quelle: App-Lead L-000378 / Auftrag 4 + bestehende Website graf-in-weimar.de (Texte, Fotos, Impressum)
+kunde: K-0001
+beispiel: false
+demo: false
+noindex: true          # bis zur Freigabe durch die Praxis nicht bei Google
+branche: praxis
+domain: graf-in-weimar.de
+
+firma:
+  name: Kieferorthopädie Dr. Stefan Graf
+  kurzname: Kieferorthopädie Dr. Graf
+  zusatz: Fachzahnarzt · Weimar
+  rechtlicher_name: Kieferorthopädische Praxis Dr. med. Stefan Graf
+  inhaber: Dr. med. Stefan Graf
+  strasse: Schillerstraße 17
+  plz: "99423"
+  ort: Weimar
+  bundesland: Thüringen
+  telefon: 03643 777277
+  email: info@graf-in-weimar.de
+
+recht:
+  berufsbezeichnung: Fachzahnarzt für Kieferorthopädie
+  verliehen_in: Deutschland
+  kammer: Landeszahnärztekammer Thüringen, Barbarossahof 16, 99092 Erfurt
+  aufsichtsbehoerde: Kassenzahnärztliche Vereinigung Thüringen, Theo-Neubauer-Straße 14, 99085 Erfurt
+  berufsregeln: "Zahnheilkundegesetz (ZHG), Thüringer Heilberufegesetz, Berufsordnung der Landeszahnärztekammer Thüringen – einsehbar unter www.lzkth.de"
+
+seo:
+  titel: Kieferorthopädie Dr. Stefan Graf – Kieferorthopäde in Weimar
+  beschreibung: Kieferorthopädische Praxis in Weimar für Kinder, Jugendliche und Erwachsene. Feste und herausnehmbare Spangen, unsichtbare Schienen, Lingualtechnik. Termin anfragen.
+
+design:
+  theme: praxis-klar
+  favicon: favicon.svg
+  zeichen: G
+
+hauptaktion: { text: Termin anfragen, ziel: "#anfrage" }
+
+abschnitte:
+  - typ: hero
+    variante: geteilt
+    bild: behandlungszimmer.jpg
+    bild_alt: Heller Behandlungsraum der Praxis
+    label: Kieferorthopädie in Weimar
+    titel: Gerade Zähne. <em>In&nbsp;ruhigen Händen.</em>
+    text: "Fachzahnärztliche Kieferorthopädie für Kinder, Jugendliche und Erwachsene – mitten in Weimar, in der Schillerstraße."
+    aktion: { text: Termin anfragen, ziel: "#anfrage" }
+    zweitaktion: { text: "03643 777277", ziel: "tel:+493643777277" }
+
+  - typ: leistungen
+    anker: leistungen
+    menue: Leistungen
+    label: Leistungen
+    titel: Unser Behandlungsspektrum
+    text: Welche Behandlung zu Ihnen passt, besprechen wir nach der Untersuchung persönlich mit Ihnen.
+    eintraege:
+      - { icon: herz, titel: Kieferorthopädie für Kinder, text: "Der richtige Zeitpunkt ist oft der Zahnwechsel im Seitenzahnbereich. Manche Fehlstellungen sollten früher behandelt werden – wir beraten Sie individuell." }
+      - { icon: haken, titel: Kieferorthopädie für Erwachsene, text: "Zahnstellungen lassen sich in nahezu jedem Alter korrigieren. Bei ausgeprägten Kieferfehlstellungen arbeiten wir mit der Kieferchirurgie zusammen." }
+      - { icon: funke, titel: Ästhetische Kieferorthopädie, text: "Unauffällige Lösungen für alle, die im Alltag möglichst wenig von ihrer Behandlung zeigen möchten." }
+      - { icon: schild, titel: Invisalign®, text: "Durchsichtige, herausnehmbare Schienen, die Schritt für Schritt angepasst werden – geeignet für viele Zahnfehlstellungen." }
+      - { icon: werkzeug, titel: Lingualtechnik, text: "Feste Spange auf der Innenseite der Zähne – von außen nicht sichtbar." }
+      - { icon: blatt, titel: Ganzheitliche Kieferorthopädie, text: "Wir betrachten Zähne, Kiefer und Funktion im Zusammenhang – zum Beispiel Kiefergelenk, Atmung und Schlucken." }
+
+  - typ: textbild
+    anker: praxis
+    menue: Praxis
+    label: Unsere Praxis
+    titel: Kieferorthopädie mit Tradition in Weimar.
+    text:
+      - "Ziel jeder kieferorthopädischen Behandlung ist ein Ergebnis, das ästhetisch und funktionell zu Ihnen passt: gerade Zähne, Ober- und Unterkiefer im richtigen Verhältnis und ein Biss, der funktioniert."
+      - "Je nach Befund setzen wir herausnehmbare oder festsitzende Spangen ein. Welche Behandlungsmittel für Sie geeignet sind, entscheiden wir gemeinsam nach der ersten Untersuchung in unserer Praxis."
+    aktion: { text: Termin für die Erstberatung →, ziel: "#anfrage" }
+    bild: gebaeude.jpg
+    bild_alt: Praxisgebäude in der Schillerstraße in Weimar
+    bild_text: Schillerstraße 17, Weimar
+
+  - typ: galerie
+    flaeche: true
+    label: Einblicke
+    titel: Hier sind Sie gut aufgehoben
+    bilder:
+      - { bild: empfang.jpg, text: Empfang }
+      - { bild: flur.jpg, text: Wartebereich }
+      - { bild: behandlung.jpg, text: Behandlungsraum }
+
+  - typ: team
+    anker: team
+    menue: Team
+    label: Team
+    titel: Ihr Praxisteam
+    personen:
+      - { name: Dr. med. Stefan Graf, rolle: Fachzahnarzt für Kieferorthopädie, bild: person-stefan-graf.jpg }
+      - { name: Prof. Dr. Heinz Graf, rolle: Kieferorthopädie, bild: person-heinz-graf.jpg }
+      - { name: Kathrin Kunze, rolle: Praxisteam, bild: person-kunze.jpg }
+      - { name: Beate Scharf, rolle: Praxisteam, bild: person-scharf.jpg }
+      - { name: Jasmin Schmidt, rolle: Praxisteam, bild: person-schmidt.jpg }
+      - { name: Katrin Kleidon, rolle: Praxisteam, bild: person-kleidon.jpg }
+
+  - typ: faq
+    anker: fragen
+    menue: Fragen & Kosten
+    flaeche: true
+    label: Gut zu wissen
+    titel: Häufige Fragen
+    fragen:
+      - frage: Wann sollte mein Kind zum ersten Mal zum Kieferorthopäden?
+        antwort: "In der Regel ist der Beginn des Zahnwechsels im Seitenzahnbereich ein günstiger Zeitpunkt. Bestimmte Zahn- und Kieferfehlstellungen sollten aber früher behandelt werden. Den passenden Zeitpunkt besprechen wir nach einer Untersuchung persönlich mit Ihnen."
+      - frage: Ist eine Behandlung auch für Erwachsene möglich?
+        antwort: "Ja. Zahnstellungen lassen sich bei den meisten Erwachsenen bis ins hohe Alter korrigieren. Manche Kieferfehlstellungen lassen sich nach Abschluss des Wachstums allerdings nur gemeinsam mit einem kieferchirurgischen Eingriff optimal behandeln."
+      - frage: Welche Spangen gibt es?
+        antwort: "Herausnehmbare Spangen dienen meist der Vorbereitung, zum Beispiel zur Korrektur der Kieferlage oder um Platz zu schaffen. Mit festsitzenden Apparaturen werden die Zähne anschließend in die richtige Position gebracht. Daneben gibt es unauffällige Varianten wie durchsichtige Schienen oder Brackets auf der Zahninnenseite."
+      - frage: Übernimmt die Krankenkasse die Kosten?
+        antwort: "Bei gesetzlich versicherten Kindern und Jugendlichen richtet sich das nach den kieferorthopädischen Indikationsgruppen (KIG), die wir bei der Untersuchung einschätzen. Bei gesetzlich versicherten Erwachsenen übernimmt die Kasse die Kosten nur in Ausnahmefällen, etwa bei kombiniert kieferorthopädisch-kieferchirurgischer Behandlung. Bei Privatversicherten und Beihilfe hängt es vom Vertrag ab. Wir erstellen Ihnen gern einen individuellen Kostenplan."
+
+  - typ: anfrage
+    anker: anfrage
+    art: termin
+    label: Termin
+    titel: Termin anfragen
+    text: Schreiben Sie uns Ihren Wunschtag – wir rufen Sie zurück und vereinbaren den Termin.
+    formular_titel: Terminanfrage
+    themen: [Erstberatung Kind / Jugendliche, Erstberatung Erwachsene, Kontrolltermin, Sonstiges]
+    themen_label: Anliegen
+    zeiten: [Vormittags, Nachmittags, egal]
+    erfolg: Danke für Ihre Anfrage!
+    erfolg_text: Wir melden uns telefonisch bei Ihnen, um den Termin abzustimmen.
+
+  - typ: kontakt
+    anker: kontakt
+    menue: Kontakt
+    zeiten_titel: Sprechzeiten
+    titel: So finden Sie uns
+    zeiten_hinweis: und nach telefonischer Vereinbarung
+    karte: true
+
+oeffnungszeiten:
+  - { tage: Dienstag, zeit: "8:30 – 12:30 · 13:30 – 19:30" }
+  - { tage: Mittwoch, zeit: "8:00 – 12:30 · 13:30 – 16:30" }
+  - { tage: Donnerstag, zeit: "8:30 – 12:30 · 13:30 – 19:30" }
+  - { tage: Freitag, zeit: "8:00 – 12:30" }
+
+fuss_text: Fachzahnärztliche Kieferorthopädie für Kinder, Jugendliche und Erwachsene in Weimar.
+
+funktionen:
+  karte: true
+  chat: aus
