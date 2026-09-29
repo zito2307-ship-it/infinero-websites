@@ -7,10 +7,10 @@ import { KUNDEN, ROOT, stopp } from './gemeinsam.mjs';
 const [id, slug, name] = process.argv.slice(2).filter((a, i, l) => !a.startsWith('--') && !l[i - 1]?.startsWith('--'));
 const opt = (n) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : undefined; };
 if (!/^K-\d{4}$/.test(id ?? '') || !/^[a-z0-9-]+$/.test(slug ?? '') || !name)
-  stopp('Aufruf: npm run neu -- K-0012 mueller-bau "Müller Bau" --branche handwerk|gastro|beauty|allgemein [--theme …] [--farbe "#hex"]');
+  stopp('Aufruf: npm run neu -- K-0012 mueller-bau "Müller Bau" --branche handwerk|gastro|beauty|praxis|allgemein [--theme …] [--farbe "#hex"]');
 
 const branche = opt('branche') ?? 'allgemein';
-const THEMES = { gastro: 'gastro-warm', beauty: 'beauty-hell', handwerk: 'handwerk-kraeftig', allgemein: 'handwerk-kraeftig' };
+const THEMES = { gastro: 'gastro-warm', beauty: 'beauty-hell', handwerk: 'handwerk-kraeftig', praxis: 'praxis-klar', allgemein: 'handwerk-kraeftig' };
 const theme = opt('theme') ?? THEMES[branche];
 if (!theme || !fs.existsSync(path.join(ROOT, 'themes', theme, 'theme.css')))
   stopp(`Theme „${theme}“ gibt es nicht. Vorhanden: ${fs.readdirSync(path.join(ROOT, 'themes')).join(', ')}`);
@@ -38,10 +38,17 @@ const ABSCHNITTE = {
     '  - typ: anfrage\n    anker: anfrage\n    art: rueckruf\n    titel: Rückruf anfordern\n    themen: ["??", Sonstiges]',
     '  - typ: kontakt\n    anker: kontakt\n    menue: Kontakt'],
 };
+ABSCHNITTE.praxis = [H('geteilt'),
+  '  - typ: leistungen\n    anker: leistungen\n    menue: Leistungen\n    titel: "??"\n    eintraege:\n      - { icon: funke, titel: "??", text: "??" }',
+  '  - typ: textbild\n    anker: praxis\n    menue: Praxis\n    titel: "??"\n    text: ["??"]\n    bild: "??"',
+  '  - typ: team\n    anker: team\n    menue: Team\n    titel: Ihr Praxisteam\n    personen:\n      - { name: "??", rolle: "??" }',
+  '  - typ: faq\n    titel: Häufige Fragen\n    fragen:\n      - { frage: "??", antwort: "??" }',
+  '  - typ: anfrage\n    anker: anfrage\n    art: termin\n    titel: Termin anfragen\n    themen: [Erstberatung, Kontrolltermin, Sonstiges]\n    zeiten: [Vormittags, Nachmittags, egal]',
+  '  - typ: kontakt\n    anker: kontakt\n    menue: Kontakt'];
 ABSCHNITTE.allgemein = [H('dunkel'), ABSCHNITTE.handwerk[1],
   '  - typ: anfrage\n    anker: anfrage\n    art: kontakt\n    titel: Schreiben Sie uns',
   '  - typ: kontakt\n    anker: kontakt\n    menue: Kontakt'];
-if (!ABSCHNITTE[branche]) stopp(`Unbekannte Branche „${branche}“ (gastro, beauty, handwerk, allgemein)`);
+if (!ABSCHNITTE[branche]) stopp(`Unbekannte Branche „${branche}“ (gastro, beauty, handwerk, praxis, allgemein)`);
 
 fs.cpSync(path.join(KUNDEN, '_vorlage'), ziel, { recursive: true });
 const datei = path.join(ziel, 'inhalt.yaml');

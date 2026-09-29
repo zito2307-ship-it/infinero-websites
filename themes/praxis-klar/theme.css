@@ -1,0 +1,54 @@
+/* Praxis klar – ruhiges Petrol/Mint auf hellem Grund, Plus Jakarta Sans. Sachlich, freundlich, vertrauenswürdig.
+   Passt zu: Zahnarzt, Kieferorthopädie, Arztpraxis, Physiotherapie, Tierarzt, Kanzlei. */
+@import "@fontsource/plus-jakarta-sans/latin-400.css";
+@import "@fontsource/plus-jakarta-sans/latin-ext-400.css";
+@import "@fontsource/plus-jakarta-sans/latin-500.css";
+@import "@fontsource/plus-jakarta-sans/latin-ext-500.css";
+@import "@fontsource/plus-jakarta-sans/latin-600.css";
+@import "@fontsource/plus-jakarta-sans/latin-ext-600.css";
+@import "@fontsource/plus-jakarta-sans/latin-700.css";
+@import "@fontsource/plus-jakarta-sans/latin-ext-700.css";
+
+:root {
+  --bg: #f5f8f7;
+  --flaeche: #ffffff;
+  --text: #15232a;
+  --gedaempft: #4f5f67;
+  --linie: rgba(21, 35, 42, .1);
+  --akzent: #0f5e63;
+  --akzent-dunkel: #0a4649;
+  --zweit: #3f7d74;
+  --hervor: #7cc4b6;
+  --label: #0f6b66;
+  --dunkel: #0e2a2e;
+  --dunkel-2: #134046;
+  --auf-dunkel: #eef6f4;
+  --auf-dunkel-gedaempft: #b9d3cf;
+  --titel-kursiv-farbe: #0f6b66;
+  --schatten: 0 24px 60px -34px rgba(14, 42, 46, .35);
+  --font-text: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-titel: "Plus Jakarta Sans", system-ui, sans-serif;
+  --titel-gewicht: 700;
+  --titel-spacing: -.025em;
+  --radius: 20px;
+  --radius-btn: 999px;
+  --radius-feld: 12px;
+  --label-spacing: .16em;
+}
+h1 em, h2 em { font-style: normal; }
+.hero--bild h1 em, .hero--dunkel h1 em, .band h2 em { color: var(--hervor); }
+.hero h1 { font-size: clamp(40px, 6vw, 76px); }
+.kopf h2 { font-size: clamp(30px, 4.4vw, 46px); }
+.label { font-weight: 700; }
+.marke-name { font-size: 21px; letter-spacing: -.01em; }
+.marke-zusatz { letter-spacing: .14em; }
+.marke-zeichen { border-radius: 50%; }
+.leistung .ic { border-radius: 14px; }
+.leistung h3 { font-size: 19px; }
+.bewertung blockquote { font: 500 16px/1.6 var(--font-text); }
+.zitat blockquote { font-style: normal; font-weight: 600; }
+.posten b { font-size: 17px; }
+.faq summary { font-size: 18px; }
+.textbild-bild, .galerie figure { border-radius: 24px; }
+section.zitat-flaeche { background: #e3efec; }
+.band { background: var(--akzent); }

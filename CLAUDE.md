@@ -76,6 +76,7 @@ funke, haus, chat, euro, auto, schere, besteck (`basis/bausteine/Icon.astro`, do
 | `gastro-warm` | Weinrot/Creme, Cormorant Garamond + Manrope, runde Buttons | Restaurant, Café, Bäckerei |
 | `beauty-hell` | Pflaume/Rosé, Playfair Display + Jost, eckig, Großbuchstaben-Buttons | Kosmetik, Nägel, Friseur, Physio |
 | `handwerk-kraeftig` | Marine/Orange, Manrope 800, kräftig | SHK, Elektro, Dach, Maler, Kfz, allgemein |
+| `praxis-klar` | Petrol/Mint, Plus Jakarta Sans, ruhig | Zahnarzt, Kieferorthopädie, Arzt, Physio, Kanzlei |
 
 Neues Theme: Ordner kopieren, Variablen anpassen. Schriften **nur lokal** über `@fontsource/*` (latin + latin-ext)
 – **niemals Google-Fonts-CDN**. Kontrast: Text ≥ 4,5:1 (axe prüft) – für Labels auf hellem Grund `--label` setzen.
@@ -86,6 +87,10 @@ Kundenfarben: `design.farben: { akzent: "#…", akzent-dunkel: "#…" }` (weiße
   (Vorlagen im Vault: `50_Rechtliches/Website-Rechtstexte/`). Nur eingesetzte Dienste erscheinen.
 - Keine Cookies, keine fremden Server ohne Klick: Google Maps nur mit 2-Klick (`funktionen.karte`), Chat-Widget
   nur über `funktionen.chat: snippet` + `chat_snippet` (dann `datenschutz.chat_ki_anbieter` Pflicht).
+- **Heilberufe (Branche `praxis`):** Impressum mit `recht.berufsbezeichnung` (+ `verliehen_in`), `kammer` (z. B. Landeszahnärztekammer),
+  `aufsichtsbehoerde` (bei Kassenpraxis die KZV bzw. KV), `berufsregeln` (Heilberufe-/Kammergesetz, Berufsordnung mit Link).
+  Heilmittelwerbegesetz beachten: keine Heilversprechen, keine Vorher-/Nachher-Bilder, keine Patienten-Testimonials zu
+  Behandlungserfolgen, keine Angst machenden Aussagen. Formular zeigt automatisch den Hinweis „keine Gesundheitsdaten“.
 - Domains registriert INFINERO (Inhaber = Kunde), DNS bei Cloudflare.
 - Die Chat-/CRM-Plattform im Hintergrund wird **nirgends namentlich genannt** – weder auf Seiten noch im Quelltext,
   in Kommentaren oder Commit-Nachrichten. Öffentlich heißt es „KI-Assistent“ / „betrieben von INFINERO“.

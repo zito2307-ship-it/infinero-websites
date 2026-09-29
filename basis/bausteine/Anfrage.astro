@@ -17,6 +17,8 @@ const std = {
 const endpunkt = inhalt.funktionen.formular_endpunkt || '';
 const id = `f-${a.anker ?? art}`;
 const zweispaltig = !!a.punkte;
+// Praxen: keine Gesundheitsdaten übers Formular (Art. 9 DSGVO) – Hinweis direkt über dem Absenden
+const gesundheit = a.gesundheit_hinweis ?? inhalt.branche === 'praxis';
 ---
 <section id={a.anker} class="anfrage auf-dunkel">
   <div class={`wrap${zweispaltig ? ' anfrage-raster' : ''}`}>
@@ -57,6 +59,7 @@ const zweispaltig = !!a.punkte;
           </div>
         )}
         {(art === 'kontakt' || a.nachricht) && <div class="feld"><label for={`${id}-text`}>{a.nachricht_label ?? 'Ihre Nachricht'}</label><textarea id={`${id}-text`} name="nachricht" required={art === 'kontakt'}></textarea></div>}
+        {gesundheit && <p class="formular-warnung">Bitte schreiben Sie keine Angaben zu Beschwerden, Diagnosen oder Behandlungen in das Formular – das besprechen wir gern persönlich in der Praxis.</p>}
         <label class="hp" aria-hidden="true">Bitte leer lassen <input type="text" name="firma_website" tabindex="-1" autocomplete="off" /></label>
         <button type="submit" class="btn btn-p">{a.knopf ?? std.knopf}</button>
         <p class="formular-hinweis">{a.hinweis ? a.hinweis + ' ' : ''}Ihre Angaben nutzen wir nur für Ihre Anfrage – mehr in der <a href="/datenschutz">Datenschutzerklärung</a>.</p>
