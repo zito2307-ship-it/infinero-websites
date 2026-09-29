@@ -21,6 +21,18 @@ const cta = inhalt.hauptaktion;
       {links.map((a: any) => <a href={`${basis}#${a.anker}`}>{a.menue}</a>)}
       {inhalt.design?.telefon_im_menue && f.telefon && <a class="nav-tel" href={`tel:${telLink(f.telefon)}`}>{f.telefon}</a>}
       {cta && <a class="btn btn-p" href={cta.ziel.startsWith('#') ? `${basis}${cta.ziel}` : cta.ziel}>{cta.text}</a>}
+      {links.length > 0 && (
+        <button type="button" class="menue-knopf" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobil-menue" data-menue-knopf>
+          <span></span><span></span><span></span>
+        </button>
+      )}
     </nav>
   </div>
+  {links.length > 0 && (
+    <nav class="mobil-menue" id="mobil-menue" aria-label="Menü" hidden>
+      {links.map((a: any) => <a href={`${basis}#${a.anker}`}>{a.menue}</a>)}
+      {f.telefon && <a class="mobil-tel" href={`tel:${telLink(f.telefon)}`}><Icon name="telefon" class="" />{f.telefon}</a>}
+      {cta && <a class="btn btn-p mobil-cta" href={cta.ziel.startsWith('#') ? `${basis}${cta.ziel}` : cta.ziel}>{cta.text}</a>}
+    </nav>
+  )}
 </header>

@@ -59,6 +59,15 @@ const chat = inhalt.funktionen.chat;
       ['mouseleave', 'focusout'].forEach((ev) => s.addEventListener(ev, () => (pause = false)));
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!pause && !document.hidden) weiter(1); }, 3500);
     });
+    // Handy-Menü
+    const mk = document.querySelector<HTMLButtonElement>('[data-menue-knopf]');
+    const mm = document.getElementById('mobil-menue');
+    if (mk && mm) {
+      const setzen = (auf: boolean) => { mm.hidden = !auf; mk.setAttribute('aria-expanded', String(auf)); mk.setAttribute('aria-label', auf ? 'Menü schließen' : 'Menü öffnen'); };
+      mk.addEventListener('click', () => setzen(mm.hidden));
+      mm.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setzen(false)));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setzen(false); });
+    }
     // Formulare: Datum vorbelegen, absenden (oder Vorschau-Modus)
     const heute = new Date().toISOString().slice(0, 10);
     document.querySelectorAll<HTMLInputElement>('input[data-heute]').forEach((i) => { i.value = heute; i.min = heute; });

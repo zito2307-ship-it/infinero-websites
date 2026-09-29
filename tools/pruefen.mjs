@@ -129,6 +129,22 @@ for (const [geraet, opts] of Object.entries(GERAETE)) {
   await page.close();
 }
 
+// Handy-Menü: öffnet es sich und führen die Links ans Ziel?
+{
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  await page.goto(basis + '/', { waitUntil: 'networkidle' });
+  const knopf = page.locator('[data-menue-knopf]');
+  if (await knopf.count()) {
+    await knopf.click();
+    if (!(await page.locator('#mobil-menue').isVisible())) fehler.push('Handy-Menü öffnet sich nicht');
+    await page.screenshot({ path: path.join(aus, 'menue-handy.png') });
+    await page.keyboard.press('Escape');
+  } else if ((inhalt.abschnitte ?? []).some((a) => a.menue)) fehler.push('Handy: kein Menü-Knopf vorhanden');
+  const f = page.locator('.formular').first();
+  if (await f.count()) { await f.scrollIntoViewIfNeeded(); await page.screenshot({ path: path.join(aus, 'formular-handy.png') }); }
+  await page.close();
+}
+
 await browser.close();
 server.close();
 
