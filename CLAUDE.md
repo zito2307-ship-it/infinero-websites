@@ -71,7 +71,7 @@ Gemeinsame Felder: `anker` (Sprungziel), `menue` (Eintrag im Menü), `label`, `t
 - `galerie.slider: true` → automatisch laufende Bildleiste (pausiert bei Maus/Fokus, keine Bewegung bei „reduzierte Bewegung“).
 - `kontakt.karte` + `npm run karte -- K-…` → Karte aus lokal gespeicherten OpenStreetMap-Kacheln (sofort sichtbar, keine Einwilligung nötig, „Route planen“ öffnet Google Maps). Ohne Kacheln: Google Maps mit 2-Klick.
 - `design.zeichen_icon: zahn` (Symbol statt Buchstabe im Logo), `design.bewegung: true` (Abschnitte blenden beim Scrollen ein).
-- `firma.name_fuss` (Name im Footer mit `<br>`), `firma.fax`, `recht.bildnachweise` (Pflicht bei CC-Fotos, z. B. Wikimedia Commons).
+- `firma.name_kopf` / `firma.name_fuss` (Name im Kopf bzw. Footer mit `<br>`), `firma.fax`, `recht.bildnachweise` (Pflicht bei CC-Fotos, z. B. Wikimedia Commons).
 
 Icons (`icon:`): uhr, telefon, stern, blatt, blitz, tropfen, bad, werkzeug, herz, haken, kalender, ort, schild,
 funke, haus, chat, euro, auto, schere, besteck (`basis/bausteine/Icon.astro`, dort ergänzen).

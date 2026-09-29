@@ -14,7 +14,7 @@ const cta = inhalt.hauptaktion;
         : <>
             {inhalt.design?.zeichen_icon ? <span class="marke-zeichen marke-zeichen--icon"><Icon name={inhalt.design.zeichen_icon} class="" /></span>
               : inhalt.design?.zeichen && <span class="marke-zeichen">{inhalt.design.zeichen}</span>}
-            <span><span class="marke-name">{f.kurzname ?? f.name}</span>{f.zusatz && <span class="marke-zusatz">{f.zusatz}</span>}</span>
+            <span><span class="marke-name" set:html={f.name_kopf ?? f.kurzname ?? f.name} />{f.zusatz && <span class="marke-zusatz">{f.zusatz}</span>}</span>
           </>}
     </a>
     <nav class="nav-links" aria-label="Hauptmenü">
