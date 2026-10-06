@@ -1,6 +1,6 @@
 # Demo für Lead L-001032 (Vertriebs-App, Ziu) – Ristorante Due Angeli im Haus „Zur Sonne“, Markt 22, Jena
 # Quellen: App (demo_infos: Stil edel, Farben gold/creme/dunkel), bisherige Lieferando-Seite jena-dueangeli.de
-# (Speisekarte, Impressum), Google Maps (Öffnungszeiten, Bewertungen). Keine eigenen Fotos vorhanden → typografisch.
+# (Speisekarte, Impressum), Google Maps (Öffnungszeiten, Bewertungen). Fotos: von Ziu ausgewählt und freigegeben (06.10.2026).
 kunde: K-0003
 variante: b            # gewählter Entwurf (kunden/…/varianten/b.yaml) – mit ausbauen.mjs gesetzt
 app: { lead_id: 1032, auftrag_id: null }
@@ -30,6 +30,7 @@ recht:
   registernummer: HRB 509403
 
 seo:
+  bild: markt-abend.webp
   kueche: Italienisch
   preisklasse: "€€"
   titel: Ristorante Due Angeli – Italiener am Markt in Jena
@@ -49,6 +50,9 @@ hauptaktion: { text: Tisch reservieren, ziel: "#reservieren" }
 abschnitte:
   - typ: hero
     variante: dunkel
+    bild: markt-abend.webp
+    abdunkeln: 62
+    bild_alt: Die Terrasse des Due Angeli am Abend auf dem Jenaer Marktplatz, dahinter die Stadtkirche
     bewertung: 4,6 bei 574 Google-Bewertungen
     label: Ristorante am Jenaer Markt
     titel: Italien. <em>Mitten am Markt.</em>
@@ -62,12 +66,14 @@ abschnitte:
       - { icon: herz, titel: Original-Hausrezepte, text: "Italienische Klassiker, wie sie in der Familie gekocht werden – nicht wie aus dem Katalog." }
       - { icon: stern, titel: Hausgemachtes Eis, text: "Zum Abschluss oder einfach zwischendurch: Eis aus eigener Herstellung." }
 
-  - typ: band
+  - typ: textbild
     anker: markt
     menue: Am Markt
     label: Mitten in der Altstadt
     titel: Essen, wo Jena am schönsten ist.
     text: "Unsere zwei Terrassen liegen direkt am Jenaer Marktplatz – Sie sitzen mitten in der Altstadt, mit Blick auf das Treiben am Markt. Drinnen erwartet Sie ein gemütliches, mediterranes Ambiente in historischen Mauern. Dazu kochen wir nach italienischen Original-Hausrezepten aus frischen Zutaten: Fisch und Fleisch, hausgemachte Pasta, Pizza und Eis. Buon Appetito!"
+    bild: markt-tag.webp
+    bild_alt: Das Haus Zur Sonne mit den Schirmen des Due Angeli am Jenaer Marktplatz
 
   - typ: preisliste
     anker: speisekarte
@@ -105,6 +111,31 @@ abschnitte:
           - { name: Tiramisu, text: "hausgemacht, mit Löffelbiscuits und Mascarpone", preis: "6,50" }
           - { name: Schoko Soufflé, text: "heißes Schokoküchlein mit flüssigem Kern", preis: "7,90" }
     hinweis: Preise in Euro. Allergene und Zusatzstoffe auf Nachfrage.
+
+  - typ: galerie
+    anker: einblicke
+    label: Einblicke
+    titel: Am Markt, am Tisch, im Glas.
+    slider: true
+    bilder:
+      - { bild: fassade-tag.webp, text: Unsere Terrasse vor dem Haus Zur Sonne, alt: "Fassade des Hauses Zur Sonne mit Schirmen und Tischen" }
+      - { bild: terrasse-pasta.webp, text: Mittagessen mit Blick auf den Markt, alt: "Tagliatelle und ein Glas Weißwein auf der Terrasse" }
+      - { bild: pizza.webp, text: Pizza aus dem Ofen, alt: "Pizza mit Rucola und Kirschtomaten" }
+      - { bild: teddys-terrasse.webp, text: Die Teddys halten die Plätze warm, alt: "Zwei große Teddybären an einem Terrassentisch mit Getränken" }
+      - { bild: gastraum-abend.webp, text: Der Gastraum am Abend, alt: "Gastraum mit Ledersesseln und Blick auf den Markt" }
+      - { bild: tiramisu.webp, text: Tiramisu – hausgemacht, alt: "Tiramisu mit Erdbeeren" }
+      - { bild: cocktail.webp, text: Cocktails von der Bar, alt: "Cocktail mit Sternfrucht an der Bar" }
+      - { bild: eisbecher.webp, text: Eis aus eigener Herstellung, alt: "Erdbeer-Eisbecher auf der Terrasse" }
+      - { bild: fassade-abend.webp, text: Abends am Markt, alt: "Das Due Angeli am Abend mit beleuchteter Terrasse" }
+      - { bild: pasta-rucola.webp, text: Pasta mit Rucola, alt: "Pasta mit Rucola und Tomaten" }
+      - { bild: teddys-tisch.webp, text: Tischgesellschaft mit Teddys, alt: "Teddybären an einem gedeckten Tisch im Gastraum" }
+      - { bild: gastraum.webp, text: Drinnen gemütlich, alt: "Gastraum mit Holzbalkendecke" }
+      - { bild: gastraum-sessel.webp, text: Der Gastraum mit Sesseln, alt: "Gastraum mit gestreiften Sesseln und Wandleuchten" }
+      - { bild: gastraum-balken.webp, text: Unter alten Holzbalken, alt: "Gastraum mit Holzwand und Sternen-Deko" }
+      - { bild: fensterplatz.webp, text: Fensterplatz mit Blick auf den Markt, alt: "Tisch am großen Bogenfenster" }
+      - { bild: gastraum-spruch.webp, text: Platz für viele Gäste, alt: "Gastraum mit Wandspruch und Sesseln" }
+      - { bild: bar.webp, text: Gut sortierte Bar, alt: "Barregal mit vielen Flaschen" }
+      - { bild: spaghetti.webp, text: Spaghetti mit Parmesan, alt: "Spaghetti mit Parmesan und Rucola" }
 
   - typ: anfrage
     anker: reservieren

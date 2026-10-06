@@ -35,7 +35,7 @@ const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
       : <div class="hero-bild" style={bg} role={a.bild_alt ? 'img' : undefined} aria-label={a.bild_alt}></div>}
   </section>
 ) : (
-  <section class={`hero hero--${variante} auf-dunkel`} id="top" style={variante === 'bild' ? bg : undefined}>
+  <section class={`hero hero--${variante} auf-dunkel`} id="top" style={variante === 'bild' ? [bg, a.abdunkeln != null && `--hero-dunkel:${a.abdunkeln}%`].filter(Boolean).join(';') : undefined}>
     <div class="wrap">
       <div class="hero-inhalt">
         {logoGross(a) && <img class="hero-logo" src={logoGross(a)} alt={inhalt.firma.name} />}

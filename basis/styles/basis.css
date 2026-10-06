@@ -144,7 +144,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
 .hero-tel svg { width: 20px; height: 20px; stroke: var(--hervor); }
 
 .hero--bild { color: var(--auf-dunkel); padding: clamp(96px, 14vw, 140px) 0 clamp(110px, 15vw, 150px); background: var(--dunkel) center/cover no-repeat; }
-.hero--bild::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--dunkel) 82%, transparent), color-mix(in srgb, var(--dunkel) 92%, transparent)); }
+.hero--bild::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in srgb, var(--dunkel) var(--hero-dunkel, 82%), transparent), color-mix(in srgb, var(--dunkel) calc(var(--hero-dunkel, 82%) + 10%), transparent)); }   /* hero.abdunkeln: 0–90 */
 .hero--bild .wrap { position: relative; max-width: 780px; text-align: center; }
 .hero--bild h1 { color: #fff; }
 .hero--bild .hero-text { color: var(--auf-dunkel-gedaempft); margin-inline: auto; }
