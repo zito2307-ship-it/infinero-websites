@@ -8,7 +8,7 @@ tags: [website, todo]
 ---
 # Eiscafé Due Angeli – offene Punkte
 
-3 Entwürfe lokal fertig (A wie das Restaurant · B hell & sommerlich · C edel & dunkel), 0 Fehler, mit Fotos + Karte. Noch nicht hochgeladen.
+3 Entwürfe lokal fertig (A wie das Restaurant · B hell & sommerlich · C edel & dunkel), 0 Fehler, mit Fotos + Karte. In der App zur Auswahl.
 
 ## Kommt von Ziu
 - [x] Fotos (5 Stück von Ziu, 06.10.) – gern noch: Un Angelo, Frühstück, Sitzplätze innen
@@ -27,5 +27,5 @@ tags: [website, todo]
 - [ ] danach Website-Link + Öffnungszeiten + Fotos eintragen
 
 ## Danach
-- [ ] Entwürfe hochladen: `npm run entwuerfe -- K-0004` (Ziu startet) → SQL `entwuerfe_eintragen(1041, 'K-0004', …)` (Claude)
+- [x] Entwürfe hochgeladen (a./b./c.eiscafe-due-angeli.pages.dev) und in der App eingetragen (06.10.) → Ziu wählt in der App, dann `/ausbauen`
 - [ ] Links zum Restaurant auf dessen echte Domain umstellen, sobald sie steht
