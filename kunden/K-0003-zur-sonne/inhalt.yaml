@@ -14,10 +14,10 @@ domain: jena-dueangeli.de
 firma:
   name: Ristorante & Pizzeria Due Angeli
   kurzname: Due Angeli
-  zusatz: im Haus Zur Sonne · Jena
-  name_fuss: Ristorante Due Angeli<br>im Haus „Zur Sonne“
+  zusatz: Zur Sonne · Jena
+  name_fuss: Ristorante Due Angeli<br>Zur Sonne · Jena
   rechtlicher_name: "„Zur Sonne“ GmbH"
-  inhaber: "??"
+  inhaber: Antonio Marino (Geschäftsführer)   # laut Ziu, 06.10.2026
   strasse: Markt 22
   plz: "07743"
   ort: Jena
@@ -30,8 +30,10 @@ recht:
   registernummer: HRB 509403
 
 seo:
+  kueche: Italienisch
+  preisklasse: "€€"
   titel: Ristorante Due Angeli – Italiener am Markt in Jena
-  beschreibung: Italienische Küche im Haus „Zur Sonne“ direkt am Jenaer Marktplatz – Pasta, Pizza, Fisch und Fleisch nach Hausrezepten, zwei Terrassen. Tisch reservieren.
+  beschreibung: Italienische Küche direkt am Jenaer Marktplatz – Pasta, Pizza, Fisch und Fleisch nach Hausrezepten, zwei Terrassen mitten in der Altstadt. Tisch reservieren.
 
 design:
   theme: gastro-warm
@@ -50,30 +52,29 @@ abschnitte:
     bewertung: 4,6 bei 574 Google-Bewertungen
     label: Ristorante am Jenaer Markt
     titel: Italien. <em>Mitten am Markt.</em>
-    text: "Original italienische Hausrezepte – Pasta, Pizza, Fisch und Fleisch – in einem der ältesten Häuser Jenas. Mit zwei Terrassen direkt am Marktplatz."
+    text: "Auf der Terrasse direkt am Marktplatz sitzen, mitten in der Jenaer Altstadt – und dazu italienische Hausrezepte: Pasta, Pizza, Fisch und Fleisch. Drinnen gemütlich, draußen mittendrin."
     aktion: { text: Tisch reservieren, ziel: "#reservieren" }
     zweitaktion: { text: Zur Speisekarte, ziel: "#speisekarte" }
 
   - typ: vorteile
-    ueberlappend: true
     punkte:
       - { icon: sonne, titel: Zwei Terrassen am Markt, text: "Draußen sitzen mitten im Herzen der Altstadt – mit Blick auf den Marktplatz." }
       - { icon: herz, titel: Original-Hausrezepte, text: "Italienische Klassiker, wie sie in der Familie gekocht werden – nicht wie aus dem Katalog." }
       - { icon: stern, titel: Hausgemachtes Eis, text: "Zum Abschluss oder einfach zwischendurch: Eis aus eigener Herstellung." }
 
   - typ: band
-    anker: haus
-    menue: Das Haus
-    label: Das Haus Zur Sonne
-    titel: In einem der ältesten Häuser Jenas.
-    text: "Mediterranes Ambiente hinter historischen Mauern – direkt am Markt. Wir kochen nach italienischen Original-Hausrezepten aus frischen Zutaten: Fisch- und Fleischspezialitäten, hausgemachte Pasta-Kreationen, Pizza und Eis. Lassen Sie sich verwöhnen und erleben Sie ein Stück Italien. Buon Appetito!"
+    anker: markt
+    menue: Am Markt
+    label: Mitten in der Altstadt
+    titel: Essen, wo Jena am schönsten ist.
+    text: "Unsere zwei Terrassen liegen direkt am Jenaer Marktplatz – Sie sitzen mitten in der Altstadt, mit Blick auf das Treiben am Markt. Drinnen erwartet Sie ein gemütliches, mediterranes Ambiente in historischen Mauern. Dazu kochen wir nach italienischen Original-Hausrezepten aus frischen Zutaten: Fisch und Fleisch, hausgemachte Pasta, Pizza und Eis. Buon Appetito!"
 
   - typ: preisliste
     anker: speisekarte
     menue: Speisekarte
     label: Auszug aus der Karte
     titel: Von Antipasti bis Dolci
-    text: Eine Auswahl – die ganze Karte mit über 100 Gerichten gibt es im Restaurant.
+    text: Eine Auswahl – die ganze Karte gibt es im Restaurant.
     gruppen:
       - titel: Antipasti
         posten:
@@ -103,7 +104,7 @@ abschnitte:
         posten:
           - { name: Tiramisu, text: "hausgemacht, mit Löffelbiscuits und Mascarpone", preis: "6,50" }
           - { name: Schoko Soufflé, text: "heißes Schokoküchlein mit flüssigem Kern", preis: "7,90" }
-    hinweis: Preise in Euro, Stand der aktuellen Karte. Allergene und Zusatzstoffe auf Nachfrage.
+    hinweis: Preise in Euro. Allergene und Zusatzstoffe auf Nachfrage.
 
   - typ: anfrage
     anker: reservieren
@@ -119,12 +120,25 @@ abschnitte:
 
   - typ: bewertungen
     label: Gäste über uns
-    titel: Was unsere Gäste sagen
+    titel: 4,6 Sterne bei 574 Bewertungen
+    text: "Hunderte Gäste haben uns auf Google bewertet – im Schnitt mit 4,6 von 5 Sternen. Ein paar Stimmen:"
     eintraege:
       - { name: Gast auf Google, text: "Wir haben alle fünf leckere Pizzen gegessen und die Bedienung war auch top." }
       - { name: Gast auf Google, text: "Sehr nette Bedienung, das Essen schmeckt sehr gut, Preis-Leistungs-Verhältnis stimmt." }
       - { name: Gast auf Google, text: "Ich habe mir eine Pizza Funghi bestellt – geschmacklich ein Traum." }
     quelle: 4,6 von 5 Sternen bei 574 Bewertungen auf Google
+
+  - typ: faq
+    anker: fragen
+    label: Gut zu wissen
+    titel: Häufige Fragen
+    fragen:
+      - { frage: Wo genau liegt das Due Angeli?, antwort: "Am Markt 22 in 07743 Jena – direkt am Marktplatz, mitten in der Jenaer Altstadt." }
+      - { frage: Kann man draußen sitzen?, antwort: "Ja. Wir haben zwei Terrassen direkt am Marktplatz. Wenn Sie draußen sitzen möchten, schreiben Sie es einfach in Ihre Reservierung." }
+      - { frage: Wann haben Sie geöffnet?, antwort: "Täglich von Montag bis Sonntag, 11:00 bis 22:00 Uhr." }
+      - { frage: Wie kann ich einen Tisch reservieren?, antwort: "Über das Reservierungsformular auf dieser Seite oder telefonisch unter 03641 7934707. Wir bestätigen Ihre Reservierung." }
+      - { frage: Was gibt es bei Ihnen zu essen?, antwort: "Italienische Küche nach Original-Hausrezepten: Antipasti, Pasta und Risotto, Pizza, Fisch und Fleisch, Dolci und hausgemachtes Eis." }
+      - { frage: Wie wird das Restaurant bewertet?, antwort: "Auf Google mit 4,6 von 5 Sternen bei 574 Bewertungen." }
 
   - typ: kontakt
     anker: kontakt
@@ -136,7 +150,7 @@ abschnitte:
 oeffnungszeiten:
   - { tage: Montag – Sonntag, zeit: "11:00 – 22:00" }
 
-fuss_text: Italienische Küche im Haus „Zur Sonne“ am Jenaer Marktplatz.
+fuss_text: Italienische Küche direkt am Jenaer Marktplatz.
 
 funktionen:
   karte: true

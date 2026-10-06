@@ -20,6 +20,8 @@ Wurde hier im Chat gewählt: Auswahl + Feedback zuerst eintragen:
 - Inhalt vervollständigen: offene `"??"` aus App (`onboarding`) oder alter Website schließen; Detailseiten für Leistungen (`details:`),
   Team-Infos, FAQ, Karte (`npm run karte -- K-0012`), Logo (`design.logo`), Rechtstexte (Impressum-Pflichtangaben je Branche).
 - Feinschliff mit **soft-skill** und **emil-design-eng** (Abstände, Typografie, Zustände), Handy mit **mobile-native** gegenchecken.
+- SEO/GEO: `faq`-Abschnitt mit echten Fragen anlegen, `seo.titel`/`seo.beschreibung` mit Ort + Leistung, bei Gastro `seo.kueche`.
+  `npm run sichtbarkeit -- K-0012` → lokal 90/100 (nur HTTPS offen); alte Seite zum Vergleich: `npm run sichtbarkeit -- <alte-domain>`.
 - `npm run pruefen -- K-0012` → **0 Fehler**; Screenshots Desktop + Handy selbst ansehen (Startbereich, Formular, Menü).
 - Formular freischalten, falls echter Kunde (CLAUDE.md, Abschnitt Formulare) – Empfänger nur aus App/Onboarding.
 

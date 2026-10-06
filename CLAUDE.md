@@ -51,6 +51,8 @@ npm run varianten -- K-0012                   # 3 Entwürfe a/b/c anlegen (Stand
 npm run entwuerfe -- K-0012 [--ohne-hochladen]  # Entwürfe bauen, Vorschaubilder, hochladen, SQL für die App drucken
 npm run pruefen -- K-0012 --variante c        # einen Entwurf prüfen
 npm run ausbauen -- K-0012 b                  # gewählten Entwurf übernehmen
+npm run sichtbarkeit -- K-0012                # Sichtbarkeits-Check (wie infinero.de/check) lokal – ohne Mail/Lead; Ziel 90 lokal = 100 online
+npm run sichtbarkeit -- alte-seite.de         # alte Website des Kunden zum Vergleich
 ```
 Kunden können überall kurz angegeben werden: `K-0012`, `mueller-bau` oder voller Ordnername.
 
@@ -101,6 +103,18 @@ funke, haus, chat, euro, auto, schere, besteck (`basis/bausteine/Icon.astro`, do
 
 **YAML-Falle:** In `{ … }` muss Text mit Komma in Anführungszeichen: `{ text: "Rot, grün" }`. Sonst wird abgeschnitten
 (die Prüfung meldet dann „leer – oder Text mit Komma…“). Ebenso Text, der mit `&`, `*`, `#` oder `:` beginnt.
+
+## SEO & KI-Sichtbarkeit (automatisch, seit 06.10.2026)
+Jede Seite bekommt ohne Zutun (Logik `basis/lib/seo.ts`): JSON-LD mit Betriebstyp je Branche (Restaurant, Dentist, BeautySalon,
+HomeAndConstructionBusiness, sonst LocalBusiness), Adresse, Geo-Koordinaten (aus `bilder/karte/karte.json`), Öffnungszeiten
+(aus `oeffnungszeiten`, Formate „Mo – Fr“ / „Montag – Sonntag“ / „8:30 – 12:30 · 13:30 – 19:30“), Speisekarte + Reservierung (Gastro),
+Leistungen, FAQPage (aus `faq`-Abschnitten); dazu Open-Graph-Angaben, geo.*-Meta, saubere canonical-Adresse sowie
+`/robots.txt`, `/sitemap.xml` (nur mit `domain`) und `/llms.txt` (Steckbrief für KI-Assistenten).
+Optionale Felder: `seo: { schema_typ: Bakery, kueche: Italienisch, preisklasse: "€€", profile: [Google-/Instagram-Links], bild }`.
+**Für GEO zählt der Inhalt:** jede Seite braucht einen `faq`-Abschnitt mit echten Fragen (Lage, Zeiten, Anmeldung/Reservierung,
+Angebot) und klare Sätze mit Ort + Leistung („Italienisches Restaurant am Jenaer Marktplatz“). Bewertungen nur als Text,
+**kein** aggregateRating-Markup (Google wertet das bei lokalen Betrieben als selbstbezogen).
+Vor jeder Vorschau `npm run sichtbarkeit -- K-…` → lokal 90/100 (nur HTTPS offen) ist das Ziel.
 
 ## Themes
 | Theme | Stil | passt zu |

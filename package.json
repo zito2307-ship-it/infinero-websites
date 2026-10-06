@@ -11,7 +11,8 @@
     "karte": "node tools/karte.mjs",
     "varianten": "node tools/varianten.mjs",
     "entwuerfe": "node tools/entwuerfe.mjs",
-    "ausbauen": "node tools/ausbauen.mjs"
+    "ausbauen": "node tools/ausbauen.mjs",
+    "sichtbarkeit": "node tools/sichtbarkeit.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",

@@ -5,6 +5,7 @@ import { inhalt, bild, variante } from '../lib/inhalt';
 import Nav from '../bausteine/Nav.astro';
 import Fuss from '../bausteine/Fuss.astro';
 import DemoChat from '../bausteine/DemoChat.astro';
+import { strukturdaten, ortsMeta, klar } from '../lib/seo';
 
 const { titel, beschreibung, unterseite = false } = Astro.props;
 const seo = inhalt.seo ?? {};
@@ -14,6 +15,13 @@ const noindex = inhalt.demo || inhalt.beispiel || inhalt.noindex;
 // Farben je Kunde überschreiben (design.farben: { akzent: '#…', … })
 const farben = Object.entries(inhalt.design?.farben ?? {}).map(([k, v]) => `--${k}:${v}`).join(';');
 const chat = inhalt.funktionen.chat;
+// SEO/GEO: Vorschaubild für geteilte Links (seo.bild, sonst Logo), Ortsangaben, strukturierte Daten (lib/seo.ts)
+const teilBild = seo.bild ?? inhalt.design?.logo;
+const absolut = (p: string) => (Astro.site ? new URL(p, Astro.site).href : p);
+const ort = ortsMeta();
+// Saubere Adresse ohne .html (Cloudflare liefert /impressum statt /impressum.html)
+const pfad = Astro.url.pathname.replace(/index\.html$/, '').replace(/\.html$/, '');
+const ld = unterseite ? [] : strukturdaten(Astro.site);
 ---
 <!doctype html>
 <html lang={inhalt.sprache}>
@@ -23,10 +31,21 @@ const chat = inhalt.funktionen.chat;
   <title>{t}</title>
   {b && <meta name="description" content={b} />}
   {noindex && <meta name="robots" content="noindex" />}
-  {Astro.site && <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />}
+  {Astro.site && <link rel="canonical" href={new URL(pfad, Astro.site)} />}
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content={klar(inhalt.firma.name)} />
   <meta property="og:title" content={t} />
   {b && <meta property="og:description" content={b} />}
-  {seo.bild && <meta property="og:image" content={bild(seo.bild)} />}
+  {Astro.site && <meta property="og:url" content={new URL(pfad, Astro.site)} />}
+  {teilBild && <meta property="og:image" content={absolut(bild(teilBild))} />}
+  <meta name="twitter:card" content={seo.bild ? 'summary_large_image' : 'summary'} />
+  {ort.region && <meta name="geo.region" content={ort.region} />}
+  {ort.ort && <meta name="geo.placename" content={ort.ort} />}
+  {ort.position && <meta name="geo.position" content={ort.position} />}
+  {ort.position && <meta name="ICBM" content={ort.position.replace(';', ', ')} />}
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Kurzinfo für KI-Assistenten" />
+  {ld.map((d: any) => <script is:inline type="application/ld+json" set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}
   <link rel="icon" href={bild(inhalt.design?.favicon ?? 'favicon.svg')} />
   {farben && <style set:html={`:root:root{${farben}}`}></style>}
 </head>
