@@ -1,0 +1,7 @@
+# Entwurf C – edel und dunkel
+name: Edel & dunkel
+beschreibung: Anthrazit mit Gold und eleganter Schrift – ein Eiscafé mit Abend-Gefühl, ruhig und hochwertig.
+design:
+  theme: edel-dunkel
+  farben: null
+hero: { variante: dunkel }

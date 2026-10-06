@@ -1,0 +1,8 @@
+# Entwurf B – hell und sommerlich, große Eistüte als Zeichen
+name: Hell & sommerlich
+beschreibung: Hell, luftig und sommerlich – mit einer großen Eistüte als Zeichen und dem Logo oben. Leichter als das Restaurant, aber in denselben Goldtönen.
+design:
+  theme: beauty-hell
+  zeichen_icon: eis
+  logo_im_kopf: false   # Logo steht groß im Hero – oben Eistüte + Name
+hero: { variante: geteilt, grafik: eis, logo: true }

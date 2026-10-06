@@ -1,0 +1,7 @@
+# Entwurf A – wie das Restaurant: gleiche Farben, das Engel-Logo groß in der Mitte
+name: Wie das Restaurant
+beschreibung: Gleicher Auftritt wie das Ristorante am Markt – warmes Braun, Gold und das Engel-Logo groß in der Mitte. Man sieht sofort, dass beides zusammengehört.
+design:
+  theme: gastro-warm
+  logo_im_kopf: false
+hero: { variante: bild, logo: true }

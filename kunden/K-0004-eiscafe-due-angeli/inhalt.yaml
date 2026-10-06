@@ -1,0 +1,117 @@
+# Demo für Lead L-001041 (Vertriebs-App, Ziu) – Eiscafé Due Angeli im Burgaupark Jena, Schwester des Ristorante Due Angeli (K-0003)
+# Quellen: Beschreibung + Anbieterinfo + Angaben von Ziu (06.10.2026: Leitung Vanessa Mariano, renoviert Frühjahr 2026,
+# Frühstück Mo–Fr 8:30–11:30, Hauseissorte „Un Angelo“), Google (Lage im Burgaupark). Google-Profil heißt noch „Eiscafé Rimini“
+# und steht fälschlich auf „dauerhaft geschlossen“ → nicht verlinken. Telefon, Öffnungszeiten, Rechtsform: fehlen noch.
+# Logo + Restaurant-Foto aus K-0003 übernommen (gleiche Marke). Keine Fotos vom Eiscafé vorhanden → typografisch.
+kunde: K-0004
+app: { lead_id: 1041, auftrag_id: null }
+beispiel: false
+demo: true
+demo_text: So könnte die Website Ihres Eiscafés aussehen
+noindex: true
+branche: gastro
+domain: "??"
+
+firma:
+  name: Eiscafé Due Angeli
+  kurzname: Due Angeli
+  zusatz: Eiscafé · Burgaupark Jena
+  name_fuss: Eiscafé Due Angeli<br>im Burgaupark Jena
+  rechtlicher_name: "??"
+  inhaber: "??"
+  strasse: Keßlerstraße 12
+  plz: "07745"
+  ort: Jena
+  bundesland: Thüringen
+  telefon: "??"
+  email: "??"
+
+recht: {}
+
+seo:
+  schema_typ: IceCreamShop
+  kueche: Eis
+  titel: Eiscafé Due Angeli – Eis, Kaffee & Waffeln in Jena
+  beschreibung: Eiscafé im Burgaupark Jena – viele Eissorten, die Hauskreation „Un Angelo“, Kaffee, Frühstück (Mo–Fr) und saisonal frische Waffeln.
+
+design:
+  theme: gastro-warm
+  favicon: favicon.svg
+  logo: logo.png
+  logo_hoehe: 52
+  logo_feld: false
+  zusatz_mobil: true
+  farben: { akzent: "#7a5a1e", akzent-dunkel: "#5e4415", hervor: "#c9a24a", label: "#7a5a1e", dunkel: "#17120c", dunkel-2: "#2a2116", titel-kursiv-farbe: "#d9b866" }
+  bewegung: true
+
+hauptaktion: { text: So finden Sie uns, ziel: "#kontakt" }
+
+abschnitte:
+  - typ: hero
+    variante: dunkel
+    label: Eiscafé im Burgaupark Jena
+    titel: Eis, Kaffee <em>& Waffeln.</em>
+    text: "Viele Eissorten – klassisch oder außergewöhnlich –, aromatischer Kaffee, Frühstück unter der Woche und in der Saison frisch gebackene Waffeln. Frisch renoviert im Burgaupark."
+    aktion: { text: So finden Sie uns, ziel: "#kontakt" }
+    zweitaktion: { text: Unser Restaurant am Markt, ziel: "https://vorschau.zur-sonne.pages.dev" }
+
+  - typ: vorteile
+    punkte:
+      - { icon: eis, titel: Viele Eissorten, text: "Ob klassisch oder außergewöhnlich – hier ist für jeden Geschmack etwas dabei." }
+      - { icon: kaffee, titel: Kaffeespezialitäten, text: "Aromatisch und frisch zubereitet – der perfekte Begleiter zum Eis." }
+      - { icon: sonne, titel: Frühstück, text: "Montag bis Freitag, 8:30 bis 11:30 Uhr – mit Eis und Kaffee oder ganz klassisch." }
+      - { icon: waffel, titel: Frische Waffeln, text: "In der Saison frisch gebacken – ein Highlight, das Sie nicht verpassen sollten." }
+
+  - typ: band
+    anker: un-angelo
+    menue: Un Angelo
+    label: Unsere Hauskreation
+    titel: Un Angelo.
+    text: "Orange, Biskuit und dunkle Schokolade – Vanessas eigene Eissorte, die es nur bei uns gibt. Bei unseren Gästen ist sie längst der Liebling: unbedingt probieren!"
+
+  - typ: textbild
+    anker: eiscafe
+    menue: Das Eiscafé
+    label: Frisch renoviert
+    titel: Ihre süße Pause im Burgaupark.
+    text:
+      - "Im Frühjahr 2026 haben wir unser Eiscafé renoviert – hell, gemütlich und mitten im Burgaupark. Ideal für die Pause beim Einkaufsbummel oder einfach als kleine Auszeit vom Alltag."
+      - "Vor Ort führt Vanessa Mariano das Eiscafé – mit viel Herz und eigenen Ideen wie dem Un Angelo."
+
+  - typ: textbild
+    anker: restaurant
+    menue: Restaurant
+    label: Auch von Due Angeli
+    titel: Unser Ristorante am Markt.
+    text: "Pasta, Pizza, Fisch und Fleisch nach italienischen Hausrezepten – im Ristorante Due Angeli im Haus „Zur Sonne“, direkt am Jenaer Marktplatz, mit zwei Terrassen mitten in der Altstadt."
+    bild: markt-tag.webp
+    bild_alt: Das Ristorante Due Angeli im Haus Zur Sonne am Jenaer Marktplatz
+    aktion: { text: Zum Restaurant, ziel: "https://vorschau.zur-sonne.pages.dev" }
+
+  - typ: faq
+    anker: fragen
+    label: Gut zu wissen
+    titel: Häufige Fragen
+    fragen:
+      - { frage: Wo finde ich das Eiscafé Due Angeli?, antwort: "Im Burgaupark Jena, Keßlerstraße 12, 07745 Jena." }
+      - { frage: Was gibt es bei Ihnen?, antwort: "Eis in vielen Sorten – klassisch und außergewöhnlich –, Kaffeespezialitäten und in der Saison frisch gebackene Waffeln." }
+      - { frage: Gibt es bei Ihnen Frühstück?, antwort: "Ja – Montag bis Freitag von 8:30 bis 11:30 Uhr. Mit Eis und Kaffee oder ganz klassisch." }
+      - { frage: Was ist Un Angelo?, antwort: "Unsere Hauseissorte aus Orange, Biskuit und dunkler Schokolade – eine eigene Kreation von Vanessa Mariano, die das Eiscafé vor Ort führt." }
+      - { frage: Gibt es die Waffeln das ganze Jahr?, antwort: "Waffeln backen wir saisonbedingt. Fragen Sie gern vor Ort, ob es gerade welche gibt." }
+      - { frage: Gehört das Eiscafé zum Restaurant am Markt?, antwort: "Ja. Das Eiscafé Due Angeli ist die Schwester des Ristorante Due Angeli im Haus „Zur Sonne“ am Jenaer Marktplatz." }
+
+  - typ: kontakt
+    anker: kontakt
+    menue: Kontakt
+    titel: So finden Sie uns
+    hinweis: Im Burgaupark Jena-Burgau.
+    zeiten_hinweis: "Frühstück: Montag – Freitag, 8:30 – 11:30 Uhr. Die übrigen Öffnungszeiten ergänzen wir in Kürze."
+    karte: true
+
+oeffnungszeiten: []
+
+fuss_text: Eis, Kaffee und Waffeln im Burgaupark Jena – die Schwester des Ristorante Due Angeli am Markt.
+
+funktionen:
+  karte: true
+  chat: aus
