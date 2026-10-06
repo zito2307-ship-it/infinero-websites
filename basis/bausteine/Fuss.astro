@@ -7,7 +7,7 @@ const jahr = new Date().getFullYear();
   <div class="wrap">
     <div class="fuss-raster">
       <div>
-        {inhalt.design?.logo && inhalt.design?.logo_im_fuss !== false && <div class="fuss-logo"><img src={bild(inhalt.design.logo)} alt={f.name} loading="lazy" /></div>}
+        {inhalt.design?.logo && inhalt.design?.logo_im_fuss !== false && <div class={`fuss-logo${inhalt.design.logo_feld === false ? ' fuss-logo--frei' : ''}`}><img src={bild(inhalt.design.logo)} alt={f.name} loading="lazy" /></div>}
         <div class="fuss-marke" set:html={f.name_fuss ?? f.name} />
         {inhalt.fuss_text && <p>{inhalt.fuss_text}</p>}
       </div>
@@ -28,7 +28,7 @@ const jahr = new Date().getFullYear();
       </div>
     </div>
     <div class="fuss-unten">
-      <span>© {jahr} {f.rechtlicher_name ?? f.name}{inhalt.demo && ' · Fiktive Beispiel-Website'}</span>
+      <span>© {jahr} {f.rechtlicher_name ?? f.name}{inhalt.demo && (inhalt.app?.lead_id ? ' · Website-Entwurf von INFINERO' : ' · Fiktive Beispiel-Website')}</span>
       <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a>{inhalt.webdesign_link !== false && <a href="https://infinero.de" rel="noopener">Website: INFINERO</a>}</nav>
     </div>
   </div>

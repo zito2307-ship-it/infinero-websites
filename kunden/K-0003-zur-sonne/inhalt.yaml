@@ -2,6 +2,7 @@
 # Quellen: App (demo_infos: Stil edel, Farben gold/creme/dunkel), bisherige Lieferando-Seite jena-dueangeli.de
 # (Speisekarte, Impressum), Google Maps (Öffnungszeiten, Bewertungen). Keine eigenen Fotos vorhanden → typografisch.
 kunde: K-0003
+variante: b            # gewählter Entwurf (kunden/…/varianten/b.yaml) – mit ausbauen.mjs gesetzt
 app: { lead_id: 1032, auftrag_id: null }
 beispiel: false
 demo: true

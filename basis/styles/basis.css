@@ -400,6 +400,7 @@ section.zitat-flaeche { background: color-mix(in srgb, var(--hervor) 16%, var(--
 @media (max-width: 760px) { .fuss-raster { grid-template-columns: 1fr; gap: 28px; } }
 .fuss-logo { display: inline-block; background: var(--flaeche); border-radius: 14px; padding: 12px 16px; margin-bottom: 16px; }
 .fuss-logo img { height: 46px; width: auto; }
+.fuss-logo.fuss-logo--frei { background: none; padding: 0; border-radius: 0; }   /* design.logo_feld: false */
 .fuss-marke { font: var(--titel-gewicht) 28px var(--font-titel); color: #fff; margin-bottom: 10px; }
 .fuss h4 { font: 600 12px var(--font-text); letter-spacing: .16em; text-transform: uppercase; color: var(--hervor); margin-bottom: 14px; }
 .fuss ul { list-style: none; }
