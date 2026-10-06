@@ -79,7 +79,7 @@ Gemeinsame Felder: `anker` (Sprungziel), `menue` (Eintrag im Menü), `label`, `t
 | `vorteile` | 3–4 Vorteile mit Icon | `punkte: [{icon, titel, text}]`, `ueberlappend: true` (direkt nach dem Hero) |
 | `textbild` | Über uns / Geschichte | `text` (Liste = Absätze), `bild`, `bild_alt`, `bild_text`, `bild_links`, `aktion` |
 | `leistungen` | Leistungen/Behandlungen als Karten | `eintraege: [{titel, text, icon oder bild, preis, link}]`, `aktion` |
-| `preisliste` | Speisekarte/Preisliste | `posten` oder `gruppen: [{titel, posten: [{name, text, preis}]}]`, `hinweis` |
+| `preisliste` | Speisekarte/Preisliste | `posten` oder `gruppen: [{titel, posten: [{name, text, preis}]}]`, `hinweis`, `aktion: {text, ziel, hinweis}` (z. B. Bestell-Link) |
 | `galerie` | Referenzen/Fotos | `bilder: [{bild, text, alt}]` |
 | `team` | Personen | `personen: [{name, rolle, bild}]` (ohne Bild: Anfangsbuchstabe) |
 | `bewertungen` | Kundenstimmen | `eintraege: [{name, text, sterne}]` – genau 1 Eintrag = großes Zitat; `quelle` |

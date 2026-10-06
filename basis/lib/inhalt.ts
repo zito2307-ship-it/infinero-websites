@@ -41,6 +41,9 @@ export function telLink(nr?: string) {
   return n;
 }
 
+/** Externe Ziele (https://…) öffnen in neuem Tab – z. B. Bestellplattform, Buchungssystem. */
+export const extern = (ziel?: string) => (/^https?:\/\//.test(ziel ?? '') ? { target: '_blank', rel: 'noopener' } : {});
+
 /** Bildpfad aus kunden/<KUNDE>/bilder/ (liegt im Wurzelverzeichnis der fertigen Seite). */
 export function bild(name?: string) {
   if (!name) return '';

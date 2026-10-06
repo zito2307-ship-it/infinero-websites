@@ -1,5 +1,5 @@
 ---
-import { inhalt, telLink, bild } from '../lib/inhalt';
+import { inhalt, telLink, bild, extern } from '../lib/inhalt';
 const logoGross = a => a.logo && inhalt.design?.logo ? bild(inhalt.design.logo) : null;
 import Icon from './Icon.astro';
 const { a } = Astro.props;
@@ -21,8 +21,8 @@ const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
       <h1 set:html={a.titel} />
       {a.text && <p class="hero-text">{a.text}</p>}
       <div class="hero-aktionen">
-        {cta && <a class="btn btn-p" href={cta.ziel}>{cta.text}</a>}
-        {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel}>{a.zweitaktion.text}</a>}
+        {cta && <a class="btn btn-p" href={cta.ziel} {...extern(cta.ziel)}>{cta.text}</a>}
+        {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel} {...extern(a.zweitaktion.ziel)}>{a.zweitaktion.text}</a>}
         {a.telefon_zeigen && tel && <a class="btn btn-g hero-telknopf" href={`tel:${telLink(tel)}`} aria-label={`Anrufen: ${tel}`}><Icon name="telefon" class="" />{tel}</a>}
       </div>
       {a.kennzahlen && <div class="kennzahlen">{a.kennzahlen.map((k: any) => <div><b>{k.wert}</b><span>{k.text}</span></div>)}</div>}
@@ -45,9 +45,9 @@ const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
         <h1 set:html={a.titel} />
         {a.text && <p class="hero-text">{a.text}</p>}
         <div class={`hero-aktionen${a.aktion_mitte ? ' hero-aktionen--mitte' : ''}`}>
-          {cta && <a class="btn btn-p" href={cta.ziel}>{cta.text}</a>}
+          {cta && <a class="btn btn-p" href={cta.ziel} {...extern(cta.ziel)}>{cta.text}</a>}
           {a.telefon_zeigen === 'knopf' && tel && <a class="btn btn-g hero-telknopf" href={`tel:${telLink(tel)}`} aria-label={`Anrufen: ${tel}`}><Icon name="telefon" class="" />{tel}</a>}
-          {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel}>{a.zweitaktion.text}</a>}
+          {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel} {...extern(a.zweitaktion.ziel)}>{a.zweitaktion.text}</a>}
           {a.telefon_zeigen && a.telefon_zeigen !== 'knopf' && tel && <a class="hero-tel" href={`tel:${telLink(tel)}`}><Icon name="telefon" class="" />{tel}</a>}
         </div>
       </div>

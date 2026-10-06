@@ -61,7 +61,7 @@ abschnitte:
     titel: Italien. <em>Mitten am Markt.</em>
     text: "Auf der Terrasse direkt am Marktplatz sitzen, mitten in der Jenaer Altstadt – und dazu italienische Hausrezepte: Pasta, Pizza, Fisch und Fleisch. Drinnen gemütlich, draußen mittendrin."
     aktion: { text: Tisch reservieren, ziel: "#reservieren" }
-    zweitaktion: { text: Zur Speisekarte, ziel: "#speisekarte" }
+    zweitaktion: { text: Essen bestellen, ziel: "https://www.lieferando.de/speisekarte/due-angeli-zur-sonne-markt-22-jena" }   # Lieferando-Seite des Restaurants (von der bisherigen Website)
     telefon_zeigen: knopf
     aktion_mitte: true
 
@@ -116,6 +116,7 @@ abschnitte:
           - { name: Tiramisu, text: "hausgemacht, mit Löffelbiscuits und Mascarpone", preis: "6,50" }
           - { name: Schoko Soufflé, text: "heißes Schokoküchlein mit flüssigem Kern", preis: "7,90" }
     hinweis: Preise in Euro. Allergene und Zusatzstoffe auf Nachfrage.
+    aktion: { text: Essen online bestellen, ziel: "https://www.lieferando.de/speisekarte/due-angeli-zur-sonne-markt-22-jena", hinweis: "Bestellung über Lieferando" }
 
   - typ: galerie
     anker: einblicke
@@ -175,6 +176,7 @@ abschnitte:
       - { frage: Kann man draußen sitzen?, antwort: "Ja. Wir haben zwei Terrassen direkt am Marktplatz. Wenn Sie draußen sitzen möchten, schreiben Sie es einfach in Ihre Reservierung." }
       - { frage: Wann haben Sie geöffnet?, antwort: "Täglich von Montag bis Sonntag, 11:00 bis 22:00 Uhr." }
       - { frage: Wie kann ich einen Tisch reservieren?, antwort: "Über das Reservierungsformular auf dieser Seite oder telefonisch unter 03641 7934707. Wir bestätigen Ihre Reservierung." }
+      - { frage: Kann ich auch online bestellen?, antwort: "Ja. Unsere Gerichte können Sie über Lieferando bestellen – einfach oben auf „Essen bestellen“ tippen." }
       - { frage: Was gibt es bei Ihnen zu essen?, antwort: "Italienische Küche nach Original-Hausrezepten: Antipasti, Pasta und Risotto, Pizza, Fisch und Fleisch, Dolci und hausgemachtes Eis." }
       - { frage: Wie wird das Restaurant bewertet?, antwort: "Auf Google mit 4,6 von 5 Sternen bei 574 Bewertungen." }
 

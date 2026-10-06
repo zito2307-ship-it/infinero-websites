@@ -484,6 +484,8 @@ section.zitat-flaeche { background: color-mix(in srgb, var(--hervor) 16%, var(--
 .person-mehr p { color: var(--gedaempft); font-size: 14px; margin-bottom: 6px; }
 
 /* Galerie-Slider */
+.preisliste-aktion { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 30px; text-align: center; }
+.preisliste-aktion small { color: var(--gedaempft); font-size: 13px; }
 .slider { position: relative; }
 .slider-spur { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; }
 .slider-spur::-webkit-scrollbar { display: none; }

@@ -1,6 +1,7 @@
 ---
 // Speisekarte oder Preisliste – optional in Gruppen.
 import Kopf from './Kopf.astro';
+import { extern } from '../lib/inhalt';
 const { a } = Astro.props;
 const gruppen = a.gruppen ?? [{ posten: a.posten ?? [] }];
 ---
@@ -19,6 +20,7 @@ const gruppen = a.gruppen ?? [{ posten: a.posten ?? [] }];
         </>
       ))}
       {a.hinweis && <p class="preisliste-hinweis">{a.hinweis}</p>}
+      {a.aktion && <div class="preisliste-aktion"><a class="btn btn-p" href={a.aktion.ziel} {...extern(a.aktion.ziel)}>{a.aktion.text}</a>{a.aktion.hinweis && <small>{a.aktion.hinweis}</small>}</div>}
     </div>
   </div>
 </section>
