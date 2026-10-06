@@ -1,0 +1,142 @@
+# Demo für Lead L-001032 (Vertriebs-App, Ziu) – Ristorante Due Angeli im Haus „Zur Sonne“, Markt 22, Jena
+# Quellen: App (demo_infos: Stil edel, Farben gold/creme/dunkel), bisherige Lieferando-Seite jena-dueangeli.de
+# (Speisekarte, Impressum), Google Maps (Öffnungszeiten, Bewertungen). Keine eigenen Fotos vorhanden → typografisch.
+kunde: K-0003
+app: { lead_id: 1032, auftrag_id: null }
+beispiel: false
+demo: true
+demo_text: So könnte Ihre eigene Website aussehen – statt der Lieferando-Seite
+noindex: true
+branche: gastro
+domain: jena-dueangeli.de
+
+firma:
+  name: Ristorante & Pizzeria Due Angeli
+  kurzname: Due Angeli
+  zusatz: im Haus Zur Sonne · Jena
+  name_fuss: Ristorante Due Angeli<br>im Haus „Zur Sonne“
+  rechtlicher_name: "„Zur Sonne“ GmbH"
+  inhaber: "??"
+  strasse: Markt 22
+  plz: "07743"
+  ort: Jena
+  bundesland: Thüringen
+  telefon: 03641 7934707
+  email: "??"
+
+recht:
+  registergericht: Amtsgericht Jena
+  registernummer: HRB 509403
+
+seo:
+  titel: Ristorante Due Angeli – Italiener am Markt in Jena
+  beschreibung: Italienische Küche im Haus „Zur Sonne“ direkt am Jenaer Marktplatz – Pasta, Pizza, Fisch und Fleisch nach Hausrezepten, zwei Terrassen. Tisch reservieren.
+
+design:
+  theme: gastro-warm
+  favicon: favicon.svg
+  logo: logo.png          # aus Flyer + freigestellter Logo-Datei des Restaurants zusammengesetzt (06.10.)
+  logo_hoehe: 52
+  logo_feld: false        # rot/Engel funktionieren auch auf dunklem Grund
+  farben: { akzent: "#7a5a1e", akzent-dunkel: "#5e4415", hervor: "#c9a24a", label: "#7a5a1e", dunkel: "#17120c", dunkel-2: "#2a2116", titel-kursiv-farbe: "#d9b866" }
+  bewegung: true
+
+hauptaktion: { text: Tisch reservieren, ziel: "#reservieren" }
+
+abschnitte:
+  - typ: hero
+    variante: dunkel
+    bewertung: 4,6 bei 574 Google-Bewertungen
+    label: Ristorante am Jenaer Markt
+    titel: Italien. <em>Mitten am Markt.</em>
+    text: "Original italienische Hausrezepte – Pasta, Pizza, Fisch und Fleisch – in einem der ältesten Häuser Jenas. Mit zwei Terrassen direkt am Marktplatz."
+    aktion: { text: Tisch reservieren, ziel: "#reservieren" }
+    zweitaktion: { text: Zur Speisekarte, ziel: "#speisekarte" }
+
+  - typ: vorteile
+    ueberlappend: true
+    punkte:
+      - { icon: sonne, titel: Zwei Terrassen am Markt, text: "Draußen sitzen mitten im Herzen der Altstadt – mit Blick auf den Marktplatz." }
+      - { icon: herz, titel: Original-Hausrezepte, text: "Italienische Klassiker, wie sie in der Familie gekocht werden – nicht wie aus dem Katalog." }
+      - { icon: stern, titel: Hausgemachtes Eis, text: "Zum Abschluss oder einfach zwischendurch: Eis aus eigener Herstellung." }
+
+  - typ: band
+    anker: haus
+    menue: Das Haus
+    label: Das Haus Zur Sonne
+    titel: In einem der ältesten Häuser Jenas.
+    text: "Mediterranes Ambiente hinter historischen Mauern – direkt am Markt. Wir kochen nach italienischen Original-Hausrezepten aus frischen Zutaten: Fisch- und Fleischspezialitäten, hausgemachte Pasta-Kreationen, Pizza und Eis. Lassen Sie sich verwöhnen und erleben Sie ein Stück Italien. Buon Appetito!"
+
+  - typ: preisliste
+    anker: speisekarte
+    menue: Speisekarte
+    label: Auszug aus der Karte
+    titel: Von Antipasti bis Dolci
+    text: Eine Auswahl – die ganze Karte mit über 100 Gerichten gibt es im Restaurant.
+    gruppen:
+      - titel: Antipasti
+        posten:
+          - { name: Vitello Tonnato, text: "hauchdünnes Kalbfleisch mit Thunfisch-Kapernsauce", preis: "13,90" }
+          - { name: Carpaccio, text: "rohe Rindfleischscheiben mit Rucola und Grana Padano", preis: "14,90" }
+          - { name: Parma e Melone, text: "luftgetrockneter Schinken mit Honigmelone", preis: "13,90" }
+          - { name: Grill Mozzarella, text: "im Parmaschinken-Mantel mit Rucola und Parmesan", preis: "13,90" }
+      - titel: Pasta & Risotto
+        posten:
+          - { name: Spaghetti Mare, text: "mit Meeresfrüchten", preis: "18,40" }
+          - { name: Tagliatelle Porcini, text: "mit Steinpilzen", preis: "17,40" }
+          - { name: Risotto Mafalda, text: "mit Lachs, Broccoli und Gorgonzolasauce", preis: "19,40" }
+          - { name: Risotto d'Oro, text: "Rindfleischstreifen, Gemüse, Rotwein und Sahne", preis: "19,40" }
+      - titel: Pizza
+        posten:
+          - { name: Pizza Sophia Loren, text: "Parmaschinken, Ei, Kirschtomaten, Spargel", preis: "18,40" }
+          - { name: Pizza Felicita, text: "gegrillte Crevetten, Rucola, Kirschtomaten, Knoblauch", preis: "18,40" }
+          - { name: Pizza da Vinci, text: "Rindfleischstreifen, Tomaten, Spargel, Sauce Hollandaise", preis: "18,40" }
+          - { name: Pizza Bacio, text: "Bacon, rote Zwiebeln, Rucola, Grana Padano", preis: "17,40" }
+      - titel: Fisch & Fleisch
+        posten:
+          - { name: Filetto alla Griglia, text: "gegrilltes Filetsteak mit Kräuterbutter", preis: "34,90" }
+          - { name: Saltimbocca alla Romana, text: "mit Parmaschinken und Salbei", preis: "18,90" }
+          - { name: Dorade alla Griglia, text: "gegrillte Goldbrasse nach Art des Hauses", preis: "26,90" }
+          - { name: Sogliola al Vino Bianco, text: "gegrillte Seezunge mit Weißweinsauce", preis: "33,90" }
+      - titel: Dolci
+        posten:
+          - { name: Tiramisu, text: "hausgemacht, mit Löffelbiscuits und Mascarpone", preis: "6,50" }
+          - { name: Schoko Soufflé, text: "heißes Schokoküchlein mit flüssigem Kern", preis: "7,90" }
+    hinweis: Preise in Euro, Stand der aktuellen Karte. Allergene und Zusatzstoffe auf Nachfrage.
+
+  - typ: anfrage
+    anker: reservieren
+    menue: Reservieren
+    art: reservierung
+    label: Reservierung
+    titel: Ihr Tisch am Markt.
+    text: Drinnen oder auf einer unserer zwei Terrassen – sagen Sie uns, wann Sie kommen möchten. Wir bestätigen Ihre Reservierung.
+    zeiten: ["12:00", "12:30", "13:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30"]
+    personen_max: 10
+    nachricht: true
+    nachricht_label: Wunsch (z. B. Terrasse, Anlass)
+
+  - typ: bewertungen
+    label: Gäste über uns
+    titel: Was unsere Gäste sagen
+    eintraege:
+      - { name: Gast auf Google, text: "Wir haben alle fünf leckere Pizzen gegessen und die Bedienung war auch top." }
+      - { name: Gast auf Google, text: "Sehr nette Bedienung, das Essen schmeckt sehr gut, Preis-Leistungs-Verhältnis stimmt." }
+      - { name: Gast auf Google, text: "Ich habe mir eine Pizza Funghi bestellt – geschmacklich ein Traum." }
+    quelle: 4,6 von 5 Sternen bei 574 Bewertungen auf Google
+
+  - typ: kontakt
+    anker: kontakt
+    menue: Kontakt
+    titel: So finden Sie uns
+    hinweis: Direkt am Marktplatz – mitten in der Jenaer Altstadt.
+    karte: true
+
+oeffnungszeiten:
+  - { tage: Montag – Sonntag, zeit: "11:00 – 22:00" }
+
+fuss_text: Italienische Küche im Haus „Zur Sonne“ am Jenaer Marktplatz.
+
+funktionen:
+  karte: true
+  chat: aus

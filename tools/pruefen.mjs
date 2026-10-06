@@ -151,7 +151,7 @@ server.close();
 
 // Pflichtangaben
 const fehlt = fehlendeAngaben();
-for (const f of fehlt) (inhalt.beispiel ? hinweise : fehler).push(`Fehlende Angabe: ${f}`);
+for (const f of fehlt) (inhalt.beispiel || inhalt.demo ? hinweise : fehler).push(`Fehlende Angabe: ${f}`);   // Demos: offen, aber nicht blockierend
 if (inhalt.demo) hinweise.push('Demo-Modus aktiv (Demo-Balken + noindex) – für Livegang `demo: false` setzen.');
 if (gewicht > 2_500_000) hinweise.push(`Startseite ist ${(gewicht / 1e6).toFixed(1)} MB groß – Bilder verkleinern.`);
 

@@ -21,7 +21,7 @@ const nr = () => ++n;
     <h1>Datenschutzerklärung</h1>
 
     <h2>{nr()}. Verantwortlicher</h2>
-    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />{f.rechtlicher_name}, {f.strasse}, {f.plz} {f.ort}{f.telefon && `, Telefon ${f.telefon}`}, E-Mail <a href={`mailto:${f.email}`}>{f.email}</a>.</p>
+    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />{f.rechtlicher_name}, {f.strasse}, {f.plz} {f.ort}{f.telefon && `, Telefon ${f.telefon}`}, {f.email && <>, E-Mail <a href={`mailto:${f.email}`}>{f.email}</a></>}.</p>
 
     {d.beauftragter && <><h2>{nr()}. Datenschutzbeauftragter</h2><p>{d.beauftragter}</p></>}
 

@@ -1,0 +1,7 @@
+# Entwurf A – genau der Wunsch aus dem Telefonat: edel, dunkel, Gold
+name: Edel & dunkel
+beschreibung: Anthrazit mit Gold und Serifen – wie ein Abend im Restaurant. Nah am Wunsch „edel, Gold, Creme, dunkel“.
+design:
+  theme: edel-dunkel
+  farben: null
+hero: { variante: dunkel }

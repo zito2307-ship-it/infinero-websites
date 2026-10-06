@@ -63,10 +63,14 @@ export function leistungsSeiten(i: any = inhalt) {
 const karteDatei = path.join(process.cwd(), 'kunden', kunde, 'bilder', 'karte', 'karte.json');
 export const karte: any = fs.existsSync(karteDatei) ? JSON.parse(fs.readFileSync(karteDatei, 'utf8')) : null;
 
+/** Bei Demos offene Firmenangaben („??“) nicht anzeigen – die Prüfung arbeitet weiter mit dem Originalinhalt. */
+const ungefiltert: any = structuredClone(inhalt);
+if (inhalt.demo) for (const k of Object.keys(inhalt.firma ?? {})) if (inhalt.firma[k] === '??') delete inhalt.firma[k];
+
 export const istOffen = (v: unknown) => v === undefined || v === null || v === '' || v === OFFEN;
 
 /** Pflichtangaben, ohne die eine Seite nicht live gehen darf. */
-export function fehlendeAngaben(i: any = inhalt): string[] {
+export function fehlendeAngaben(i: any = ungefiltert): string[] {
   const pflicht = [
     'firma.name', 'firma.rechtlicher_name', 'firma.inhaber', 'firma.strasse', 'firma.plz', 'firma.ort',
     'firma.bundesland', 'firma.telefon', 'firma.email', 'seo.titel', 'seo.beschreibung', 'design.theme',

@@ -47,6 +47,7 @@ body { color-scheme: dark; }
 .hero-grafik-form { fill: color-mix(in srgb, var(--flaeche) 80%, transparent); }
 .nav { background: color-mix(in srgb, var(--bg) 92%, transparent); }
 .marke-logo { background: #f4f1ea; padding: 6px 12px; border-radius: 10px; }   /* dunkle Kundenlogos bleiben lesbar */
+.marke-logo--frei { background: none; padding: 0; }   /* design.logo_feld: false */
 .fuss-logo { background: #f4f1ea; }
 .leiste { border-top-color: var(--linie); }
 .vorteil, .leistung, .formular, .detail-karte, .detail-weitere, .person-mehr div, .osm-karte { background: var(--flaeche); }
@@ -72,3 +73,5 @@ section.zitat-flaeche { background: #1c2126; }
 .zurueck, .recht a, .detail-weitere a, .kontakt-daten a { color: var(--hervor); }
 .detail-kopf { background: linear-gradient(120deg, var(--bg), color-mix(in srgb, var(--akzent) 12%, var(--bg))); }
 .detail-ic { background: var(--flaeche); }
+
+.kontakt-daten .betont { color: var(--hervor); }

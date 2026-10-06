@@ -12,7 +12,7 @@ const kopfH = mitLogo && inhalt.design.logo_hoehe ? inhalt.design.logo_hoehe + 2
   <div class="wrap nav-in">
     <a class="marke" href={basis || '#top'} aria-label={`${f.name} – Startseite`}>
       {mitLogo
-        ? <img class="marke-logo" src={bild(inhalt.design.logo)} alt={f.name} style={inhalt.design.logo_hoehe ? `--logo-h:${inhalt.design.logo_hoehe}px` : undefined} />
+        ? <img class={`marke-logo${inhalt.design.logo_feld === false ? ' marke-logo--frei' : ''}`} src={bild(inhalt.design.logo)} alt={f.name} style={inhalt.design.logo_hoehe ? `--logo-h:${inhalt.design.logo_hoehe}px` : undefined} />
         : <>
             {inhalt.design?.zeichen_icon ? <span class="marke-zeichen marke-zeichen--icon"><Icon name={inhalt.design.zeichen_icon} class="" /></span>
               : inhalt.design?.zeichen && <span class="marke-zeichen">{inhalt.design.zeichen}</span>}

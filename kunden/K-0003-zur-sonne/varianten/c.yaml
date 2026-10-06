@@ -1,0 +1,7 @@
+# Entwurf C – hell und sonnig, mit der Sonne als Zeichen für das Haus „Zur Sonne“
+name: Hell & sonnig
+beschreibung: Hell, luftig, elegante Serifen-Schrift – die Sonne als Zeichen für das Haus „Zur Sonne“.
+design:
+  theme: beauty-hell
+  zeichen_icon: sonne
+hero: { variante: geteilt, grafik: sonne }

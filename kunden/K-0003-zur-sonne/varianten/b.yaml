@@ -1,0 +1,7 @@
+# Entwurf B – warm und klassisch, das Engel-Logo groß und mittig
+name: Warm & klassisch
+beschreibung: Das Logo mit den Engeln groß in der Mitte, warmes Braun und Creme – einladend wie eine Trattoria.
+design:
+  theme: gastro-warm
+  logo_im_kopf: false
+hero: { variante: bild, logo: true }

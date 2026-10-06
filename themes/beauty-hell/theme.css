@@ -71,3 +71,5 @@ section.zitat-flaeche { background: #efd6ce; }
 .formular { border: 1px solid var(--linie); box-shadow: none; }
 .feld label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; }
 .fuss h4 { color: #c98a86; }
+
+.band p { color: #fbf3f5; }   /* lesbar auch bei Kundenfarben als Band-Hintergrund */
