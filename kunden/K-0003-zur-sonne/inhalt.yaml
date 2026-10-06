@@ -42,7 +42,8 @@ design:
   logo: logo.png          # aus Flyer + freigestellter Logo-Datei des Restaurants zusammengesetzt (06.10.)
   logo_hoehe: 52
   logo_feld: false
-  telefon_im_menue: true   # Nummer im Kopf + Anruf-Knopf auf dem Handy        # rot/Engel funktionieren auch auf dunklem Grund
+  telefon_im_menue: true
+  zusatz_mobil: true       # „Zur Sonne · Jena“ auch auf dem Handy unter dem Namen   # Nummer im Kopf + Anruf-Knopf auf dem Handy        # rot/Engel funktionieren auch auf dunklem Grund
   farben: { akzent: "#7a5a1e", akzent-dunkel: "#5e4415", hervor: "#c9a24a", label: "#7a5a1e", dunkel: "#17120c", dunkel-2: "#2a2116", titel-kursiv-farbe: "#d9b866" }
   bewegung: true
 

@@ -8,7 +8,7 @@ const cta = inhalt.hauptaktion;
 const mitLogo = !!inhalt.design?.logo && inhalt.design?.logo_im_kopf !== false;
 const kopfH = mitLogo && inhalt.design.logo_hoehe ? inhalt.design.logo_hoehe + 24 : undefined;
 ---
-<header class={`nav${mitLogo ? ' nav--logo' : ''}`} style={kopfH ? `--kopf-h:${kopfH}px` : undefined}>
+<header class={`nav${mitLogo ? ' nav--logo' : ''}${inhalt.design?.zusatz_mobil ? ' nav--zusatz-mobil' : ''}`} style={kopfH ? `--kopf-h:${kopfH}px` : undefined}>
   <div class="wrap nav-in">
     <a class="marke" href={basis || '#top'} aria-label={`${f.name} – Startseite`}>
       {mitLogo

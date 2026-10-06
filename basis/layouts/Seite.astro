@@ -64,19 +64,39 @@ const ld = unterseite ? [] : strukturdaten(Astro.site);
       const beob = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('sichtbar'); beob.unobserve(e.target); } }), { threshold: 0.12 });
       ziele.forEach((z, i) => { z.setAttribute('data-einblenden', ''); (z as HTMLElement).style.transitionDelay = `${(i % 3) * 80}ms`; beob.observe(z); });
     }
-    // Galerie-Slider: automatisch weiter, Pause bei Maus/Fokus
+    // Galerie-Slider: läuft endlos (Bilder werden unsichtbar wiederholt), Pause bei Maus/Fokus/Wischen, danach weiter
     document.querySelectorAll<HTMLElement>('[data-slider]').forEach((s) => {
       const spur = s.querySelector<HTMLElement>('.slider-spur')!;
-      const schritt = () => (spur.firstElementChild as HTMLElement).offsetWidth + 16;
+      const original = [...spur.children] as HTMLElement[];
+      if (original.length < 2) return;
+      const kopieren = () => original.forEach((el) => {
+        const k = el.cloneNode(true) as HTMLElement;
+        k.setAttribute('aria-hidden', 'true'); k.removeAttribute('role'); k.removeAttribute('aria-label');
+        spur.appendChild(k);
+      });
+      kopieren();
+      const satz = () => (spur.children[original.length] as HTMLElement).offsetLeft - original[0].offsetLeft;
+      for (let i = 0; i < 4 && spur.scrollWidth < 2 * satz() + spur.clientWidth; i++) kopieren();
+      const schritt = () => original[0].offsetWidth + 16;
+      const sofort = (x: number) => { spur.style.scrollBehavior = 'auto'; spur.scrollLeft = x; spur.style.scrollBehavior = ''; };
+      // Nach jeder Bewegung unbemerkt in den ersten Satz zurückspringen – so gibt es kein Ende
+      let ruhe: number | undefined;
+      spur.addEventListener('scroll', () => {
+        clearTimeout(ruhe);
+        ruhe = window.setTimeout(() => { const w = satz(); if (spur.scrollLeft >= w) sofort(spur.scrollLeft - w); }, 160);
+      }, { passive: true });
       const weiter = (r = 1) => {
-        const ende = spur.scrollLeft + spur.clientWidth >= spur.scrollWidth - 4;
-        spur.scrollTo({ left: r > 0 && ende ? 0 : spur.scrollLeft + r * schritt() });
+        if (r < 0 && spur.scrollLeft < schritt() - 4) sofort(spur.scrollLeft + satz());
+        spur.scrollTo({ left: spur.scrollLeft + r * schritt() });
       };
       s.querySelector('.weiter-knopf')?.addEventListener('click', () => weiter(1));
       s.querySelector('.zurueck-knopf')?.addEventListener('click', () => weiter(-1));
-      let pause = false;
-      ['mouseenter', 'focusin', 'touchstart'].forEach((ev) => s.addEventListener(ev, () => (pause = true), { passive: true }));
-      ['mouseleave', 'focusout'].forEach((ev) => s.addEventListener(ev, () => (pause = false)));
+      let pause = false, wieder: number | undefined;
+      const anhalten = () => { pause = true; clearTimeout(wieder); };
+      const fortsetzen = (ms = 0) => { clearTimeout(wieder); wieder = window.setTimeout(() => (pause = false), ms); };
+      ['mouseenter', 'focusin', 'touchstart'].forEach((ev) => s.addEventListener(ev, anhalten, { passive: true }));
+      ['mouseleave', 'focusout'].forEach((ev) => s.addEventListener(ev, () => fortsetzen()));
+      ['touchend', 'touchcancel'].forEach((ev) => s.addEventListener(ev, () => fortsetzen(4000), { passive: true }));
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { if (!pause && !document.hidden) weiter(1); }, 3500);
     });
     // Handy-Menü

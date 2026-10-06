@@ -138,6 +138,7 @@ section { padding: var(--abstand) 0; scroll-margin-top: 80px; }
   .marke-name { font-size: 18px; }
 }
 @media (max-width: 380px) { .marke-zusatz { display: none; } }
+@media (max-width: 600px) { .nav--zusatz-mobil .marke-zusatz { display: block; font-size: 8.5px; letter-spacing: .24em; margin-top: 4px; } }   /* design.zusatz_mobil */
 
 /* Hero – drei Varianten */
 .hero { position: relative; overflow: hidden; }
