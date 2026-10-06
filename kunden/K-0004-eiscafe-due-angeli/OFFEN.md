@@ -8,13 +8,14 @@ tags: [website, todo]
 ---
 # Eiscafé Due Angeli – offene Punkte
 
-3 Entwürfe lokal fertig (A wie das Restaurant · B hell & sommerlich · C edel & dunkel), 0 Fehler. Noch nicht hochgeladen.
+3 Entwürfe lokal fertig (A wie das Restaurant · B hell & sommerlich · C edel & dunkel), 0 Fehler, mit Fotos + Karte. Noch nicht hochgeladen.
 
 ## Kommt von Ziu
-- [ ] **Fotos** (Eiscafé innen, Eis, Un Angelo, Frühstück) → Bildkasten bei „Das Eiscafé“ + Galerie
-- [ ] **Speisekarte** (Eissorten, Becher, Frühstück, Kaffee, Waffeln) → Abschnitt `preisliste`
+- [x] Fotos (5 Stück von Ziu, 06.10.) – gern noch: Un Angelo, Frühstück, Sitzplätze innen
+- [x] Karte vom Thekenaufdruck übernommen – Preise nur wo lesbar (Becher/Spaghettieis 6,50, Wundertüten 5,50); **„Kugel 1,60 €“ bestätigen**; Frühstücksangebot fehlt
 - [ ] **Öffnungszeiten** komplett (bisher nur Frühstück Mo–Fr 8:30–11:30) – bewusst noch nicht als Öffnungszeiten eingetragen
-- [ ] **Telefon**, **E-Mail**, **Rechtsform/Betreiber + Vertretung** fürs Impressum
+- [ ] **Telefon**, **E-Mail** fürs Impressum
+- [ ] **Betreiber bestätigen:** Ladenschild nennt „Zur Sonne GmbH“ → Impressum wie Restaurant (GF Antonio Marino, HRB 509403)
 - [ ] **Domain** (eigene Domain empfohlen, Verlinkung mit dem Restaurant ist schon drin)
 
 ## Google-Profil (starkes Verkaufsargument)

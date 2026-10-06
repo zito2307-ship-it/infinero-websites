@@ -2,7 +2,8 @@
 # Quellen: Beschreibung + Anbieterinfo + Angaben von Ziu (06.10.2026: Leitung Vanessa Mariano, renoviert Frühjahr 2026,
 # Frühstück Mo–Fr 8:30–11:30, Hauseissorte „Un Angelo“), Google (Lage im Burgaupark). Google-Profil heißt noch „Eiscafé Rimini“
 # und steht fälschlich auf „dauerhaft geschlossen“ → nicht verlinken. Telefon, Öffnungszeiten, Rechtsform: fehlen noch.
-# Logo + Restaurant-Foto aus K-0003 übernommen (gleiche Marke). Keine Fotos vom Eiscafé vorhanden → typografisch.
+# Logo + Restaurant-Foto aus K-0003 übernommen (gleiche Marke). Fotos + Karte (Thekenaufdruck) von Ziu, 06.10.2026.
+# Betreiber: Ladenschild trägt „Zur Sonne GmbH“ → gleiche GmbH wie K-0003 (von Ziu bestätigen lassen).
 kunde: K-0004
 app: { lead_id: 1041, auftrag_id: null }
 beispiel: false
@@ -17,8 +18,8 @@ firma:
   kurzname: Due Angeli
   zusatz: Eiscafé · Burgaupark Jena
   name_fuss: Eiscafé Due Angeli<br>im Burgaupark Jena
-  rechtlicher_name: "??"
-  inhaber: "??"
+  rechtlicher_name: "„Zur Sonne“ GmbH"   # laut Ladenschild – bestätigen
+  inhaber: Antonio Marino (Geschäftsführer)
   strasse: Keßlerstraße 12
   plz: "07745"
   ort: Jena
@@ -26,9 +27,12 @@ firma:
   telefon: "??"
   email: "??"
 
-recht: {}
+recht:
+  registergericht: Amtsgericht Jena
+  registernummer: HRB 509403
 
 seo:
+  bild: waffel-eis.webp
   schema_typ: IceCreamShop
   kueche: Eis
   titel: Eiscafé Due Angeli – Eis, Kaffee & Waffeln in Jena
@@ -49,7 +53,10 @@ hauptaktion: { text: So finden Sie uns, ziel: "#kontakt" }
 abschnitte:
   - typ: hero
     variante: dunkel
-    label: Eiscafé im Burgaupark Jena
+    label: Italienisches Eiscafé im Burgaupark
+    bild: waffel-eis.webp
+    abdunkeln: 74
+    bild_alt: Waffel mit Puderzucker, Kirschen, Vanillesauce und einer Kugel Schokoladeneis
     titel: Eis, Kaffee <em>& Waffeln.</em>
     text: "Viele Eissorten – klassisch oder außergewöhnlich –, aromatischer Kaffee, Frühstück unter der Woche und in der Saison frisch gebackene Waffeln. Frisch renoviert im Burgaupark."
     aktion: { text: So finden Sie uns, ziel: "#kontakt" }
@@ -69,6 +76,49 @@ abschnitte:
     titel: Un Angelo.
     text: "Orange, Biskuit und dunkle Schokolade – Vanessas eigene Eissorte, die es nur bei uns gibt. Bei unseren Gästen ist sie längst der Liebling: unbedingt probieren!"
 
+  - typ: preisliste
+    anker: karte
+    menue: Karte
+    label: Von der Theke
+    titel: Becher, Tüten & Waffeln
+    text: Eine Auswahl – alles auch zum Mitnehmen.
+    gruppen:
+      - titel: Eisbecher
+        posten:
+          - { name: Erdbeer, preis: "6,50" }
+          - { name: Erdbeer Schoko, preis: "6,50" }
+          - { name: Himbeer, preis: "6,50" }
+          - { name: Kiwi, preis: "6,50" }
+          - { name: Frucht, preis: "6,50" }
+          - { name: Bonito, preis: "6,50" }
+          - { name: Schoko, preis: "6,50" }
+          - { name: Krokant, preis: "6,50" }
+      - titel: Spaghettieis
+        posten:
+          - { name: Classic, preis: "6,50" }
+          - { name: Erdbeer, preis: "6,50" }
+          - { name: Schoko, preis: "6,50" }
+          - { name: Bonito, preis: "6,50" }
+      - titel: Wundertüten
+        posten:
+          - { name: "Erdbeer, Himbeer, Kiwi oder Amarena", preis: "5,50" }
+          - { name: "Schoko, Karamell oder Haselnuss", preis: "5,50" }
+          - { name: "Bonito, Erdbeer Schoko oder Spaghetti", preis: "5,50" }
+      - titel: Crêpes & Waffeln
+        posten:
+          - { name: "Mit Puderzucker, Apfelmus oder Kirschen" }
+          - { name: "Mit Erdbeeren oder Nutella" }
+          - { name: "Erdbeeren & Nutella, Banane & Nutella" }
+      - titel: Kinderbecher
+        posten:
+          - { name: "Überraschung, Micky Maus, Spaghettino" }
+      - titel: Kaffee & Eisgetränke
+        posten:
+          - { name: "Kaffee, Espresso, Cappuccino, Latte Macchiato, Milchkaffee" }
+          - { name: "Milchshake, Eiskaffee, Eisschokolade" }
+          - { name: "Tee, Kakao, Softdrinks, Säfte" }
+    hinweis: Kugel Eis 1,60 €. Preise in Euro, Stand der Karte an der Theke.
+
   - typ: textbild
     anker: eiscafe
     menue: Das Eiscafé
@@ -77,6 +127,17 @@ abschnitte:
     text:
       - "Im Frühjahr 2026 haben wir unser Eiscafé renoviert – hell, gemütlich und mitten im Burgaupark. Ideal für die Pause beim Einkaufsbummel oder einfach als kleine Auszeit vom Alltag."
       - "Vor Ort führt Vanessa Mariano das Eiscafé – mit viel Herz und eigenen Ideen wie dem Un Angelo."
+    bild: laden.webp
+    bild_alt: Die Theke des Eiscafés Due Angeli im Burgaupark mit Schild „Italienisches Eiscafé“
+
+  - typ: galerie
+    anker: einblicke
+    label: Einblicke
+    titel: Frisch gemacht.
+    bilder:
+      - { bild: waffel-latte.webp, text: Waffel mit Eis und Latte, alt: "Waffel mit Kirschen, Sahne und Eis, dazu ein Latte Macchiato" }
+      - { bild: fruchtbecher.webp, text: Fruchtbecher, alt: "Eisbecher mit Apfel, Melone, Kiwi, Erdbeere und Orange" }
+      - { bild: eisbecher-kaffee.webp, text: Eisbecher und Kaffee, alt: "Eisbecher mit Waffel und Fruchtsauce, daneben ein Kaffee" }
 
   - typ: textbild
     anker: restaurant
@@ -97,6 +158,7 @@ abschnitte:
       - { frage: Was gibt es bei Ihnen?, antwort: "Eis in vielen Sorten – klassisch und außergewöhnlich –, Kaffeespezialitäten und in der Saison frisch gebackene Waffeln." }
       - { frage: Gibt es bei Ihnen Frühstück?, antwort: "Ja – Montag bis Freitag von 8:30 bis 11:30 Uhr. Mit Eis und Kaffee oder ganz klassisch." }
       - { frage: Was ist Un Angelo?, antwort: "Unsere Hauseissorte aus Orange, Biskuit und dunkler Schokolade – eine eigene Kreation von Vanessa Mariano, die das Eiscafé vor Ort führt." }
+      - { frage: Kann ich Eis auch mitnehmen?, antwort: "Ja – Eis, Becher, Wundertüten und Getränke gibt es auch zum Mitnehmen." }
       - { frage: Gibt es die Waffeln das ganze Jahr?, antwort: "Waffeln backen wir saisonbedingt. Fragen Sie gern vor Ort, ob es gerade welche gibt." }
       - { frage: Gehört das Eiscafé zum Restaurant am Markt?, antwort: "Ja. Das Eiscafé Due Angeli ist die Schwester des Ristorante Due Angeli im Haus „Zur Sonne“ am Jenaer Marktplatz." }
 
