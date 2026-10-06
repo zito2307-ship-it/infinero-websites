@@ -3,6 +3,7 @@
 //   npm run veroeffentlichen -- K-0012 --live   → Produktion (nur ohne offene Pflichtangaben)
 // Braucht CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID in .env (nie ins Repo!).
 import fs from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT, findeKunde, stopp, pagesProjekt, pagesHochladen } from './gemeinsam.mjs';
 
