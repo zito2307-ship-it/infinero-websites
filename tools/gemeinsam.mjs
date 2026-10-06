@@ -19,9 +19,29 @@ export function findeKunde(arg) {
   stopp(treffer.length ? `Mehrdeutig: ${treffer.join(', ')}` : `Kein Kunde „${arg}“. Vorhanden: ${alleKunden().join(', ')}`);
 }
 
-export function astro(befehl, kunde, extra = []) {
-  const r = spawnSync('npx', ['astro', befehl, ...extra], { cwd: ROOT, stdio: 'inherit', env: { ...process.env, KUNDE: kunde, ASTRO_TELEMETRY_DISABLED: '1' } });
+export function astro(befehl, kunde, extra = [], env = {}) {
+  const r = spawnSync('npx', ['astro', befehl, ...extra], { cwd: ROOT, stdio: 'inherit', env: { ...process.env, KUNDE: kunde, ASTRO_TELEMETRY_DISABLED: '1', ...env } });
   return r.status ?? 1;
+}
+
+/** Cloudflare-Pages-Projektname eines Kunden: Ordner ohne „K-NNNN-“ */
+export const pagesProjekt = (kunde) => kunde.slice(7).toLowerCase().slice(0, 58);
+
+/** Lädt einen fertigen Ordner zu Cloudflare Pages hoch (Branch = Alias-URL). Braucht .env mit Cloudflare-Zugang. */
+export function pagesHochladen(projekt, ordner, branch) {
+  if (fs.existsSync(path.join(ROOT, '.env'))) process.loadEnvFile(path.join(ROOT, '.env'));
+  if (!process.env.CLOUDFLARE_API_TOKEN || !process.env.CLOUDFLARE_ACCOUNT_ID)
+    stopp('CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID fehlen – in .env eintragen (siehe CLAUDE.md, Abschnitt Cloudflare).');
+  // Wrangler in einem leeren Arbeitsordner starten – im Projektordner würde es Astro erkennen und
+  // ungefragt einen Server-Adapter einbauen. Wir laden nur fertige statische Dateien hoch.
+  const arbeit = path.join(ROOT, '.wrangler', 'arbeit');
+  fs.mkdirSync(arbeit, { recursive: true });
+  const w = (args, still = false) => spawnSync('npx', ['-y', 'wrangler@4', ...args], { cwd: arbeit, stdio: still ? 'pipe' : 'inherit', env: process.env });
+  // --force = klassisches Pages (nicht auf Workers umleiten); Fehler „existiert schon“ ist ok
+  w(['pages', 'project', 'create', projekt, '--production-branch', 'main', '--force'], true);
+  const r = w(['pages', 'deploy', ordner, '--project-name', projekt, '--branch', branch, '--commit-dirty=true']);
+  if (r.status !== 0) stopp(`Hochladen von ${ordner} fehlgeschlagen.`);
+  return branch === 'main' ? `https://${projekt}.pages.dev` : `https://${branch}.${projekt}.pages.dev`;
 }
 
 export function stopp(text) {

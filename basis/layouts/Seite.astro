@@ -1,7 +1,7 @@
 ---
 import '../styles/basis.css';
 import '@theme';
-import { inhalt, bild } from '../lib/inhalt';
+import { inhalt, bild, variante } from '../lib/inhalt';
 import Nav from '../bausteine/Nav.astro';
 import Fuss from '../bausteine/Fuss.astro';
 import DemoChat from '../bausteine/DemoChat.astro';
@@ -31,6 +31,7 @@ const chat = inhalt.funktionen.chat;
   {farben && <style set:html={`:root:root{${farben}}`}></style>}
 </head>
 <body data-bewegung={inhalt.design?.bewegung ? '' : undefined}>
+  {variante?.entwurf && <div class="demobar">✏️ <b>Entwurf {variante.id.toUpperCase()} – {variante.name}</b>{variante.beschreibung && ` · ${variante.beschreibung}`}</div>}
   {inhalt.demo && <div class="demobar">⚡ <b>Beispiel-Demo von Infinero</b> · {inhalt.demo_text ?? 'So könnte Ihre Website aussehen'} · <a href="https://infinero.de">Zu Infinero →</a></div>}
   <Nav basis={unterseite ? '/' : ''} />
   <main><slot /></main>

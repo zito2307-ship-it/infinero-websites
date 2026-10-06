@@ -11,14 +11,15 @@ import { ROOT, astro, findeKunde, stopp } from './gemeinsam.mjs';
 
 const kunde = findeKunde(process.argv[2]);
 const ohneBauen = process.argv.includes('--ohne-bauen');
-const dist = path.join(ROOT, 'dist', kunde);
-const aus = path.join(ROOT, 'pruefung', kunde);
+const vi = process.argv.indexOf('--variante'); const varianteId = vi > 0 ? process.argv[vi + 1] : '';   // Entwurf a/b/c prüfen
+const dist = path.join(ROOT, 'dist', varianteId ? `${kunde}--${varianteId}` : kunde);
+const aus = path.join(ROOT, 'pruefung', varianteId ? `${kunde}--${varianteId}` : kunde);
 
-if (!ohneBauen && astro('build', kunde) !== 0) stopp('Bauen fehlgeschlagen.');
+if (!ohneBauen && astro('build', kunde, [], varianteId ? { VARIANTE: varianteId } : {}) !== 0) stopp('Bauen fehlgeschlagen.');
 fs.rmSync(aus, { recursive: true, force: true });
 fs.mkdirSync(aus, { recursive: true });
 
-process.env.KUNDE = kunde;
+process.env.KUNDE = kunde; if (varianteId) process.env.VARIANTE = varianteId;
 const { inhalt, fehlendeAngaben } = await import('../basis/lib/inhalt.ts');
 
 // Kleiner Webserver wie bei Cloudflare Pages (/impressum → impressum.html)

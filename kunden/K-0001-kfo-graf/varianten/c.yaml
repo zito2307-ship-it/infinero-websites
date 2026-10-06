@@ -1,0 +1,8 @@
+# Entwurf C – nur Abweichungen von inhalt.yaml (siehe basis/lib/laden.mjs)
+name: Dunkel & edel
+beschreibung: Anthrazit mit Gold, Serifen-Überschriften – hochwertig und ruhig.
+design:
+  theme: edel-dunkel
+hero:
+  variante: dunkel
+  grafik: null

@@ -1,0 +1,74 @@
+/* Edel dunkel – Anthrazit mit Gold, Cormorant Garamond + Manrope. Ruhig, hochwertig, abends.
+   Passt zu: gehobene Gastronomie, Kosmetik/Spa, Kanzlei, Immobilien, Handwerk mit Premium-Anspruch.
+   Wird vor allem als Entwurf C („Dunkel & edel“) eingesetzt. */
+@import "@fontsource/cormorant-garamond/latin-500.css";
+@import "@fontsource/cormorant-garamond/latin-ext-500.css";
+@import "@fontsource/cormorant-garamond/latin-600.css";
+@import "@fontsource/cormorant-garamond/latin-ext-600.css";
+@import "@fontsource/cormorant-garamond/latin-600-italic.css";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-ext-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-ext-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/manrope/latin-ext-600.css";
+@import "@fontsource/manrope/latin-700.css";
+@import "@fontsource/manrope/latin-ext-700.css";
+
+:root {
+  --bg: #13171b;
+  --flaeche: #1c2126;
+  --text: #f1ece3;
+  --gedaempft: #b9b1a5;
+  --linie: rgba(255, 255, 255, .11);
+  --akzent: #d2ad5f;
+  --akzent-dunkel: #b8923f;
+  --auf-akzent: #17130a;
+  --zweit: #4a6b63;
+  --hervor: #e3c37c;
+  --label: #e3c37c;
+  --dunkel: #0b0e11;
+  --dunkel-2: #1c2126;
+  --auf-dunkel: #f1ece3;
+  --auf-dunkel-gedaempft: #b9b1a5;
+  --titel-kursiv-farbe: #e3c37c;
+  --schatten: 0 30px 70px -40px rgba(0, 0, 0, .8);
+  --font-text: "Manrope", system-ui, sans-serif;
+  --font-titel: "Cormorant Garamond", Georgia, serif;
+  --titel-gewicht: 600;
+  --radius: 14px;
+  --radius-btn: 999px;
+  --radius-feld: 10px;
+  --label-spacing: .3em;
+}
+body { color-scheme: dark; }
+.hero--geteilt h1 em, .kopf h2 em, .textbild h2 em { color: var(--hervor); }
+.hero--grafik { background: radial-gradient(900px 500px at 80% 0%, color-mix(in srgb, var(--akzent) 16%, transparent), transparent 60%), var(--bg); }
+.hero-grafik-form { fill: color-mix(in srgb, var(--flaeche) 80%, transparent); }
+.nav { background: color-mix(in srgb, var(--bg) 92%, transparent); }
+.marke-logo { background: #f4f1ea; padding: 6px 12px; border-radius: 10px; }   /* dunkle Kundenlogos bleiben lesbar */
+.fuss-logo { background: #f4f1ea; }
+.leiste { border-top-color: var(--linie); }
+.vorteil, .leistung, .formular, .detail-karte, .detail-weitere, .person-mehr div, .osm-karte { background: var(--flaeche); }
+.bewertung { background: var(--flaeche); }
+section.zitat-flaeche { background: #1c2126; }
+.band { background: #0b0e11; border-block: 1px solid var(--linie); }
+.anfrage { background: linear-gradient(180deg, #0b0e11, #1c2126); }
+.formular { color: var(--text); }
+.feld input, .feld select, .feld textarea { background: #0f1317; color: var(--text); border-color: rgba(255, 255, 255, .16); }
+.feld input::placeholder, .feld textarea::placeholder { color: #8a8378; }
+.formular-warnung { background: #0f1317; }
+.erfolg .haken { background: var(--akzent); color: var(--auf-akzent); }
+.faq details { border-color: var(--linie); }
+.fuss { background: #0b0e11; border-top: 1px solid var(--linie); }
+.osm-kacheln { filter: saturate(.3) brightness(.78) contrast(1.05); }
+.osm-quelle { background: rgba(20, 24, 28, .85); color: #ddd; }
+.osm-quelle a { color: #ddd; }
+.chat-knopf { color: var(--auf-akzent); }
+.posten b, .posten .preis { color: var(--text); }
+.posten .preis { color: var(--hervor); }
+.btn-g { border-color: rgba(255, 255, 255, .22); }
+.btn-g:hover { border-color: var(--hervor); color: var(--hervor); }
+.zurueck, .recht a, .detail-weitere a, .kontakt-daten a { color: var(--hervor); }
+.detail-kopf { background: linear-gradient(120deg, var(--bg), color-mix(in srgb, var(--akzent) 12%, var(--bg))); }
+.detail-ic { background: var(--flaeche); }

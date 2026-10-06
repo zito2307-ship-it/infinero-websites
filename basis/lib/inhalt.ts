@@ -5,9 +5,12 @@ import YAML from 'yaml';
 
 export const OFFEN = '??'; // Platzhalter für „liefert Kunde nach“
 
+import { ladeInhalt } from './laden.mjs';
+
 const kunde = process.env.KUNDE!;
-const datei = path.join(process.cwd(), 'kunden', kunde, 'inhalt.yaml');
-const roh: any = YAML.parse(fs.readFileSync(datei, 'utf8'));
+const roh: any = ladeInhalt(process.cwd(), kunde, process.env.VARIANTE || '');
+/** Aktive Design-Variante (Entwurf a/b/c oder die gewählte) – null, wenn keine */
+export const variante: { id: string; name: string; beschreibung: string; entwurf: boolean } | null = roh._variante;
 
 export const inhalt: any = {
   sprache: 'de',
@@ -75,7 +78,7 @@ export function fehlendeAngaben(i: any = inhalt): string[] {
     else if (o === null) fehlt.push(`${pfad} (leer – oder Text mit Komma in { … } ohne Anführungszeichen?)`);
     else if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) suche(v, pfad ? `${pfad}.${k}` : k);
   };
-  suche(i, '');
+  suche({ ...i, app: undefined, _variante: undefined }, '');
   // Pflicht je nach Funktion (Datenschutzerklärung)
   const fn = i.funktionen ?? {};
   if (fn.chat === 'snippet' && istOffen(i.datenschutz?.chat_ki_anbieter)) fehlt.push('datenschutz.chat_ki_anbieter');

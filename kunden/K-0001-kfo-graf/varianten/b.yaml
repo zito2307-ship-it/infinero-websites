@@ -1,0 +1,9 @@
+# Entwurf B – nur Abweichungen von inhalt.yaml (siehe basis/lib/laden.mjs)
+name: Kräftig & bildstark
+beschreibung: Großes Titelbild, andere Schrift, mehr Kontrast – wirkt präsenter.
+design:
+  theme: beauty-hell
+hero:
+  variante: bild
+  bild: weimar.jpg
+  grafik: null

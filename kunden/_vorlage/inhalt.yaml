@@ -2,6 +2,7 @@
 # Felder entsprechen dem Onboarding-Fragenkatalog (Vault: 40_Produkte/Onboarding-Fragenkatalog.md).
 # Bausteine unter `abschnitte` frei wählen, sortieren, weglassen – Übersicht in CLAUDE.md.
 kunde: {{KUNDE}}
+app: { lead_id: {{LEAD}}, auftrag_id: {{AUFTRAG}} }   # Verknüpfung zur Vertriebs-App (Lead-Nr. intern, Auftrag) – für Entwürfe/Status
 beispiel: false
 demo: false            # true = Demo-Balken „Beispiel-Demo von Infinero“ + noindex
 branche: {{BRANCHE}}

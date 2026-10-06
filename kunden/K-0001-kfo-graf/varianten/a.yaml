@@ -1,0 +1,7 @@
+# Entwurf A – nur Abweichungen von inhalt.yaml (siehe basis/lib/laden.mjs)
+name: Hell & ruhig
+beschreibung: Viel Weißraum, klare Typografie, der Inhalt steht im Vordergrund.
+design:
+  theme: praxis-klar
+hero:
+  variante: geteilt

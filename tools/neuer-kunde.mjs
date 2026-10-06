@@ -7,9 +7,10 @@ import { KUNDEN, ROOT, stopp } from './gemeinsam.mjs';
 const [id, slug, name] = process.argv.slice(2).filter((a, i, l) => !a.startsWith('--') && !l[i - 1]?.startsWith('--'));
 const opt = (n) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : undefined; };
 if (!/^K-\d{4}$/.test(id ?? '') || !/^[a-z0-9-]+$/.test(slug ?? '') || !name)
-  stopp('Aufruf: npm run neu -- K-0012 mueller-bau "Müller Bau" --branche handwerk|gastro|beauty|praxis|allgemein [--theme …] [--farbe "#hex"]');
+  stopp('Aufruf: npm run neu -- K-0012 mueller-bau "Müller Bau" --branche handwerk|gastro|beauty|praxis|allgemein [--theme …] [--farbe "#hex"] [--lead <App-Lead-ID>] [--auftrag <App-Auftrag-ID>]');
 
 const branche = opt('branche') ?? 'allgemein';
+const lead = opt('lead') ?? 'null', auftrag = opt('auftrag') ?? 'null';
 const THEMES = { gastro: 'gastro-warm', beauty: 'beauty-hell', handwerk: 'handwerk-kraeftig', praxis: 'praxis-klar', allgemein: 'handwerk-kraeftig' };
 const theme = opt('theme') ?? THEMES[branche];
 if (!theme || !fs.existsSync(path.join(ROOT, 'themes', theme, 'theme.css')))
@@ -54,7 +55,7 @@ fs.cpSync(path.join(KUNDEN, '_vorlage'), ziel, { recursive: true });
 const datei = path.join(ziel, 'inhalt.yaml');
 let yaml = fs.readFileSync(datei, 'utf8')
   .replace('{{KUNDE}}', id).replace('{{BRANCHE}}', branche).replace('{{NAME}}', JSON.stringify(name))
-  .replace('{{THEME}}', theme).replace('{{ABSCHNITTE}}', ABSCHNITTE[branche].join('\n\n'));
+  .replace('{{THEME}}', theme).replace('{{LEAD}}', lead).replace('{{AUFTRAG}}', auftrag).replace('{{ABSCHNITTE}}', ABSCHNITTE[branche].join('\n\n'));
 const farbe = opt('farbe');
 if (farbe) yaml = yaml.replace('  # farben: {', `  farben: { akzent: "${farbe}" }\n  # farben: {`);
 fs.writeFileSync(datei, yaml);
@@ -68,6 +69,7 @@ fs.writeFileSync(path.join(ziel, 'bilder', 'favicon.svg'),
 
 console.log(`✔ ${ordner} angelegt (Branche ${branche}, Theme ${theme})
   1. kunden/${ordner}/inhalt.yaml ausfüllen (alle „??“), Bilder nach kunden/${ordner}/bilder/
-  2. npm run vorschau -- ${id}     → http://localhost:4321
+  2. npm run varianten -- ${id}   → 3 Entwürfe (a/b/c) anlegen, dann npm run entwuerfe -- ${id}
+     oder direkt: npm run vorschau -- ${id}     → http://localhost:4321
   3. npm run pruefen -- ${id}      → pruefung/${ordner}/bericht.md
   4. Website-Notiz im Vault: 20_Websites/W-NNNN <domain>.md (Vorlage 90_Vorlagen/Website-Blueprint.md)`);

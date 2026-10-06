@@ -2,6 +2,7 @@
 # Quelle: App-Lead L-000378 / Auftrag 4 + bestehende Website graf-in-weimar.de (Texte, Fotos, Impressum)
 # Runde 2 (29.09.2026) nach Feedback Inhaber: Zahn-Logo, Grafik statt Stuhl-Foto, Detailseiten, Slider, Karte lokal.
 kunde: K-0001
+app: { lead_id: null, auftrag_id: 4 }   # Lead-ID wird aus der App ergänzt
 beispiel: false
 demo: false
 noindex: true          # bis zur Freigabe durch die Praxis nicht bei Google

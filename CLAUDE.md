@@ -21,6 +21,24 @@ Braucht ein Kunde etwas Neues, wird es als allgemeiner Baustein/Option gebaut, d
 Änderungen an `basis/` oder `themes/` betreffen alle Kunden → danach `npm run bauen -- --alle` und
 mindestens je Theme einen Kunden mit `npm run pruefen` kontrollieren.
 
+## Standard-Ablauf „Entwürfe → Auswahl → Ausbau“ (seit 06.10.2026)
+Zwei Slash-Befehle in `.claude/commands/` tragen den ganzen Ablauf – **das ist das Format, nichts mehr frei erklären**:
+1. **`/entwuerfe`** holt offene Wünsche aus der App (`select public.website_arbeit()`), legt den Kunden an (`npm run neu … --lead <id>`),
+   füllt `inhalt.yaml` aus App + alter Website, erzeugt drei Entwürfe (`npm run varianten`, verfeinern mit taste-skill), baut und lädt
+   sie hoch (`npm run entwuerfe` → `a./b./c.<projekt>.pages.dev`) und trägt sie in die App ein (`select public.entwuerfe_eintragen(…)`).
+   Der Inhaber bekommt einen Push und wählt **in der App** (Lead → „Website-Entwürfe“: A/B/C + Feedback).
+2. **`/ausbauen`** nimmt die Auswahl (`website_arbeit().gewaehlt`), übernimmt den Entwurf (`npm run ausbauen -- K-… b`), arbeitet das
+   Feedback ein (soft-skill, emil-design-eng, mobile-native), prüft (0 Fehler), veröffentlicht die Vorschau und meldet den Link in die App
+   (`select public.entwuerfe_status('K-…','vorschau', url)`). Live nur auf ausdrückliches „live“ des Inhabers.
+Entwürfe = `kunden/K-…/varianten/{a,b,c}.yaml` (nur Abweichungen: `design`, `hero`, `ohne`, `name`, `beschreibung`; `null` entfernt einen
+Schlüssel – Logik in `basis/lib/laden.mjs`). Nach der Auswahl steht `variante: b` in `inhalt.yaml`; die Datei bleibt die einzige Inhaltsquelle.
+Stufe 2 (geplant): derselbe Ablauf automatisch per GitHub Action, ausgelöst von der App (Supabase-Webhook) – Skripte und Skills liegen
+dafür bereits komplett im Repo; es fehlt nur der Auslöser + Secrets (Anthropic-Key, Cloudflare, Supabase).
+
+**Skills-Konvention:** Design-Skills liegen in `.claude/skills/` und werden automatisch geladen. Welcher Skill in welchem Schritt läuft,
+steht in den beiden Befehlen. Neuer Skill von GitHub → Ordner nach `.claude/skills/`, eine Zeile im passenden Befehl ergänzen. Fertig.
+_Todo (Inhaber, 06.10.2026): weitere Skills einfügen._
+
 ## Befehle
 ```bash
 npm install                                   # einmalig nach dem Klonen
@@ -29,6 +47,10 @@ npm run vorschau -- K-0012                    # Live-Vorschau http://localhost:4
 npm run pruefen -- K-0012                     # Bauen + Playwright-Prüfung → pruefung/<kunde>/bericht.md + Screenshots
 npm run bauen -- --alle                       # alle Kunden nach dist/<kunde>/
 npm run veroeffentlichen -- K-0012 [--live]   # Cloudflare Pages (Vorschau-Link bzw. live)
+npm run varianten -- K-0012                   # 3 Entwürfe a/b/c anlegen (Standard-Rezept je Branche)
+npm run entwuerfe -- K-0012 [--ohne-hochladen]  # Entwürfe bauen, Vorschaubilder, hochladen, SQL für die App drucken
+npm run pruefen -- K-0012 --variante c        # einen Entwurf prüfen
+npm run ausbauen -- K-0012 b                  # gewählten Entwurf übernehmen
 ```
 Kunden können überall kurz angegeben werden: `K-0012`, `mueller-bau` oder voller Ordnername.
 
@@ -87,6 +109,7 @@ funke, haus, chat, euro, auto, schere, besteck (`basis/bausteine/Icon.astro`, do
 | `beauty-hell` | Pflaume/Rosé, Playfair Display + Jost, eckig, Großbuchstaben-Buttons | Kosmetik, Nägel, Friseur, Physio |
 | `handwerk-kraeftig` | Marine/Orange, Manrope 800, kräftig | SHK, Elektro, Dach, Maler, Kfz, allgemein |
 | `praxis-klar` | Petrol/Mint, Plus Jakarta Sans, ruhig | Zahnarzt, Kieferorthopädie, Arzt, Physio, Kanzlei |
+| `edel-dunkel` | Anthrazit/Gold, Cormorant + Manrope, dunkel | gehobene Gastro, Spa, Kanzlei, Immobilien; Standard für Entwurf C |
 
 Neues Theme: Ordner kopieren, Variablen anpassen. Schriften **nur lokal** über `@fontsource/*` (latin + latin-ext)
 – **niemals Google-Fonts-CDN**. Kontrast: Text ≥ 4,5:1 (axe prüft) – für Labels auf hellem Grund `--label` setzen.
@@ -134,3 +157,4 @@ Ein Pages-Projekt pro Kunde, Name = Ordner ohne `K-NNNN-`. Domain danach im Dash
   Das Original liegt noch im Repo der Infinero-Website (`~/Documents/Claude Infinero/Website/demos/`).
 - `K-9001-baeckerei-huber`: Beispielkunde ohne Demo-Balken, eigene Farbe, Karte, FAQ, Kontaktformular.
 - `kunden/_vorlage/`: Vorlage für `npm run neu` (nicht direkt benutzen).
+- `app: { lead_id, auftrag_id }` in `inhalt.yaml` verknüpft den Kunden mit der Vertriebs-App (Supabase-Tabelle `website_entwuerfe`).
