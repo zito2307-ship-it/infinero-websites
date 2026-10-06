@@ -89,7 +89,7 @@ Gemeinsame Felder: `anker` (Sprungziel), `menue` (Eintrag im Menü), `label`, `t
 | `kontakt` | Öffnungszeiten + Adresse (+ Karte) | `zeiten_titel`, `titel`, `hinweis`, `karte` |
 
 **Weitere Optionen (Runde 2, Testkunde K-0001):**
-- `hero.grafik: zahn` (nur `variante: geteilt`) – große Linien-Grafik mit sanft bewegtem Hintergrund statt Foto; `hero.telefon_zeigen: true` = Anruf-Knopf mit Hörer-Symbol (bei `bild`/`dunkel` nur Textlink – `telefon_zeigen: knopf` macht dort einen Knopf).
+- `hero.grafik: zahn` (nur `variante: geteilt`) – große Linien-Grafik mit sanft bewegtem Hintergrund statt Foto; `hero.telefon_zeigen: true` = Anruf-Knopf mit Hörer-Symbol (bei `bild`/`dunkel` nur Textlink – `telefon_zeigen: knopf` macht dort einen Knopf; `hero.aktion_mitte: true` = Hauptknopf am Computer mittig zwischen Anruf und Zweitaktion).
 - `design.telefon_im_menue: true` = Nummer mit Hörer im Kopf, auf dem Handy runder Anruf-Knopf neben dem Menü. `anfrage.telefon_zeigen: true` (+ `telefon_text`) = „Lieber persönlich? Rufen Sie uns an“ mit Knopf über dem Formular.
 - `leistungen.eintraege[].details: { einleitung, abschnitte: [{ titel, text }], hinweis }` → eigene Unterseite `/leistungen/<slug>` + „Mehr erfahren“.
 - `team.personen[].text` → „Mehr erfahren“ zum Ausklappen (nur echte Angaben aus dem Onboarding – nichts erfinden).

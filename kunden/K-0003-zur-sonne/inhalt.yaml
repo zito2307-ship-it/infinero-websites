@@ -61,6 +61,7 @@ abschnitte:
     aktion: { text: Tisch reservieren, ziel: "#reservieren" }
     zweitaktion: { text: Zur Speisekarte, ziel: "#speisekarte" }
     telefon_zeigen: knopf
+    aktion_mitte: true
 
   - typ: vorteile
     punkte:
@@ -189,4 +190,5 @@ fuss_text: Italienische Küche direkt am Jenaer Marktplatz.
 
 funktionen:
   karte: true
+  formular: aktiv     # TEST: Reservierungen gehen an Ziu (Supabase website_formulare, 06.10.2026) – vor Übergabe auf Restaurant-Adresse umstellen
   chat: aus

@@ -44,7 +44,7 @@ const bg = a.bild ? `background-image:url('${bild(a.bild)}')` : undefined;
         {a.label && <span class="label">{a.label}</span>}
         <h1 set:html={a.titel} />
         {a.text && <p class="hero-text">{a.text}</p>}
-        <div class="hero-aktionen">
+        <div class={`hero-aktionen${a.aktion_mitte ? ' hero-aktionen--mitte' : ''}`}>
           {cta && <a class="btn btn-p" href={cta.ziel}>{cta.text}</a>}
           {a.telefon_zeigen === 'knopf' && tel && <a class="btn btn-g hero-telknopf" href={`tel:${telLink(tel)}`} aria-label={`Anrufen: ${tel}`}><Icon name="telefon" class="" />{tel}</a>}
           {a.zweitaktion && <a class="btn btn-g" href={a.zweitaktion.ziel}>{a.zweitaktion.text}</a>}
