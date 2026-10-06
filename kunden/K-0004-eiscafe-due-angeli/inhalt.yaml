@@ -18,7 +18,7 @@ firma:
   kurzname: Due Angeli
   zusatz: Eiscafé · Burgaupark Jena
   name_fuss: Eiscafé Due Angeli<br>im Burgaupark Jena
-  rechtlicher_name: "„Zur Sonne“ GmbH"   # laut Ladenschild – bestätigen
+  rechtlicher_name: "„Zur Sonne“ GmbH"   # laut Ladenschild, von Ziu bestätigt (06.10.)
   inhaber: Antonio Marino (Geschäftsführer)
   strasse: Keßlerstraße 12
   plz: "07745"
@@ -76,13 +76,25 @@ abschnitte:
     titel: Un Angelo.
     text: "Orange, Biskuit und dunkle Schokolade – Vanessas eigene Eissorte, die es nur bei uns gibt. Bei unseren Gästen ist sie längst der Liebling: unbedingt probieren!"
 
+  # KARTE: echt (Thekenaufdruck) = Eisbecher, Spaghettieis, Wundertüten, Sorten der übrigen Gruppen, Kugel 1,60 (Schild über der Theke).
+  # PLATZHALTER auf Wunsch von Ziu (06.10.2026) = alle übrigen Preise + Frühstücksangebote → vor Livegang mit dem Eiscafé abstimmen!
   - typ: preisliste
     anker: karte
     menue: Karte
     label: Von der Theke
-    titel: Becher, Tüten & Waffeln
-    text: Eine Auswahl – alles auch zum Mitnehmen.
+    titel: Unsere Karte
+    text: Von Frühstück bis Eisbecher – Eis und Getränke gibt es auch zum Mitnehmen.
     gruppen:
+      - titel: "Frühstück · Mo–Fr, 8:30–11:30 Uhr"
+        posten:
+          - { name: Colazione, text: "Croissant mit Butter und Marmelade, dazu ein Cappuccino", preis: "6,50" }
+          - { name: Classico, text: "zwei Brötchen, Butter, Marmelade, Käse und Schinken, dazu Kaffee", preis: "8,90" }
+          - { name: Frühstück mit Eis, text: "Joghurteis mit frischem Obst und Müsli, dazu Kaffee", preis: "7,90" }
+          - { name: Rührei, text: "aus zwei Eiern, mit Brötchen", preis: "4,50" }
+      - titel: Eis in der Waffel oder im Becher
+        posten:
+          - { name: Kugel Eis, text: "alle Sorten", preis: "1,60" }
+          - { name: Un Angelo, text: "unsere Hauskreation aus Orange, Biskuit und dunkler Schokolade – je Kugel", preis: "1,60" }
       - titel: Eisbecher
         posten:
           - { name: Erdbeer, preis: "6,50" }
@@ -106,18 +118,35 @@ abschnitte:
           - { name: "Bonito, Erdbeer Schoko oder Spaghetti", preis: "5,50" }
       - titel: Crêpes & Waffeln
         posten:
-          - { name: "Mit Puderzucker, Apfelmus oder Kirschen" }
-          - { name: "Mit Erdbeeren oder Nutella" }
-          - { name: "Erdbeeren & Nutella, Banane & Nutella" }
+          - { name: Mit Puderzucker, preis: "4,50" }
+          - { name: Mit Apfelmus, preis: "5,00" }
+          - { name: Mit Kirschen, preis: "5,50" }
+          - { name: Mit Nutella, preis: "5,50" }
+          - { name: Mit Erdbeeren, preis: "6,00" }
+          - { name: Erdbeeren & Nutella, preis: "6,50" }
+          - { name: Banane & Nutella, preis: "6,50" }
       - titel: Kinderbecher
         posten:
-          - { name: "Überraschung, Micky Maus, Spaghettino" }
-      - titel: Kaffee & Eisgetränke
+          - { name: Überraschung, preis: "4,50" }
+          - { name: Micky Maus, preis: "4,50" }
+          - { name: Spaghettino, preis: "4,50" }
+      - titel: Eisgetränke
         posten:
-          - { name: "Kaffee, Espresso, Cappuccino, Latte Macchiato, Milchkaffee" }
-          - { name: "Milchshake, Eiskaffee, Eisschokolade" }
-          - { name: "Tee, Kakao, Softdrinks, Säfte" }
-    hinweis: Kugel Eis 1,60 €. Preise in Euro, Stand der Karte an der Theke.
+          - { name: Milchshake, preis: "5,00" }
+          - { name: Eiskaffee, preis: "5,50" }
+          - { name: Eisschokolade, preis: "5,50" }
+      - titel: Kaffee & mehr
+        posten:
+          - { name: Espresso, preis: "2,20" }
+          - { name: Kaffee, preis: "2,80" }
+          - { name: Doppelter Espresso, preis: "3,50" }
+          - { name: Cappuccino, preis: "3,50" }
+          - { name: Pott Kaffee, preis: "3,50" }
+          - { name: Milchkaffee, preis: "3,80" }
+          - { name: Latte Macchiato, preis: "3,90" }
+          - { name: Tee, preis: "2,80" }
+          - { name: Kakao, preis: "3,50" }
+    hinweis: Preise in Euro. Entwurf – Karte und Preise stimmen wir vor dem Start mit Ihnen ab.
 
   - typ: textbild
     anker: eiscafe

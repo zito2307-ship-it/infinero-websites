@@ -12,10 +12,12 @@ tags: [website, todo]
 
 ## Kommt von Ziu
 - [x] Fotos (5 Stück von Ziu, 06.10.) – gern noch: Un Angelo, Frühstück, Sitzplätze innen
-- [x] Karte vom Thekenaufdruck übernommen – Preise nur wo lesbar (Becher/Spaghettieis 6,50, Wundertüten 5,50); **„Kugel 1,60 €“ bestätigen**; Frühstücksangebot fehlt
+- [ ] **Karte abstimmen:** echt sind nur Eisbecher/Spaghettieis 6,50, Wundertüten 5,50, Kugel 1,60 (Schild) und die Sorten –
+      **alle übrigen Preise und die Frühstücksangebote sind Platzhalter** (Wunsch Ziu für den Entwurf). Vor Livegang ersetzen
+      und den Hinweis „Entwurf – Karte … abstimmen“ unter der Karte entfernen.
 - [ ] **Öffnungszeiten** komplett (bisher nur Frühstück Mo–Fr 8:30–11:30) – bewusst noch nicht als Öffnungszeiten eingetragen
 - [ ] **Telefon**, **E-Mail** fürs Impressum
-- [ ] **Betreiber bestätigen:** Ladenschild nennt „Zur Sonne GmbH“ → Impressum wie Restaurant (GF Antonio Marino, HRB 509403)
+- [x] Betreiber: „Zur Sonne“ GmbH wie das Restaurant (von Ziu bestätigt 06.10.)
 - [ ] **Domain** (eigene Domain empfohlen, Verlinkung mit dem Restaurant ist schon drin)
 
 ## Google-Profil (starkes Verkaufsargument)
