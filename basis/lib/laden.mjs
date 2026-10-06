@@ -40,7 +40,7 @@ function anwenden(inhalt, ov) {
   const { name, beschreibung, hero, ohne, ...rest } = ov;
   if (hero) {
     const h = (inhalt.abschnitte ?? []).find((a) => a.typ === 'hero');
-    if (h) Object.assign(h, hero);
+    if (h) mischen(h, hero);
   }
   if (Array.isArray(ohne) && ohne.length) {
     inhalt.abschnitte = (inhalt.abschnitte ?? []).filter((a) => !ohne.includes(a.typ) && !ohne.includes(a.anker));
