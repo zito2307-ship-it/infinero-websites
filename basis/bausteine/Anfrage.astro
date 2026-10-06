@@ -2,8 +2,9 @@
 // Formular-Baustein. art: reservierung | termin | rueckruf | kontakt
 // Versand über die Supabase-Funktion „formular“ → Brevo-Mail an den Kunden (funktionen.formular: aktiv).
 // Im Vorschau-Modus (Demos/Beispiele) zeigt das Formular nur die Bestätigung.
-import { inhalt } from '../lib/inhalt';
+import { inhalt, telLink } from '../lib/inhalt';
 import Kopf from './Kopf.astro';
+import Icon from './Icon.astro';
 const { a } = Astro.props;
 const art = a.art ?? 'kontakt';
 const zeiten: string[] = a.zeiten ?? [];
@@ -24,6 +25,10 @@ const gesundheit = a.gesundheit_hinweis ?? inhalt.branche === 'praxis';
   <div class={`wrap${zweispaltig ? ' anfrage-raster' : ''}`}>
     <div>
       <Kopf a={a} />
+      {a.telefon_zeigen && inhalt.firma.telefon && (
+        <p class="anfrage-tel">{a.telefon_text ?? 'Lieber persönlich? Rufen Sie uns an:'}
+          <a class="btn btn-g hero-telknopf" href={`tel:${telLink(inhalt.firma.telefon)}`} aria-label={`Anrufen: ${inhalt.firma.telefon}`}><Icon name="telefon" class="" />{inhalt.firma.telefon}</a></p>
+      )}
       {a.punkte && <ul class="hakenliste">{a.punkte.map((p: string) => <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 6"/></svg>{p}</li>)}</ul>}
     </div>
     <div class="formular">

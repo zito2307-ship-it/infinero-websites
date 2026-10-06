@@ -41,7 +41,8 @@ design:
   favicon: favicon.svg
   logo: logo.png          # aus Flyer + freigestellter Logo-Datei des Restaurants zusammengesetzt (06.10.)
   logo_hoehe: 52
-  logo_feld: false        # rot/Engel funktionieren auch auf dunklem Grund
+  logo_feld: false
+  telefon_im_menue: true   # Nummer im Kopf + Anruf-Knopf auf dem Handy        # rot/Engel funktionieren auch auf dunklem Grund
   farben: { akzent: "#7a5a1e", akzent-dunkel: "#5e4415", hervor: "#c9a24a", label: "#7a5a1e", dunkel: "#17120c", dunkel-2: "#2a2116", titel-kursiv-farbe: "#d9b866" }
   bewegung: true
 
@@ -59,6 +60,7 @@ abschnitte:
     text: "Auf der Terrasse direkt am Marktplatz sitzen, mitten in der Jenaer Altstadt – und dazu italienische Hausrezepte: Pasta, Pizza, Fisch und Fleisch. Drinnen gemütlich, draußen mittendrin."
     aktion: { text: Tisch reservieren, ziel: "#reservieren" }
     zweitaktion: { text: Zur Speisekarte, ziel: "#speisekarte" }
+    telefon_zeigen: knopf
 
   - typ: vorteile
     punkte:
@@ -148,6 +150,8 @@ abschnitte:
     personen_max: 10
     nachricht: true
     nachricht_label: Wunsch (z. B. Terrasse, Anlass)
+    telefon_zeigen: true
+    telefon_text: "Lieber persönlich? Rufen Sie uns einfach an:"
 
   - typ: bewertungen
     label: Gäste über uns

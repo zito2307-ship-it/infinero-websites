@@ -21,7 +21,8 @@ const kopfH = mitLogo && inhalt.design.logo_hoehe ? inhalt.design.logo_hoehe + 2
     </a>
     <nav class="nav-links" aria-label="Hauptmenü">
       {links.map((a: any) => <a href={`${basis}#${a.anker}`}>{a.menue}</a>)}
-      {inhalt.design?.telefon_im_menue && f.telefon && <a class="nav-tel" href={`tel:${telLink(f.telefon)}`}>{f.telefon}</a>}
+      {inhalt.design?.telefon_im_menue && f.telefon && <a class="nav-tel" href={`tel:${telLink(f.telefon)}`}><Icon name="telefon" class="" />{f.telefon}</a>}
+      {inhalt.design?.telefon_im_menue && f.telefon && <a class="kopf-anruf" href={`tel:${telLink(f.telefon)}`} aria-label={`Anrufen: ${f.telefon}`}><Icon name="telefon" class="" /></a>}
       {cta && <a class="btn btn-p" href={cta.ziel.startsWith('#') ? `${basis}${cta.ziel}` : cta.ziel}>{cta.text}</a>}
       {links.length > 0 && (
         <button type="button" class="menue-knopf" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobil-menue" data-menue-knopf>
